@@ -1,0 +1,19 @@
+http://riot-os.org/api/
+
+Riot - Nano sistema operacional
+
+  O início mais rápido:
+
+  $ git clone git://github.com/RIOT-OS/RIOT.git # assumption: git is pre-installed
+  $ git checkout <LATEST_RELEASE>
+  $ cd RIOT
+  $ ./dist/tools/tapsetup/tapsetup              # create virtual Ethernet
+                                                # interfaces to connect multiple
+                                                # RIOT instances
+  $ cd examples/default/
+  $ make all
+  $ make term
+
+  # Criando uma aplicação
+
+    http://riot-os.org/api/creating-an-application.html

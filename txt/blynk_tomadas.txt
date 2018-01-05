@@ -1,0 +1,24 @@
+Auth token: 1233420db9d64...
+
+Blynking feliz!
+-
+Guia de Introdução -> https://www.blynk.cc/getting-started
+Documentação -> http://docs.blynk.cc/
+Gerador Sketch -> https://examples.blynk.cc/
+
+Últimas biblioteca Blynk -> https://github.com/blynkkk/blynk-library/releases/download/v0.4.10/Blynk_Release_v0.4.10.zip
+Últimas servidor Blynk -> https://github.com/blynkkk/blynk-server/releases/download/v0.29.1/server-0.29.1.jar
+-
+https://www.blynk.cc
+twitter.com/blynk_app
+www.facebook.com/blynkapp
+
+Usando 4 portas:
+
+4 - tomada 1
+5 - tomada 2
+6 - tomada 3
+7 - tomada 4
+
+Server: localhost
+  https://github.com/blynkkk/blynk-server

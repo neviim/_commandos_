@@ -1,0 +1,14 @@
+Cgminer é um mineiro bitcoin ASIC / FPGA de código aberto desenvolvido para uma
+variedade de plataformas, incluindo Windows, Linux e OSx.
+
+
+https://minergate.com
+
+  $ minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45560 -u seu-email -p x
+
+
+
+
+
+Referencias:
+  # https://translate.googleusercontent.com/translate_c?act=url&depth=2&hl=pt-BR&ie=UTF8&prev=_t&rurl=translate.google.com&sl=en&sp=nmt4&tl=pt-BR&u=https://github.com/ckolivas/cgminer&usg=ALkJrhjj9Aq8LHwrlvJqzu7Ssr2Zda6QQA

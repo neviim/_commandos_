@@ -1,0 +1,5 @@
+
+  Open config/kibana.yml in an editor
+    - Set elasticsearch.url to point at your Elasticsearch instance
+    - Run bin/kibana (or bin\kibana.bat on Windows)
+    - Point your browser at http://localhost:5601

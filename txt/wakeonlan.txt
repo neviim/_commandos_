@@ -1,0 +1,63 @@
+
+
+
+  $ sudo apt-get install ethtool
+  $ sudo aptitude install hibernete
+
+  $ sudo ethtool -s {your network interface} wol g
+  $ sudo ethtool {your network interface}
+  $ sudo ethtool -s eth0 wol g
+
+
+  - Como saber se meu sistema está suportando suspend e hibernate
+    No arquivo /sys/power/state você deve encontrar as opções
+    suportadas com o comando cat:
+
+    $ cat /sys/power/state
+    freeze mem disk
+
+
+  - Travando a tela com xscreensaver
+    Para travar a tela na linha de comando, digita-se:
+
+    $ xscreensaver-command -lock
+
+
+
+- Python Script
+
+    #!/usr/bin/env python
+    import os
+    os.system("xscreensaver-command -lock&");
+    arquivo = open('/sys/power/state', 'w')
+    arquivo.write("mem")
+    arquivo.close()
+
+
+- C script
+
+    #include &lt;stdio.h&gt;
+    void main(){
+        system("xscreensaver-command -lock&");
+        FILE *file;
+        file = fopen("/sys/power/state","w");
+        fprintf(file,"%s","mem");
+        fclose(file);
+    }
+
+
+- C++ script
+
+    //include do header suspender
+    #include "suspender.h"
+
+    int main(int argc, char *argv[])
+    {
+        QCoreApplication a(argc, argv);
+        ///criação do objeto
+        Suspender suspend;
+        //chamada do método
+        suspend.SuspendToRAM();
+        //comentado o loop, assim a aplicação executa e sai (porque eu quis assim)
+        //return a.exec();
+    }

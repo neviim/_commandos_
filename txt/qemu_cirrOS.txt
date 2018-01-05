@@ -1,0 +1,3 @@
+# Na maquina virtual utlisando sistema IMG CirrOS
+    User: cirros
+    Pwd: cubswin:)
