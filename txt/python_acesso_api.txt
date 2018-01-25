@@ -1,0 +1,7 @@
+
+
+
+
+
+referencias
+  https://pythonhelp.wordpress.com/2013/03/21/acessando-conteudo-via-apis-web-baseadas-em-json/

@@ -1,0 +1,94 @@
+Mineradores Básico:
+
+  - Ter uma maquina mineiro ANSI
+
+
+
+Cálculos:
+
+  - Ter algo lucrativo, (Taxa_de_hash X Consumo_de_energia)
+
+  - Mhash/s = milhões hashes por segundo (desempenho de velocidade double sha256
+    reduzido, pode não ser muito eficiente em termos de energia com alguns modelos)
+
+  - Mhash/J = milhões de hashes por joule (eficiência energética: 1 joule of energy is 1 watt during 1 second: 1 J = 1 W*s)
+
+  - W = watt (consumo máximo de energia, ou seja, energia por unidade de tempo: 1 W = 1 J/s)
+
+
+Compatibilidade:
+
+  - Pool SLUSHPOLL
+
+      Os pacotes de software mencionados abaixo não são suportados e você terá
+      problemas para conectá-los ao nosso pool:
+
+      guiminer
+      cpuminer
+      rpcminer
+      minerd
+      diablominer
+
+      * Apenas os pacotes de software de mineração suportados neste momento são:
+
+        cgminer
+        BFGminer
+
+        Obs: Esteja ciente de que eles estão trabalhando apenas com mineiros da ASIC.
+
+
+Nomenclatura:
+
+  - AntMiner é um nome de marca para o hardware ASIC bitcoin.
+  - ANTMINER S1 é uma plataforma de mineração Bitcoin com uma velocidade de 180 GH/s.
+
+  AntMiner U1 Spec:
+    Default hash rate: 1.6 GH/s, over clock by command
+    Power consumption: 2 W on USB 5V @ 1.6G
+    Power supply: 5 V DC input
+    Size: 60 mm x 25 mm x 20 mm
+    MOQ: 500 units
+
+  AntMiner U2+ Spec:
+    Default hash rate: 2.0 GH/s, over clock by command
+    Power consumption: 2.95 W on USB 5V @ 2 G
+    Power supply: 5 V DC input
+    Size: 60 mm x 25 mm x 15 mm
+
+
+
+Diferença entre ASIC, ASSP, SoC e FPGA:
+
+  - ASICs
+
+    Vamos começar com os circuitos integrados para uma aplicação específica ou
+    ASIC (Application-specific integrated circuit). Como o nome sugere, este é
+    um dispositivo criado visando um propósito específico. Quando a maioria das
+    pessoas ouve o termo ASIC a primeira reação é presumir que é um circuito digital.
+    Na realidade, qualquer chip customizado é um ASIC, independente de ser analógico,
+    digital ou um mix dos dois. Porém para simplificar a discussão vamos assumir
+    que um chip é totalmente ou predominamente digital por natureza. Qualquer função
+    analógica ou mista pertence as interfaces físicas PHYs (Physical Interfaces)
+    ou aos PLLs (phase-locked loops).
+
+    ASICs são normalmente projetados e usados para um sistema específico.
+    Eles são muito caros, demandam muito tempo de desenvolvimento e muitos recursos.
+    Em contra partida oferecerem um altíssimo desempenho aliado a um baixo consumo de energia.
+
+
+  - FPGAs
+
+    ASICs, ASSPs, e SoCs oferecem alto desempenho e baixo consumo de energia,
+    porém qualquer algoritmos que eles contenham - exceto os que estão sendo
+    executados por software - estão "congelado no silício". E assim chegamos
+    à matriz de portas lógicas programáveis FPGA (Field Programmable Gate Array).
+
+    A arquitetura dos primeiros FPGAs era relativamente simples - apenas uma
+    matriz de blocos programáveis interconectados por uma conexão programável.
+
+    O grande diferencial de um FPGA é a capacidade de configurarmos seu hardware
+    para desempenhar qualquer combinação de funções digitais que desejarmos.
+    Também podemos implementar algoritmos de forma paralela, o que significa que
+    podemos processar uma enorme quantidade de dados de forma rápida e eficiente.
+
+    referencia: https://www.embarcados.com.br/asic-assp-soc-fpga/

@@ -1,0 +1,15 @@
+Jupyter Nodejs
+
+$ pip2 install ipython notebook
+$ pip3 install ipython notebook
+
+$ ipython2 kernel install
+$ ipython3 kernel install
+
+$ npm install -g ijavascript
+$ ijs
+
+
+
+referencia:
+  https://www.sean-lan.com/2016/09/12/jupyter-notebook-set-up/

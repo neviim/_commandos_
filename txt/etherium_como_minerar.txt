@@ -1,0 +1,82 @@
+- Faça o download dos três softwares abaixo:
+
+    Geth            - opção Geth-win64. Depois que você baixá-lo, extraia o software e
+                      coloque-o na pasta criada no item “a”. Esse programa irá se encarregar
+                      de fazer a comunicação entre seu computador e a rede Ethereum;
+
+    Ethereum Wallet - opção Ethereum-wallet-Win64. Você também terá que
+                      extraí-lo para a pasta “Eth”, mudando o nome do arquivo
+                      para “wallet”. Esta é a sua carteira Ethereum, como já
+                      comentamos anteriormente; ler aqui
+
+    Ethminer        - extraindo-o para “Eth”, mude seu nome para “miner”. É o
+                      software que faz a mineração acontecer em conjunto com o GPU.
+
+
+No prompt:
+
+   > Digite: “geth account new” > Enter.
+
+
+   Geth, que é o responsável pela comunicação do seu PC com a rede Ethereum,
+   irá criar uma conta para você, que por sua vez, deverá criar uma senha;
+
+   ATENÇÃO: fique bem atento quanto a senha que você está digitando, pois não
+   dá pra ver os caracteres na tela;
+
+   Geth irá fornecer a você um endereço, chaves públicas e secretas;
+   Anote com caneta em um papel todos esses dados, pois você não poderá
+   recuperá-los depois. Não salve em nenhum lugar que possa chega à Internet,
+   ou você correrá o risco de perder seus fundos.
+
+
+   Minimize o prompt de comando.
+
+   h. Na pasta que você criou, “Eth”, vá em Wallet e rode o programa Ethereum-Wallet.exe.
+      Automaticamente ele começará a conversar com o blockchain para que haja uma sincronização.
+      Você saberá quando esta sincronização acabar porque o software irá pedir uma senha.
+      Então basta colocá-la e pronto, sua carteira está sob seu domínio.
+
+   i. Começando a mineração: é necessário manter o blockchain sincronizado, então
+      você precisará fazer com que Geth faça isso.
+
+
+   O problema é que Geth só roda se o prompt estiver aberto, então não minimize
+   ou feche-o;
+
+   > Digite “geth - rpc” > Enter
+
+   Quando aparecer a mensagem
+   “(...)imported 0/1 blocks (0 queued 0 ignored)” significa que você pode continuar.
+
+
+   j. Sabe a pasta “miner” que você criou dentro de C: Eth? Dentro dela, existe um arquivo
+     que você pode encontrar todos os comandos e para que servem. Estes comandos não
+     são universais e por isso, você deverá experimentá-los para sua mineração.
+
+   k. Abra um novo prompt de comando.
+
+   > Digite: “cd eth miner” > Enter.
+
+   Isso servirá para conectar a miner com a pool de mineração, que neste exemplo,
+   usaremos o DwarfPool.
+
+
+   l. Para executar o ethminer.exe, é necessário dizer qual GPU será utilizada e
+      especificar um comando para ela, desta forma:
+
+
+      Então se temos uma GPU AMD, o comando será “ethminer -G”;
+      Por estarmos usando uma pool de mineração (o DwarfPool), será necessário
+      acrescentar “-F” ao comando, ficando assim: “ethminer -G -F”.
+
+   m. No link da pool de mineração abaixo, você deverá trocar o “YOUR_WALLET”
+      pelo número da sua carteira Ethereum. O comando completo deverá ser este:
+
+
+
+
+
+Referencia:
+  https://www.ethereum.org/cli
+  https://www.aprendersobrebitcoin.com/single-post/2017/10/28/Como-minerar-Ethereum---Passo-a-passo-para-iniciantes

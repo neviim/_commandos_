@@ -1,0 +1,170 @@
+sudo apt install software-properties-common
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo apt update
+sudo apt install ethereum
+
+
+# instalar go 1.9
+$ wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz
+$ tar -xvf go1.9.2.linux-amd64.tar.gz
+$ mv go /usr/local
+
+
+# configurarmos
+
+    vim ~/.profile
+    vim ~/.zshrc
+
+# GOROOT, GOPATH and PATH.
+export GOROOT=/usr/local/go
+
+    ~/Projetos/Proj1
+
+    $ export GOROOT=/usr/local/go
+    $ export GOPATH=$HOME/Projetos/Proj1
+    $ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+
+$ go version
+$ go env
+
+
+# hello word
+
+cd ~/Projetos/proj1
+
+vim hello.go
+
+package main
+import "fmt"
+func main() {
+    fmt.Println("hello world")
+}
+
+$ go run hello.go
+$ go build hello.go
+$ ls
+$ ./hello
+
+
+# Go workflow
+
+$ git clone https://github.com/ethereum/go-ethereum.git
+$ cd go-ethereum
+$ make geth
+
+
+# Alguns clientes, 3 no caso.
+
+$ geth console
+$ eth
+
+$ npm install -g ethereum-console
+$ ethconsole
+
+
+# CONNECTING TO A PRIVATE TEST NET
+
+Às vezes você pode não querer se conectar à rede pública ao vivo; Em vez disso,
+você pode escolher criar seu próprio testnet privado. Isso é muito útil se você
+não precisa testar contratos públicos e quiser apenas experimentar ou desenvolver
+a tecnologia. Como você é o único membro da sua rede privada, você é responsável
+por encontrar todos os blocos, validando todas as transações e executando todos
+os contratos inteligentes. Isso torna o desenvolvimento mais barato e fácil,
+pois você tem a capacidade de controlar de forma flexível a inclusão de transações
+em sua própria cadeia de blocos pessoal.
+
+Geth:
+
+$ geth --datadir ~/.ethereum_private init ~/dev/genesis.json
+
+$ geth --fast --cache 512 --ipcpath ~/Library/Ethereum/geth.ipc --networkid 1234 --datadir ~/.ethereum_private  console
+
+Eth:
+
+$ eth --private 12345 --genesis-json ~/test/genesis.json --db-path ~/.ethereum_experiment
+
+
+Substitua 12345 por qualquer número aleatório que você deseja usar como ID da rede.
+É uma boa idéia mudar o conteúdo do bloqueio de gênese porque, se alguém se conecta
+acidentalmente ao seu testnet usando a corrente real, sua cópia local será considerada
+um garfo vazio e atualizada para a 'real'. Alterar o dataadir também altera sua cópia
+local da cadeia de blocos, caso contrário, para mina com êxito um bloco, você
+precisaria mitigar contra a dificuldade do último bloco presente na sua cópia local
+da cadeia de blocos - o que pode demorar várias horas.
+
+Se você deseja criar uma rede privada, por motivos de segurança, use um bloco de
+gênese diferente (um banco de dados que contém todas as transações das vendas de Ether).
+Você pode ler nossa publicação do blog de anúncio sobre como gerar seu arquivo.
+No futuro próximo, forneceremos melhores maneiras de obter outros blocos de gênese.
+
+Esses comandos impedem qualquer pessoa que não conheça seu segredo escolhido - nonce,
+identificação de rede e arquivo de gênese, de se conectar a você ou fornecendo dados
+indesejados. Se você quiser se conectar a outros pares e criar uma pequena rede privada
+de vários computadores, todos precisarão usar o mesmo networkid e um bloco de gênese
+idêntico. Você também terá que ajudar cada nó a encontrar os outros. Para fazer isso,
+primeiro você precisa do seu próprio URL de Nó:
+
+
+$ admin.nodeInfo.NodeUrl
+
+
+O que irá retornar a URL do seu nó - faça uma anotação e, em seguida, nos outros
+clientes, diga-lhes para adicionar o seu par, executando este comando:
+
+
+$ admin.addPeer("YOURNODEURL")
+
+
+Você não precisa adicionar todos os clientes um ao outro, como uma vez conectado,
+eles vão compartilhar informações sobre outros pares que estão conectados.
+
+Se você estiver usando Eth, basta descobrir o seu IP e executar este comando:
+
+
+$ web3.admin.net.connect("YOURIP:30303")
+
+
+
+
+
+
+
+
+# Se você já executou os clientes antes:
+
+Faça backup de suas chaves (talvez alguns deles sejam elegíveis para recompensas
+olímpicas) - eles estão localizados em ./ethereum/keystore Exclua sua cadeia antiga,
+por favor (está localizado em ./ethereum, exclua as seguintes 3 pastas apenas:
+./extra, ./state, ./blockchain) Você pode deixar com segurança seus
+./ethereum/nodes, ./ethereum/history e ./ethereum/nodekey no lugar
+Tendo DAGs gerados pela preensão. / ethash não vai doer, mas sinta-se livre para
+excluí-los se precisar do espaço
+
+
+
+
+
+# OBS
+
+- Block genesis
+Cada bloqueio começa com o bloqueio da gênese. Quando você executa o geth com
+configurações padrão pela primeira vez, o bloco de gênese de rede principal está
+comprometido com o banco de dados. Para uma rede privada, você geralmente quer
+um bloco de gênese diferente.
+
+
+
+
+referencia:
+    https://geth.ethereum.org
+    https://geth.ethereum.org/install/
+
+    # Cliente
+    https://www.ethereum.org/cli
+    
+    # logs
+    https://ethereum.gitbooks.io/frontier-guide/content/getting_a_client.html
+
+    # rede privada
+    https://github.com/ethereum/go-ethereum/wiki/Private-network
