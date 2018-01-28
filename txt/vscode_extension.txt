@@ -1,0 +1,6 @@
+Extensions a insta;ar:
+
+- python
+- Code Run
+- Jupyter
+- File Icons 

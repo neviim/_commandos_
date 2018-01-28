@@ -1,0 +1,30 @@
+$ git config --global user.name "Neviim"
+$ git config --global user.name
+Neviim
+
+$ git config --global user.email "neviimdev@gmail.com"
+$ git config --global user.email
+neviimdev@gmail.com
+
+$ ssh-keygen -t rsa -b 4096 -C "neviimdev@gmail.com"
+$ eval "$(ssh-agent -s)"
+Agent pid 27087
+
+$ sudo apt install xclip
+$ xclip -sel clip < ~/.ssh/id_rsa.pub
+
+# adiciona a key public em:
+https://github.com/settings/keys
+
+
+$ ls -al ~/.ssh
+
+
+# Usando git
+
+    $ git add *
+    $ git status
+    $ git commit -m "Inicio codigo"
+    $ git push
+
+    

@@ -1,0 +1,41 @@
+
+
+Instalando ethereum linux ubuntu 17.10:
+
+    $ sudo apt install software-properties-common
+    $ sudo add-apt-repository -y ppa:ethereum/ethereum
+    $ sudo apt update
+    $ sudo apt install ethereum
+
+- Dependencias:
+
+    $ sudo apt-get install libleveldb-dev
+
+- Install compila cpp-ethereum
+
+    $ git clone --recursive https://github.com/ethereum/cpp-ethereum.git
+    $ cd cpp-ethereum
+
+    $ mkdir build
+    $ cd build
+
+    $ cmake ..
+    $ cmake --build .
+
+- Instalando ethconsole
+
+    $ npm install -g ethereum-console
+    $ ethconsole
+
+
+
+
+
+
+
+
+Referencias:
+    https://www.ethereum.org/cli
+
+    # usando o docker
+    http://www.ethdocs.org/en/latest/ethereum-clients/cpp-ethereum/installing-binaries/docker.html

@@ -1,0 +1,95 @@
+- Configurando ambiente:
+
+    $ echo 'export ethereum_home=/home/neviim/ethereum' >> ~/.bashrc
+    $ env
+
+
+- Cria genesis.json
+
+  $ vim $ethereum_home/genesis.json
+
+  {
+    "config": {
+      "chainId": 33,
+      "homesteadBlock": 0,
+      "eip155Block": 0,
+      "eip158Block": 0
+    },
+    "nonce": "0x0000000000000033",
+    "timestamp": "0x0",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "gasLimit": "0x8000000",
+    "difficulty": "0x100",
+    "mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coinbase": "0x3333333333333333333333333333333333333333",
+    "alloc": {}
+  }
+
+- Cria um novo acount
+
+    $ geth account new
+
+        SUBCOMMANDS:
+            list    print account addresses
+            new     create a new account
+            update  update an existing account
+            import  import a private key into a new account
+
+
+    $ geth console
+
+
+
+
+
+
+
+
+
+
+- Iniciando operacão
+
+     1. inicia o block
+     $ geth --datadir data "$ethereum_home/ethghost1" init "$ethereum_home/genesis.json"
+     $ geth --datadir data "$ethereum_home/ethghost1" init "$ethereum_home/genesis.json" console 2 > console.log
+
+
+
+     2. start o console
+     geth --datadir data "$ethereum_home/jads5" console 2 &gt console.log
+
+     3.create a 2nd node
+     geth --datadir data "$ethereum_home/ethghost2" init "$ethereum_home/genesis.json"
+
+     4. Start on a different port and specify networkid
+     geth --datadir "$ethereum_home/etheghost2" --port 30304 --nodiscover --networkid 1234 console 2 > console.log
+
+     5. get the admin.nodeInfo enode from the second instance and copy it into admin.addPeer  in the first node
+
+     6. Restart specifying IPC path
+     geth --datadir "$ethereum_home/ethghost2" --port 30304 --nodiscover --ipcpath "$ethereum_home/youtube1-a/geth.ipc" --networkid 1234 console 2 &gt console.log
+
+     7 run get attach to attach another window to the node using the pic file
+     geth attach ipc:$ethereum_home/ethghost2/geth.ipc
+
+
+     8 Key commands from the javascript console
+     Personal.newAccount()
+     (add password)
+     Miner.start(1) - start mining
+     eth.blockNumber - current block height
+     eth.getBlock(number).miner - miner of block at that number
+     eth.getBalance(account address) - current balance of that account
+
+
+
+
+Referencias:
+    https://github.com/ethereumproject/go-ethereum
+    https://ethereum.gitbooks.io/frontier-guide/content/rpc.html
+
+    https://ethereum.gitbooks.io/frontier-guide/content/connecting.html
+
+    https://ethereum.gitbooks.io/frontier-guide/content/creating_accounts.html
+
+    https://ethereum.gitbooks.io/frontier-guide/content/wallet.html
