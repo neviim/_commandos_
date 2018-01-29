@@ -1,0 +1,26 @@
+Install TensorFlow
+The final step is to install Pip and the GPU version of TensorFlow:
+
+sudo apt-get install -y python-pip python-dev
+sudo pip install tensorflow-gpu
+We can now start a Python console and create a TensorFlow session:
+
+python
+>>> import tensorflow as tf
+>>> session = tf.Session()
+If everything went well, it will recognize the Tesla K80 GPU:
+
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:885]
+Found device 0 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+pciBusID b0b5:00:00.0
+Total memory: 11.17GiB
+Free memory: 11.11GiB
+Remember to deallocate the VM when done to avoid using cycles:
+
+az vm deallocate -g tensorflow -n tensorflow
+Once no longer needed, you can delete the virtual machine by running:
+
+az vm delete -g tensorflow -n tensorflow
+az group delete -n tensorflow
