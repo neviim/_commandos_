@@ -23,6 +23,8 @@ $ conda search "^python$"
 $ conda update anaconda
 $ conda update conda
 
+$ conda update --prefix /home/neviim/anaconda3 anaconda
+
 
 
 
@@ -30,6 +32,8 @@ $ conda update conda
 $ conda create -n my_env35 python=3.5
 
 $ conda create --name py3_env python=3
+
+$ conda create -n py36 python=3.6 ipykernel
 
 $ source activate py3_env
 $ source deactivate

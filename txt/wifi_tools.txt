@@ -1,0 +1,16 @@
+
+# WiFi-Pumpkin
+#
+    $ git clone https://github.com/P0cL4bs/WiFi-Pumpkin.git
+    $ cd WiFi-Pumpkin
+    $ chmod +x installer.sh
+    $ ./installer.sh --install
+
+    # https://www.youtube.com/watch?v=mvsvVvKENj8
+    # https://n0where.net/rogue-wifi-access-point-attack-wifi-pumpkin
+    # https://www.youtube.com/watch?time_continue=30&v=jFjOANWz4us
+
+
+# Network Analyzer Skydive
+
+    # https://n0where.net/open-source-real-time-network-analyzer-skydive

@@ -1,0 +1,64 @@
+Manifesto, comunidar é preciso e um direito a se garantir. 
+
+Definindo escopo basico do projeto.
+
+Este sera um sistema de comunicação p2p criptografado onde 
+os dados não passa por servidores e nem podem ser capturados.
+
+Sua versão original eu a utilizava quando tinha um grupo de estude 
+de invasão de sistemas um amigo o João deve se lembrar dele, dotCom.
+
+É um comunicador hardcore e seguro e burla qualquer bloqueio 
+que possa fazer contra ele, Ghost que o diga.
+
+Com criptografia e stelf vo colocar nele um sistema de anti-bloqueio, 
+permitindo que se alto ajuste a qualquer porta para comunicar entre os 
+membros, suas mensagens só é entregue diretamente do gerador ao destinatário 
+quando ele estiver on.
+
+Sistema este que tem como principio ser usado por linha de comando, 
+filtrando os "ignorantes" de plantão e usando de um server só para troca 
+de estatus On, Off
+
+Prioridade de uso rede internas de empresas onde a comunicação é 
+rastreadas ou broqueadas, este sistema podera criara um túnel de comunicação 
+entre A, B, C, etc. caso venha precisar utilizar protocolo para se encapsular.
+
+Usando peer-to-peer?
+
+Não, porque seria possível de bloquear, ele terá um protocolo próprio 
+e este protocolo terá que ser encapsulado no TCP ou UDP podendo até 
+utilizar das portas padrões ou utilizar de uma própria, o objetivo 
+dele não é existir e sim se comunicar com outro de si próprio a qualquer 
+custo, quando as redes o isolar ele cria um tunel e se interliga nesta rede, 
+para isso só precisa de um ip publico neutro ou comum aos membros.
+
+Modulo de saida da mensagem, caso a rede lan esteja fora ou bloqueada ele procura
+por uma conecção alternativa seje ela wifi ou rede compartilhada de celular para fazer
+o emcaminhamento da mensagem criptografada ser enviada a seu destino.
+
+Caso ainda queira utilizar do mesmo para fazer com que sua mensagem seje entregue 
+a um mensageiro Telegram neste caso ele tera um Bot que agira como router de entreha 
+da mesma na conta do membro e ser capas de receber tambem mensagens encaminhada deste 
+bot. 
+
+Caso haja a necesidade de ter um dialogo que ha uma nececidade de ambas as partes para 
+ter um registro da mesma em definitivo, podera um modulo de registro deste dialogo em
+um blockchain etherium ou iota, gerando assim um registro de contrato ou micro registro
+só para costar o ocorrido e o mesmo ficar registrado para a historia.
+
+Criptografia, casa usuario devera possuir sua key privada e publica esta key sera gerada 
+em uma blockchain utilizando uma seguencia de registro dos membros gerando assim um Hache 
+seguro de seguencia de chave gerada evidando desta forma que uma conta seje criada aleatoria 
+e possa ser utilizada para vir a fazer parte da rede de comunicação, este é um sistema soft 
+restrito onde os membro a participar na cadeia de comuniicação devra ter a aprovação dos membros
+de forma diferente uma key criada sem o consentimento da base de informação dos membros atuante 
+não sera valido para a comunicação do mesmo, desta forma não basta ter o soft precisa ter esta key
+aprovada para o grupo receber ou enviar a mensagem caso contrario a mesma sera regeidade no destino.
+Cada dispositivo a ser utilizado para se comunicar devera ser validado pela chave prevada da wallet
+blockchain utilizada como conta master user neste soft.
+
+IOT, aparelhos e dispositivo podera se comunicar com você uma vez ele cido cadastrado 
+utilizando de um protocolo de blockchain um dispositivo podera mandar e receber informaçoes 
+de você. Quando p protocolo IOTA estiver em operação este sistema passara a utilizar o chamado 
+emaranhado para gerar suas key e utilizara desta tecnologia para se interagir.   
