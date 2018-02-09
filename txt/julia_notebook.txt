@@ -1,0 +1,29 @@
+instalar iJulia
+
+    julia> Pkg.add("IJulia")
+
+
+# Rodando iJulia Notebook
+
+    julia> using IJulia
+    julia> notebook()
+
+    # Para iniciar o notebook IJulia no seu navegador. Você pode usar notebook(detached=true)
+
+    julia> using IJulia; notebook(detached=true)
+    Process(`'C:\Users\JuliaUser\.julia\v0.4\Conda\deps\usr\Scripts\jupyter' notebook`, ProcessRunning)
+
+    julia>
+
+
+# Instalando adicional Julia kernels
+
+    julia> using IJulia
+    julia> IJulia.installkernel("Julia nodeps", "--depwarn=no")
+
+
+
+
+Referencias
+    https://github.com/JuliaLang/IJulia.jl
+    

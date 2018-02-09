@@ -1,0 +1,15 @@
+
+$ aptitude install gprolog
+$ aptitude install swi-prolog
+
+
+- Usando
+
+    $ swipl
+    
+    ou
+
+    $ gprolog
+    ?- consult('codigo.pl').
+    
+    
