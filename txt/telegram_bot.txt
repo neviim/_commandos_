@@ -1,0 +1,10 @@
+Localize o: BotFather
+
+Start com /start
+
+Nome Bot: DotCom
+Username: DotdevBot
+
+Token to access the HTTP API:
+436561103:APOAAEN7Ft2u2OHzYrpNOy8hrm8CaliOueuJgjx6K8Pse0
+
