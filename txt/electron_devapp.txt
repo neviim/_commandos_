@@ -1,0 +1,6 @@
+
+$ mkdir myElectron
+$ cd myElectron
+$ npm init
+
+$ npm install electron

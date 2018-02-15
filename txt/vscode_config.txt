@@ -1,0 +1,6 @@
+
+
+# Cltr+P 
+        > Tasks configure default Build tasks 
+
+# Cltr+Shift+B      -> Executa o programa
