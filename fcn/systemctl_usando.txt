@@ -1,0 +1,5 @@
+- Lista serviços:
+
+    $ systemctl list-unit-files --type=service
+
+    
