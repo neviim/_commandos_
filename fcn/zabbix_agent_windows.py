@@ -35,7 +35,6 @@
         # inicializando o cliente agente zabbix:
 
             λ cd C:\zabbix\bin\win64
-            
             λ  .\zabbix_agentd.exe -i -c C:\zabbix\conf\zabbix_agentd.win.conf
             zabbix_agentd.exe [1332]: service [Zabbix Agent] installed successfully
             zabbix_agentd.exe [1332]: event source [Zabbix Agent] installed successfully
@@ -48,6 +47,10 @@
                 - Click em 'iniciar' o serviço
                 - Verifique se o 'Status' passo para 'Em Execução'
                 - Cliente estara sendo executado agora.
+
+        # liberar o firual no windows local
+
+            :: porta 10050, 10051
 
 
     # Erro Unit zabbix-agent.service is masked (este erro pode ocorrer em sistema linux)
