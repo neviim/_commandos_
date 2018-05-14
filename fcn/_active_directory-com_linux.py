@@ -75,7 +75,7 @@
 
             # membros do grupo SUDO
             %sudo   ALL=(ALL:ALL) ALL
-            fcn\\jorge ALL=(ALL) ALL
+            fcn\\neviim ALL=(ALL) ALL
 
     :: Instalar dependencias: 
 
