@@ -90,9 +90,12 @@
 
                 $ cd /etc/apache2/sites-available
                 $ mv zabbix.conf /etc/apache2/conf-available
+                $ cat /etc/apache2/conf-available/zabbix.conf
 
                 $ cd /etc/apache2/conf-enabled
                 $ ln -s ../conf-available/zabbix.conf
+
+                $ ls -ls /usr/share/zabbix
 
                 $ service apache2 status
 
