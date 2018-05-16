@@ -20,24 +20,26 @@
         - Criar uma pasta C:\zabbix\log 
         - Copia as pastas 'bin' e 'conf' do agente para dentro desta pasta 'c:\zabbix'
         - Configura o arquivo 'zabbix_agentd.win.conf'
-        - Onde esta o IP '10.0.9.41', colocar o IP do servidor zabbix, atualmente
-          estara sendo o '10.0.5.29'
+        - Onde esta o IP '10.0.9.41', colocar o IP do servidor zabbix, atualmente estara sendo o '10.0.5.29'
         - Caso prefira pode 'apagar' todo conteudo deste arquivo e deixar só os atributos abaixo.
         - Com o editor escolhido abrir o arquivo: 'C:\zabbix\conf\zabbix_agentd.win.conf'
 
-            Server=10.0.9.41
-            ListenPort=10050
-            ServerActive=10.0.9.41
-            Hostname=nome_desta_maquina
-            LogFile=c:\zabbix\log\zabbix_agentd.log
+            λ nano C:\zabbix\conf\zabbix_agentd.win.conf
+
+                Server=10.0.9.41
+                ListenPort=10050
+                ServerActive=10.0.9.41
+                Hostname=nome_desta_maquina
+                LogFile=c:\zabbix\log\zabbix_agentd.log
 
 
         # inicializando o cliente agente zabbix:
 
-            λ cd C:\zabbix\bin\win64
+            λ cd c:\zabbix\bin\win64
             λ  .\zabbix_agentd.exe -i -c C:\zabbix\conf\zabbix_agentd.win.conf
             zabbix_agentd.exe [1332]: service [Zabbix Agent] installed successfully
             zabbix_agentd.exe [1332]: event source [Zabbix Agent] installed successfully
+
 
             :: o comando acima dando certo, precisa iniciar o zabbix-server no SERVIÇOS do windows.
 
@@ -48,9 +50,16 @@
                 - Verifique se o 'Status' passo para 'Em Execução'
                 - Cliente estara sendo executado agora.
 
-        # liberar o firual no windows local
 
-            :: porta 10050, 10051
+        # liberar o Firewall no windows local
+
+            :: este soft agente trabalha com as porta 10050, 10051
+
+                - Para isso é necessario que o soft 'zabbix-agente' seja liberado no firewall local 
+                - Entras neste item: 'Painel de Controle\Sistema e Segurança\Windows Defender Firewall\Aplicativos permitidos'
+                - Clik no botão 'Permitir outro aplicativo'
+                - 'Procure' no diretorio 'c:\zabbix\bin\win64\zabbix_agentd.exe' e de permição para ser executado na 'rede do dominio'
+                - Fazer a mesma coisa com o agente: 'zabbix_sender.exe'  
 
 
     # Erro Unit zabbix-agent.service is masked (este erro pode ocorrer em sistema linux)

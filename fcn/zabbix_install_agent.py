@@ -7,10 +7,6 @@
     zabbix_agentd.exe [11336]: event source [Zabbix Agent] installed successfully
 
 
-
-
-
-
 # Erro: Get value from agent failed: cannot connect to [[10.0.45.4]:10050]: [111] Connection refused
 
     - Olá, os usuários do Zabbix por muitos anos desde a nova instalação, temos um problema com hosts externos, 

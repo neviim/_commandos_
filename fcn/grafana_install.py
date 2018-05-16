@@ -92,6 +92,7 @@
         $ grafana-cli plugins list-remote
 
         $ grafana-cli plugins install alexanderzobnin-zabbix-app
+        $ grafana-cli plugins install natel-discrete-panel
 
         $ service grafana-server restart
 
