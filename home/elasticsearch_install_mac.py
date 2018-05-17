@@ -29,4 +29,5 @@
 
 
 # referencias
+	# install elasticsearch e kibana
 	http://blog.abraseucodigo.com.br/melhorando-seus-logs-com-elk.html
