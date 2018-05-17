@@ -29,8 +29,11 @@
     :: procedimento de verificação para os serviços que esta estartado nele.
 
         - subir zabbix-server
+
             $ systemctl start zabbix-server.service
             $ systemctl status zabbix-server.service
+
+            $ systemctl list-unit-files | grep zabbix
 
 
 
@@ -45,3 +48,20 @@
     $ tail -f zabbix-server/zabbix_server.log
 
     $ netstat -tupln 
+
+
+
+
+
+
+# Erros PHP 7.2.5 
+
+    :: 'count(): Parameter must be an array or an object that implements Countable [ in latest.php:103]'
+
+        $ php -i | grep latest.php
+
+
+
+# Documentação Grafana
+
+    http://docs.grafana-zabbix.org/reference/functions/

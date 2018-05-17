@@ -1,62 +1,145 @@
 # Instalar zabbix server:
 
-    - referencias para o acesso:
-        Database type       MySQL
-        Database server     localhost
-        Database port       default
-        Database name       zabbix
-        Database user       zabbix
-        Database password   zabbix
+    :: removendo zabbix
 
-        Zabbix server       localhost
-        Zabbix server port      10051
+        $ apt search zabbix | grep zabbix
 
-# instalar pacote do repositorio ubunto server 18
-#  
-    $ apt install zabbix-server-mysql
-    $ apt install zabbix-frontend-php
-    $ apt install zabbix-agent
-    $ service zabbix-server status
-    $ zcat /usr/share/zabbix-server-mysql/{schema,images,data}.sql.gz | mysql -uzabbix -pzabbix zabbix
+        $ apt remove zabbix-server-mysql
+        $ apt remove zabbix-frontend-php
+        $ apt remove zabbix-agent
+
+
+# instalar pacote do repositorio ubunto server 18.04
+
+    :: instalar
+
+        $ apt install zabbix-server-mysql
+        $ apt install zabbix-frontend-php
+        $ apt install zabbix-agent
+
+        $ service zabbix-server status
+
+
+    :: Criar banco de dados mysql do zabbix:
+
+        $ mysql -uroot -p<password>
+          mysql> create database zabbix character set utf8 collate utf8_bin;
+          mysql> grant all privileges on zabbix.* to zabbix@localhost identified by '<password>';
+          mysql> quit;
+
+        :: Versão 3.0
+
+            $ zcat /usr/share/zabbix-server-mysql/{schema,images,data}.sql.gz | mysql -uzabbix -p zabbix
+            Enter password: zabbix
+
+        :: Versão 3.4
+
+            $ zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql -uzabbix -p zabbix
+            Enter password: zabbix
 
     # Alterar a variavel DBPassword do conf zabbix, para senha que foi criada para o banco zabbix.
 
-        $ sudo nano /etc/zabbix/zabbix_server.conf
+        - referencias para o acesso:
 
-            DBPassword=password
+            Database type       MySQL
+            Database server     localhost
+            Database port       default
+            Database name       zabbix
+            Database user       zabbix
+            Database password   zabbix
 
-  
-        # podebdo zerar o arquivo conf e adicionar estas variaveis:
-
-            Server=<IP of your zabbix server>
-            Hostname=<Name of your proxy>
-            DBName=<Name of your proxy database>
-            DBUser=<Name of your proxy user>
-            DBPassword=<Password of your proxy user>    
-
-
-    # restarta os server:
-        $ service zabbix-server restart
-        $ service zabbix-agent restart
-        $ service apache2 restart
-    
-        # verifica status de funcionamento:
-        $ service zabbix-server status
-        $ service zabbix-agent status
-        $ service apache2 status    
+            Zabbix server       localhost
+            Zabbix server port  10051
 
 
-# caso nao os agentes nao link, precisa liberar as portas:
+        :: configurando zabbix server
 
-    [$server] # sudo ufw allow 10050/tcp
-    [$server] # sudo ufw allow 10051/tcp
-    [$server] # sudo ufw reload
+            $ sudo nano /etc/zabbix/zabbix_server.conf
+
+                # pode zerar o arquivo conf e adicionar estas variaveis:
+                Server=0.0.0.0
+                Hostname=zabbix
+                DBName=zabbix
+                DBUser=zabbix
+                DBPassword=zabbix
+
+
+            :: uma referencia das variaveis que podem conter no arquivo acima:
+
+                ListenPort=10051
+                LogFile=/var/log/zabbix/zabbix_server.log
+                PidFile=/var/log/zabbix/zabbix_server.pid
+                LogFileSize=100
+                DebugLevel=3
+                DBHost=127.0.0.1
+                DBName=zabbix
+                DBUser=zabbix
+                DBPassword=senha
+                DBSocket=/var/lib/mysql/mysql.sock
+                DBPort=3306
+                StartPollers=50
+                StartPollersUnreachable=15
+                StartTrappers=20
+                StartPingers=15
+                StartDiscoverers=15
+                StartHTTPPollers=5
+                StartTimers=5
+                HousekeepingFrequency=1
+                MaxHousekeeperDelete=1000
+                SenderFrequency=120
+                CacheSize=16M
+                CacheUpdateFrequency=25
+                StartDBSyncers=8
+                HistoryCacheSize=16M
+                TrendCacheSize=5M
+                HistoryTextCacheSize=16M
+                ValueCacheSize=8M
+                Timeout=15
+                UnreachablePeriod=45
+                UnavailableDelay=60
+                UnreachableDelay=15
+                FpingLocation=/usr/sbin/fping
+                LogSlowQueries=2
+                StartProxyPollers=20
+                ProxyConfigFrequency=240
+                ProxyDataFrequency=60
+                StartIPMIPollers=0
+                StartJavaPollers=0
+                StartVMwareCollectors=0
+                VMwareFrequency=3600
+                StartSNMPTrapper=0
+
+
+        :: restart, stop, start
+
+            $ systemctl start zabbix-server.service
+            $ systemctl start zabbix-agent.service
+
+            $ systemctl status zabbix-server.service
+            $ systemctl atatus zabbix-agent.service
+
+            # restarta os server:
+            $ service zabbix-server restart
+            $ service zabbix-agent restart
+            $ service apache2 restart
+        
+            # verifica status de funcionamento:
+            $ service zabbix-server status
+            $ service zabbix-agent status
+            $ service apache2 status    
 
 
 # Configura PHP
 
-    post_max_size = 16M
-    date.timezone = UTC
+    :: php.ini
+
+        $ php -i | grep php.ini
+        Configuration File (php.ini) Path => /etc/php/7.2/cli
+
+        $ nano /etc/php/7.2/cli/php.ini
+
+            post_max_size = 16M
+            date.timezone = UTC
 
     # copiando o arquivo de conf do exemplo do zabbix php
 
@@ -81,20 +164,15 @@
 
             $IMAGE_FORMAT_DEFAULT           = IMAGE_FORMAT_PNG;
 
-        $ cp /usr/share/doc/zabbix-frontend-php/examples/apache.conf /etc/apache2/sites-available/zabbix.conf
 
-            # abilitar o modo de aria
-
+        $ cp /usr/share/doc/zabbix-frontend-php/examples/apache.conf /etc/apache2/conf-available/zabbix.conf
 
             # apos fazer isso e o servidr zabix não subir, realize este procedimento...
 
-                $ cd /etc/apache2/sites-available
-                $ mv zabbix.conf /etc/apache2/conf-available
                 $ cat /etc/apache2/conf-available/zabbix.conf
-
                 $ cd /etc/apache2/conf-enabled
-                $ ln -s ../conf-available/zabbix.conf
 
+                $ ln -s ../conf-available/zabbix.conf
                 $ ls -ls /usr/share/zabbix
 
                 $ service apache2 status
@@ -128,6 +206,14 @@
         https://www.zabbix.com/download_agents
 
 
-        
 
-                        
+# caso nao funcione os agentes, precisa liberar o zabbix server ou agente ou as portas:
+
+    $ ufw allow 10050/tcp
+    $ ufw allow 10051/tcp
+    $ ufw reload
+
+
+
+# referencia 
+    http://www.foreverlakers.com/page/4/?s=https
