@@ -13,6 +13,8 @@
         - php 7.2
         - python 3.4
 
+        - puppet server 5.4
+
         - http://10.0.9.41/phpinfo.php
         - http://10.0.9.41/wordpress
         - http://10.0.9.41/zabbix
