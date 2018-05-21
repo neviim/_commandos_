@@ -6,3 +6,9 @@
     $ mii-tool                      # verificar se a placa de rede está conectada, a velocidade do link o modo de operação
 
     $ tcpdump -S -q -i eth0 src 10.0.9.41
+
+    $ free -m -t                    # memória em MB e o -t faz um cálculo de RAM + SWAP
+    $ tail -f /var/log/syslog
+
+    $ service --status-all
+    $ systemctl list-unit-files
