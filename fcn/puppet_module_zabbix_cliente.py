@@ -7,9 +7,17 @@
         # referencia
         $ cd /etc/puppet/code/environments/production/manifests/site.pp 
         $ cd /etc/puppet/code/environments/production/modules
+
+        $ cd /etc/puppet/code/environments/production/modules/zabbix/manifests
+
         $ puppet module generate jads-zabbix --skip-interview
         # chave do repositorio zabbis
         $ wget http://repo.zabbix.com/zabbix-official-repo.key
+
+
+        # editando manifestos
+        $ nano /etc/puppet/code/environments/production/manifests/site.pp 
+        $ nano /etc/puppet/code/environments/production/modules/zabbix/manifests/agent.pp
 
 
     :: comandos powersheel
@@ -29,6 +37,11 @@
         $ mv zabbix_agentd.conf.erb.tmp zabbix_agentd.conf.erb
 
         $ zabbix_get -s 10.0.9.41 -k system.uname
+
+
+    :: comandos puppet:
+
+        $ puppet module install genebean-zabbixagent --version 3.0.4
 
 
     # preparando ambiente para instalar zabbixagent por puppet no windows.
@@ -61,6 +74,21 @@ Error: Failed to apply catalog: Parameter provider failed on Package[zabbix-agen
 '''
 
 
+''' Teste de instalação de um modulo zabbix-agent do puppet
+
+$ puppet module install genebean-zabbixagent --version 3.0
+
+Notice: Preparing to install into /etc/puppet/code/environments/production/modules ...
+Notice: Downloading from https://forgeapi.puppet.com ...
+Notice: Installing -- do not interrupt ...
+/etc/puppet/code/environments/production/modules
+└─┬ genebean-zabbixagent (v3.0.0)
+  └─┬ puppetlabs-chocolatey (v2.0.2)
+    ├── puppetlabs-powershell (v2.1.5)
+    ├── puppetlabs-registry (v2.0.1)
+    └── puppetlabs-stdlib (v4.25.1)
+
+'''
 
 # Referencia
     # agente chocolatey_sw para windows

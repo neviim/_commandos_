@@ -33,7 +33,7 @@
             autoflush=true
 
 
-        - Solicita ao puppet server sua autenticação
+        - Solicita ao puppet server sua autenticaçãoss
 
           C:\> puppet agent --test –waitforcert=60
             '''
