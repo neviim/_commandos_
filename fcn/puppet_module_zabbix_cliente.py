@@ -4,20 +4,23 @@
 
     :: lablist, para manter definido o que pode estar instaldo ou não.
     
-        # referencia
-        $ cd /etc/puppet/code/environments/production/manifests/site.pp 
-        $ cd /etc/puppet/code/environments/production/modules
-
-        $ cd /etc/puppet/code/environments/production/modules/zabbix/manifests
-
-        $ puppet module generate jads-zabbix --skip-interview
-        # chave do repositorio zabbis
-        $ wget http://repo.zabbix.com/zabbix-official-repo.key
-
+        # Parametriza a versão so cliente zabbix a ser instalada
+        $ nano /etc/puppet/code/environments/production/modules/zabbixagent/manifests/params.pp
 
         # editando manifestos
         $ nano /etc/puppet/code/environments/production/manifests/site.pp 
         $ nano /etc/puppet/code/environments/production/modules/zabbix/manifests/agent.pp
+
+        # outras referencia
+        $ cd /etc/puppet/code/environments/production/manifests/site.pp 
+        $ cd /etc/puppet/code/environments/production/modules
+        $ cd /etc/puppet/code/environments/production/modules/zabbix/manifests
+
+        $ puppet module generate jads-zabbix --skip-interview
+        $ puppet module generate fcn-zabbix_agent --skip-interview
+
+        # chave do repositorio zabbis
+        $ wget http://repo.zabbix.com/zabbix-official-repo.key
 
 
     :: comandos powersheel
