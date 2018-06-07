@@ -31,6 +31,7 @@
             %> Get-Content c:\temp\Serves.txt
 
             %> icm fac034378n1 {cat c:\zabbix_agentd.log}
+            %> icm fac034378n1 {ls 'C:\Program Files\'}
 
             # obter uma lista de aplicativos instalados em uma máquina, muito lemto
             %> Get-WmiObject -Class Win32_Product | Select Name, Version

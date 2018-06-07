@@ -10,6 +10,7 @@
             $ cd /etc/puppet/code/environments/production/modules/dev/manifests
             $ nano hosts
 
+
             :: Onde “dev” é o nome do módulo, e “hosts” o nome do manifesto.
 
                 class edithosts::hosts {
@@ -25,6 +26,7 @@
                         comment => 'Adicionado via Puppet'
                     }
                 }
+
 
             :: Verifique se tem algum erro no manifesto.
 
@@ -72,3 +74,10 @@
 
 
 
+# referencia
+    # templete
+    https://rnelson0.com/2014/10/27/creating-a-puppet-erb-template/
+    https://churrops.io/2017/04/28/puppet-puppet-autonomo-user-groups-files-e-packages/
+
+    # ajuste config 
+    https://puppet.com/docs/puppet/5.5/services_agent_unix.html
