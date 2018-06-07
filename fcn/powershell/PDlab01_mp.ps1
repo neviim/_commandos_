@@ -6,13 +6,14 @@
 
 		:::
 			%> winrm get winrm/config/client/auth
-			Auth
-			Basic = true
-			Digest = true
-			Kerberos = true
-			Negotiate = true
-			Certificate = true
-			CredSSP = false
+			
+				Auth
+				Basic = true
+				Digest = true
+				Kerberos = true
+				Negotiate = true
+				Certificate = true
+				CredSSP = false
 
 			%> winrm set winrm/config/client/auth @{Basic="true"}
 
