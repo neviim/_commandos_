@@ -2,6 +2,7 @@
 
     :: comandos basicos
 
+        %> icm fac034378n1 {ls 'C:\'}
         %> icm fac034378n1 {ls 'C:\Program Files\'}
         %> icm fac034378n1 {ls 'C:\Program Files\Puppet Labs\'}
 

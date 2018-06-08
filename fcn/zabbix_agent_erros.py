@@ -26,3 +26,18 @@
                          
                 Como eu estava monitorando hosts em diferentes locais usando o agente ativo, não percebi que não deveria ativar 
                 a criptografia dupla.
+
+
+# Erro: Get value from agent failed: ZBX_TCP_READ() failed: [104] Connection reset by peer
+
+    ::: nmap mostra que as portas estão abertas no lado do servidor:
+
+        10050/tcp open
+        10051/tcp open
+
+        ::: Tente este comando no servidor e veja se ele te dá algo diferente "zabbix_get -s clienthostname -k system.uname"
+            
+            $ zabbix_get -s fac034378n1.fcn.edu.br -k system.uname
+
+            $ ping fac034378n1.fcn.edu.br
+            $ telnet fac034378n1.fcn.edu.br 10050
