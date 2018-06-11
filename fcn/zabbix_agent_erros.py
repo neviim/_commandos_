@@ -12,6 +12,7 @@
 
                 # No server zabbix utilizar comando para testar o timeout entre server e agent.
 
+                    $ zabbix_get -s l0105.fcn.edu.br -k agent.ping
                     $ zabbix_get -s 10.0.5.31 -k agent.ping
                     1
 
@@ -41,3 +42,6 @@
 
             $ ping fac034378n1.fcn.edu.br
             $ telnet fac034378n1.fcn.edu.br 10050
+
+
+# Erro: Get value from agent failed: cannot connect to [[L0105.fcn.edu.br]:10050]: [111] Connection refused
