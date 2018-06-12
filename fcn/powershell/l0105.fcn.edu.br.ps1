@@ -2,7 +2,7 @@
 
     :: testes
 
-        %> $ telnet <agent-machine> 10050
+        %> $ telnet <agent_machine> 10050
 
 
 

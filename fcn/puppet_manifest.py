@@ -56,7 +56,7 @@
             }
         }
 
-        $values = {
+        $ values = {
             item_1 => {file_name => "a"},
             item_2 => {file_name => "b"},
             item_3 => {file_name => "c"}

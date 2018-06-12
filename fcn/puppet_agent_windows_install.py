@@ -40,6 +40,7 @@
 
     :: Solicita ao puppet server sua autenticação
 
+		C:\> puppet agent --server *MasterName* --waitforcert 60 --test
 		C:\> puppet agent --test -waitforcert=60
         Exiting; no certificate found and waitforcert is disabled
 		  

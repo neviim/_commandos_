@@ -63,19 +63,19 @@
 
         :: configurar visudo
 
-        $ sudo visudo
+            $ sudo visudo
 
-            # User privilege specification
-            root    ALL=(ALL:ALL) ALL
-            CENTRAL\\Administrador ALL=(ALL) ALL
+                # User privilege specification
+                root    ALL=(ALL:ALL) ALL
+                CENTRAL\\Administrador ALL=(ALL) ALL
 
-            # Members of the admin group may gain root privileges
-            %admin ALL=(ALL) ALL
-            %central\\central^users ALL=(ALL) ALL
+                # Members of the admin group may gain root privileges
+                %admin ALL=(ALL) ALL
+                %central\\central^users ALL=(ALL) ALL
 
-            # membros do grupo SUDO
-            %sudo   ALL=(ALL:ALL) ALL
-            fcn\\neviim ALL=(ALL) ALL
+                # membros do grupo SUDO
+                %sudo   ALL=(ALL:ALL) ALL
+                fcn\\neviim ALL=(ALL) ALL
 
     :: Instalar dependencias: 
 
@@ -117,7 +117,6 @@
 
 
 
-
     # Testar conectividade do usuario
 
         :: Estando conectado podera testar: 
@@ -130,7 +129,6 @@
 
             $ whoami
             neviim
-
 
 
 
