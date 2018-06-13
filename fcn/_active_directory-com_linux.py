@@ -57,8 +57,8 @@
 
                 option rfc3442-classless-static-routes code 121 = array of unsigned integer 8;
 
-                supersede domain-name "central.local"
-                prepend domain-name-servers 192.168.0.203
+                supersede domain-name "central.local";
+                prepend domain-name-servers 192.168.0.203;
 
 
         :: configurar visudo
@@ -67,7 +67,7 @@
 
                 # User privilege specification
                 root    ALL=(ALL:ALL) ALL
-                CENTRAL\\Administrador ALL=(ALL) ALL
+                CENTRAL\\Administrador ALL=(ALL:ALL) ALL
 
                 # Members of the admin group may gain root privileges
                 %admin ALL=(ALL) ALL
@@ -75,7 +75,7 @@
 
                 # membros do grupo SUDO
                 %sudo   ALL=(ALL:ALL) ALL
-                fcn\\neviim ALL=(ALL) ALL
+                fcn\\neviim ALL=(ALL:ALL) ALL
 
     :: Instalar dependencias: 
 
@@ -96,9 +96,6 @@
             
 # executando e conficurando o acesso ao Active Directory
 
-    # modo grafico
-    $ /opt/pbis/bin//domainjoin-gui
-
     # modo terminal exemplo de uso: [ $ /opt/likewise/bin/domainjoin-cli join vmware.local Administrator Password ]
     $ /opt/pbis/bin/domainjoin-cli join fcn.edu.br Administrador
     
@@ -115,6 +112,9 @@
         Domain = example.com
         Distinguished Name = CN=username,CN=Computers,DC=example,DC=com
 
+
+    # modo grafico
+    $ /opt/pbis/bin//domainjoin-gui
 
 
     # Testar conectividade do usuario
@@ -151,3 +151,7 @@
         Você precisará sudo domainjoin-cli se não for root.
 
 
+    :: client not found in kerberos database while getting initial credentials ubuntu
+
+        Resolvo o problema reinstalando novamento o:
+        '$ wget https://github.com/BeyondTrust/pbis-open/releases/download/8.6.0/pbis-open-8.6.0.427.linux.x86_64.deb.sh'
