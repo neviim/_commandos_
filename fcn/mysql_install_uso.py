@@ -14,6 +14,7 @@ FLUSH PRIVILEGES;
 
 # Criar um access para todos databases:
 
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'user'@'IDMaquina.fcn.edu.br' IDENTIFIED BY 'password' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0; 
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'user'@'203.0.113.2' IDENTIFIED BY 'password' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
 FLUSH PRIVILEGES;
 
@@ -30,3 +31,14 @@ FLUSH PRIVILEGES;
     $ mysql> 
 
 
+    # Alguns comandos
+    $ show databases;
+    $ select host, user from mysql.user;
+
+    $ use zabbix;
+    $ show tables;
+
+
+        ::: apaga um database
+
+            $ drop database <db_name>;

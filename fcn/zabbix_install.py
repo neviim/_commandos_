@@ -139,7 +139,11 @@
         $ nano /etc/php/7.2/cli/php.ini
 
             post_max_size = 16M
-            date.timezone = UTC
+            max_execution_time = 300
+            max_input_time = 300
+            always_populate_raw_post_data = -1
+            date.timezone = UTC 
+    
 
     # copiando o arquivo de conf do exemplo do zabbix php
 
