@@ -14,6 +14,11 @@
         $ puppet cert clean zabbix.dominio
         $ puppet cert list --all
 
+
+    ::: valida todos de uma vez
+
+        $ puppet cert sign --all 
+
         
 
 

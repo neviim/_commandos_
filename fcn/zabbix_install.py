@@ -112,6 +112,8 @@
 
         :: restart, stop, start
 
+            $ systemctl restart zabbix-server zabbix-agent apache2
+
             $ systemctl start zabbix-server.service
             $ systemctl start zabbix-agent.service
 
