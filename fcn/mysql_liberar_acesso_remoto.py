@@ -16,7 +16,10 @@
 
         - Será solicitado a senha do usuário root para servidor MySQL, no prompt do MySQL digite:
 
-            mysql> GRANT ALL ON *.* TO root@’%’ IDENTIFIED By ‘senhadoroot’;
+            mysql> GRANT ALL PRIVILEGES ON zabbixdb.* TO zabbix@'%' IDENTIFIED By 'PwdZabbix#18';
+
+            mysql> GRANT ALL ON *.* TO root@'%' IDENTIFIED By 'senhadoroot';
+            mysql> GRANT ALL ON *.* TO zabbix@'%' IDENTIFIED By 'PwdZabbix#18';
             mysql> FLUSH PRIVILEGES;
 
 

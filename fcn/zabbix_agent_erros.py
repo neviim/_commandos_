@@ -1,4 +1,36 @@
 
+# ERROS - basicos e frequente nesta instalação.
+
+    ::: Cannot bind socket to "/var/run/zabbix/zabbix_server_alerter.sock": [13] Permission denied.
+
+        -  Pode ser reparado fazendo o download e importando o pacote do módulo selinux fornecido pelo suporte oficial.
+
+            $ getsebool -a | grep zabbix
+            httpd_can_connect_zabbix --> off
+            zabbix_can_network --> off
+
+            $ setsebool -P zabbix_can_network on
+
+            $ systemctl stop mysqld
+            $ systemctl stop zabbix-server
+            $ systemctl stop zabbix-agent
+
+            $ yum install -y policycoreutils-python
+            $ wget -O zabbix_server_add.te https://support.zabbix.com/secure/attachment/53320/53320_zabbix_server_add.te –no-check-certificate
+
+            $ checkmodule -M -m -o zabbix_server_add.mod zabbix_server_add.te
+            $ semodule_package -o zabbix_server_add.pp -m zabbix_server_add.mod
+            $ semodule -i zabbix_server_add.pp
+
+            $ systemctl restart zabbix-server
+            $ systemctl restart zabbix-agent
+            $ systemctl start mysqld
+            $ systemctl start zabbix-server
+            $ systemctl start zabbix-agent
+            
+            # resolvido com isso.
+
+
 # Erro: Get value from agent failed: cannot connect to [[10.0.45.4]:10050]: [111] Connection refused
 
     - Olá, os usuários do Zabbix por muitos anos desde a nova instalação, temos um problema com hosts externos, 

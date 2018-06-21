@@ -40,6 +40,11 @@
             zabbix_agentd.exe [1332]: service [Zabbix Agent] installed successfully
             zabbix_agentd.exe [1332]: event source [Zabbix Agent] installed successfully
 
+            # na versao 3.4
+            λ cd c:\zabbix\bin\win64
+            λ  .\zabbix_agentd.exe -d -c C:\zabbix\conf\zabbix_agentd.win.conf
+            zabbix_agentd.exe [18344]: service [Zabbix Agent] uninstalled successfully
+            zabbix_agentd.exe [18344]: event source [Zabbix Agent] uninstalled successfully
 
             :: o comando acima dando certo, precisa iniciar o zabbix-server no SERVIÇOS do windows.
 
