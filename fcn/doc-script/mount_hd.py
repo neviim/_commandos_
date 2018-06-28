@@ -1,3 +1,10 @@
+# 
+    $ df -h /dev/sda1
+    $ df -h -T /dev/sda1
+    $ df -a /dev/sda1
+
+
+
 # montar uma hd linux
 
     $ mount /dev/md126p1 /mnt/hd450
