@@ -47,14 +47,12 @@
         $ zabbix_get -s fac034378n1.fcn.edu.br -p 10050 -k 'service.info[EventLog, startup]'
         $ zabbix_get -s fac034378n1.fcn.edu.br -p 10050 -k 'service.info[EventLog[Application]]'
 
-
-        
         # outras opçoes.
         $ zabbix_get -s fac034378n1.fcn.edu.br -p 10050 -k 
 
         # testando, não funciona.
-        $ zabbix_get -s fac034378n1.fcn.edu.br -p 10050 -k system.cpu.load[all,avg1]
-        $ zabbix_get -s fac034378n1.fcn.edu.br -p 10050 -k vfs.fs.size[/,free]
+        $ zabbix_get -s fac034378n1.fcn.edu.br -p 10050 -k 'system.cpu.load[all,avg1]'
+        $ zabbix_get -s fac034378n1.fcn.edu.br -p 10050 -k 'vfs.fs.size[/,free]'
         $ zabbix_get -s fac034378n1.fcn.edu.br -k 'system.proc.num[,,,]'
 
 
@@ -65,13 +63,8 @@
 
 
         ::: Windows service discovery: State of service "UserManager" (Gerenciador de Usuários)
-
         ::: Windows service discovery: State of service "DiagTrack" (Experiências e Telemetria de Usuário Conectado)
-
         ::: Windows service discovery: State of service "SENS" (Serviço de Notificação de Eventos do Sistema)
-
         :::	Windows service discovery: State of service "RasMan" (Gerenciador de conexão de acesso remoto)
-
         ::: Windows service discovery: State of service "ProfSvc" (Serviço de Perfil de Usuário)
-
         ::: Windows service discovery: State of service "Dnscache" (Cliente DNS)
