@@ -34,7 +34,7 @@
         login-policy: allow-realm-logins
 
         $ cat /etc/sssd/sssd.conf
-        $ id usuario@fcn.edu.br 
+        $ id neviim@fcn.edu.br 
         uid=1776802829(usuario@fcn.edu.br) gid=1776800512(admins. do domínio@fcn.edu.br) grupos=1776800512(admins. do domínio@fcn.edu.br),
         1776800572(grupo de replicação de senha rodc nega@fcn.edu.br),1776801118(gerenciar contas@fcn.edu.br),1776800513(usuários do domínio@fcn.edu.br)
 
