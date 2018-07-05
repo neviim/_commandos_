@@ -29,7 +29,6 @@
         - O comando seguinte mudará o nome do arquivo de configuração original do SNMP
 
             $ mv /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf_original
-
             $ nano /etc/snmp/snmpd.conf
 
                 # Map 'idv90we3rnov90wer' community to the 'ConfigUser'
@@ -61,6 +60,7 @@
 
         $ systemctl stop snmpd.service
         $ systemctl start snmpd.service
+        $ systemctl status snmpd.service
         $ systemctl restart snmpd.service
 
         $ chkconfig snmpd on

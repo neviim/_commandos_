@@ -13,4 +13,8 @@
     $ service --status-all
     $ systemctl list-unit-files
 
-    $ 
+    $ cat /etc/*-release                # Verifica qial distribuição esta sendo otilizada
+    $ cat /etc/*-release | grep PRETTY  
+    $ cat /proc/version 
+    
+      

@@ -1,4 +1,4 @@
-#
+# IMPORTANTE: Configure os agentes do Zabbix para o modo ativo, reconfigure os itens para serem verificações ativas. 
 
     ::: inicializando o cliente agente zabbix:
 

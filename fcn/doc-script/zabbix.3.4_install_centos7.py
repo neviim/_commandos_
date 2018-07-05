@@ -79,6 +79,7 @@
             AllowRoot=0
             LogFileSize=10
             DebugLevel=3
+            StartPingers=20
 
             LogFile=/var/log/zabbix/zabbix_server.log
             PidFile=/run/zabbix/zabbix_server.pid
@@ -135,6 +136,7 @@
 
         $ nano /etc/httpd/conf.d/zabbix.conf
 
+            php_value upload_max_filesize 8M
             php_value date.timezone America/Sao_Paulo
 
 
@@ -153,9 +155,13 @@
         $ systemctl status mysqld
         $ systemctl status zabbix-server
 
-        $ systemctl restart httpd
-        $ systemctl restart mysqld
+        $ systemctl restart httpd.service
+        $ systemctl restart mysqld.service
         $ systemctl restart zabbix-server
+
+        $ zabbix_server -R config_cache_reload
+
+        $ tail /var/log/zabbix/zabbix_server.log
 
 
     ::: lista os 3 ultimos logs

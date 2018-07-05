@@ -80,6 +80,23 @@
         $ systemctl --all --no-pager
 
 
+
+
+# referencia de configuração ao agente zabbix 
+
+%> nano c:\zabbix\conf\zabbix_agentd.win.conf
+
+        LogFile=C:\zabbix\log\agentd.log
+        LogFileSize=10
+        EnableRemoteCommands=1
+        LogRemoteCommands=1
+        Server='ip ou fqdn do servidor remoto'
+        ServerActive='ip ou fqdn do servidor remoto'
+        Hostname='nome deste servidor' #(deverá ser igual ao cadastrado no servidor Zabbix)
+        Timeout=20
+
+
+
 # Referencias:
     # systemclt
     https://sempreupdate.com.br/como-usar-o-systemctl-para-gerenciar-servicos-do-systemd/
