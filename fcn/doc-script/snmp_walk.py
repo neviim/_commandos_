@@ -6,3 +6,7 @@
         $ snmpwalk -v 2c -c Community devops.fac.dominio
 
         $ snmpwalk -v 2c -c Community 10.0.45.24
+
+    ::: snmp 
+
+        $ nmap -sV 
