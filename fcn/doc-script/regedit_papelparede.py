@@ -10,7 +10,7 @@
 
 
 # Repositorio onde tem Wallpaper
-    C:\Users\jorge.FCN\Pictures\BackGround\tela1.jpg7
+    C:\Users\jorge.FCN\Pictures\BackGround\tela1.jpg
 
 
 

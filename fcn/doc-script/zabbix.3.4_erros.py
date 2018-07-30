@@ -1,6 +1,53 @@
 # mensagens de Erros basicas no zabbix
 
-    ::: Zabbix unreachable poller processes more than 75% busy
+
+    ::: 'Zabbix server is not running the information displayed may not be current'
+
+        Connection to Zabbix server "localhost" refused. Possible reasons:
+        1. Incorrect server IP/DNS in the "zabbix.conf.php";
+        2. Security environment (for example, SELinux) is blocking the connection;
+        3. Zabbix server daemon not running;
+        4. Firewall is blocking TCP connection.
+        Connection refused
+
+        ::: Checar...
+
+            $ systemctl status mysqld.service
+            $ mysql -u zabbix -p
+
+
+        ::: Alguns passos...
+
+            - Nunca tive o problema até que apareceu de repente uma vez, para mim, a solução foi adicionar (descomentar) a seguinte linha em:
+
+                $ nano /etc/zabbix/zabbix_server.conf
+
+                    ListenIP=0.0.0.0
+
+
+            # precisa retornar estas tres linhas.
+            $ netstat -tulpn | grep zabbix
+            tcp        0      0 0.0.0.0:10050           0.0.0.0:*               OUÇA       1060/zabbix_agentd
+            tcp        0      0 0.0.0.0:10051           0.0.0.0:*               OUÇA       23079/zabbix_server
+            tcp6       0      0 :::10050                :::*                    OUÇA       1060/zabbix_agentd
+
+            # verificar se não esta barrado no proxy
+            $ iptables | grep 10051
+
+            $ cat /etc/zabbix/zabbix_server.conf
+            $ cat /etc/zabbix/web/zabbix.conf.php
+            $ cat /etc/hosts
+
+            # 10050 or 10051
+            $ nmap -sS localhost
+            $ nmap -sT -p1-10051 localhost  
+
+
+
+
+
+
+    ::: 'Zabbix unreachable poller processes more than 75% busy'
 
         - Zabbix unreachable poller processes more than 75% busy
 
@@ -31,7 +78,9 @@
         $ nano /etc/zabbix/zabbix_server.conf
     
             # altera este parametro que tem por padrão 1 e atua em um range de 1 a 1000
+            # com isso, o Zabbix irá criar 20 processos para o poller e 10 processos para unreachable poller.
 
+            StartDiscoverers=10
             # pingger poller
             StartPingers=20
             # proxy poller
