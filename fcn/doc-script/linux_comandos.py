@@ -17,4 +17,8 @@
     $ cat /etc/*-release | grep PRETTY  
     $ cat /proc/version 
     
+    # comandos de stree
+    $ stress --vm 2 --vm-bytes 256M
+
+    
       

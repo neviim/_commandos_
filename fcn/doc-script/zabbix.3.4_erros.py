@@ -1,5 +1,23 @@
 # mensagens de Erros basicas no zabbix
 
+    ::: "Too many processes on Zabbix server"
+
+        $ ps -ef | awk '{ print $8 }' | sort -n | uniq -c | sort -n | tail -5
+
+        - É mais provável que ele tenha aumentado o número de pollers para um número crescente de hosts e itens passivos para monitorar. 
+          Se for o caso, ele precisa mudar de monitoração passiva para ativa. 
+
+        - O monitoramento passivo não se adapta bem. 
+          A segunda coisa é adicionar o proxy. Mesmo com apenas um proxy é possível minimizar as 
+          perdas de dados de monitoramento durante a reinicialização do servidor.
+
+
+    ::: "Zabbix value cache working in low memory mode"
+
+        $ nano /etc/zabbix/zabbix_server.conf
+
+            # CacheSize=16M, alterei para 32M
+            CacheSize=32M
 
     ::: 'Zabbix server is not running the information displayed may not be current'
 
