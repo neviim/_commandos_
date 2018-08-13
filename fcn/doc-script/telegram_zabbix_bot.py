@@ -8,12 +8,12 @@
 
     Use this token to access the HTTP API:
     6193621820189:AA7EwsM_UeNfsL7Wfje9aIqn1h4xXaZSWAK7NM
-                  
+
 
     ::: Instalando
 
         $ yum install python-pip
-        $ pip install pyTelegramBotAPI 
+        $ pip install pyTelegramBotAPI
 
         $ cd /usr/lib/zabbix/alertscripts
         $ nano telegram.sh
@@ -56,5 +56,9 @@
 
 # ERROS
 
-    ::: "Cannot exectue command "/usr/share/zabbix/alertscripts/telegram.sh": [2] No such file or directory"
+    :::  Cannot exectue command "/usr/share/zabbix/alertscripts/telegram.sh": [2] No such file or directory
 
+        - copiei o arquivo para o diretorio especificado
+
+            $ cd /usr/share/zabbix/alertscripts
+            $ cp /usr/lib/zabbix/alertscripts/telegram.sh .

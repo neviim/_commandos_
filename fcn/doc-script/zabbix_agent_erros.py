@@ -1,6 +1,17 @@
 
 # ERROS - basicos e frequente nesta instalação.
 
+    ::: Lista a versão instalada
+
+        $ zabbix_agentd -V
+        $ yum info -v zabbix-agent
+        $ grep -A10 -B10 Pid /etc/zabbix/zabbix_agentd.conf
+
+        # SELinux status:
+        $ sestatus
+
+
+
     ::: Cannot bind socket to "/var/run/zabbix/zabbix_server_alerter.sock": [13] Permission denied.
 
         -  Pode ser reparado fazendo o download e importando o pacote do módulo selinux fornecido pelo suporte oficial.
