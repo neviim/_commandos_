@@ -1,0 +1,8 @@
+# Blueprint
+
+    ::: Dimensao de tela padrão de menu:
+
+        1280 x 720  (16:9)
+
+    
+    

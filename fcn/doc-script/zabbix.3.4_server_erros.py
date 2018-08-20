@@ -46,7 +46,7 @@
         #
         # Solucionando...
         #
-        
+
         # altere o PidFile para...
         $ nano /etc/zabbix/zabbix_server.conf
 
@@ -79,3 +79,15 @@
                     ├─25434 /usr/sbin/zabbix_server -c /etc/zabbix/zabbix_server.conf
                     ├─25439 /usr/sbin/zabbix_server: configuration syncer [waiting 25 sec for processes]
                     ├─25440 /usr/sbin/zabbix_server: alerter #1 started
+                    .
+                    .
+                    .
+                    ├─25670 /usr/sbin/zabbix_server: preprocessing worker #2 started
+                    ├─25671 /usr/sbin/zabbix_server: preprocessing worker #3 started
+                    ├─27491 sh -c /usr/sbin/fping -C3 2>&1 </tmp/zabbix_server_25662.pinger;/usr/sbin/fping6 -C3 2>&1 </tmp/zabbix_server_25662.pinger;
+                    ├─27492 /usr/sbin/fping -C3
+                    ├─27496 sh -c /usr/sbin/fping -C3 2>&1 </tmp/zabbix_server_25661.pinger;/usr/sbin/fping6 -C3 2>&1 </tmp/zabbix_server_25661.pinger;
+                    └─27497 /usr/sbin/fping -C3
+
+            Ago 13 10:20:25 zabbixsrv systemd[1]: Starting Zabbix Server...
+            Ago 13 10:20:25 zabbixsrv systemd[1]: Started Zabbix Server.
