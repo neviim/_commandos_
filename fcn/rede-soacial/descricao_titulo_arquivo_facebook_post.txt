@@ -1,0 +1,160 @@
+status_id  			=> id_publicacao
+link_name 			=> link_permanente
+status_messagem  	=> status_messagem
+status_type			=> Tipo
+					=> Países
+					=> Idiomas
+status_published    => status_publicado
+Direcionamento do público
+total_publicacao
+Vitalício: alcance orgânico da publicação
+Vitalício: alcance pago da publicação
+Vitalício: total de impressões da publicação
+Vitalício: impressões orgânicas da publicação
+Vitalício: impressões pagas da publicação
+Vitalício: usuários envolvidos
+num_pub_corres  	=> Vitalício: consumidores de direcionamento do público com correspondência na publicação
+Vitalício: consumos de direcionamento do público com correspondência na publicação
+Vitalício: comentários negativos dos usuários
+Vitalício: feedback negativo
+Vitalício: impressões da publicação por pessoas que curtiram sua Página
+Vitalício: alcance da publicação por pessoas que curtiram sua Página
+Vitalício: impressões pagas da publicação por pessoas que curtiram sua Página
+Vitalício: alcance pago de uma publicação por pessoas que curtiram sua Página
+Vitalício: pessoas que curtiram sua Página e se envolveram com a sua publicação
+Vitalício: visualizações até 95% orgânicas
+Vitalício: visualizações até 95% orgânicas
+Vitalício: visualizações até 95% pagas
+Vitalício: visualizações até 95% pagas
+Vitalício: visualizações do vídeo orgânicas
+Vitalício: visualizações do vídeo orgânicas
+Vitalício: visualizações do vídeo pagas
+Vitalício: visualizações do vídeo pagas
+Vitalício: tempo médio de visualização do vídeo
+Duração de vídeo vitalícia
+num_likes        	=> Vitalício: Falando sobre isso (publicação) por tipo de ação - like
+num_shares          => Vitalício: Falando sobre isso (publicação) por tipo de ação - share
+num_comments        => Vitalício: Falando sobre isso (publicação) por tipo de ação - comment
+Vitalício: histórias da publicação por tipo de ação - like
+Vitalício: histórias da publicação por tipo de ação - share
+Vitalício: histórias da publicação por tipo de ação - comment
+num_other_cliks     => Consumos únicos de direcionamento para público de publicações vitalício por tipo - other clicks
+num_photo_view      => Consumos únicos de direcionamento para público de publicações vitalício por tipo - photo view
+num_link_clicks     => Consumos únicos de direcionamento para público de publicações vitalício por tipo - link clicks
+num_video_play      => Consumos únicos de direcionamento para público de publicações vitalício por tipo - video play
+Consumos de direcionamento para público correspondente vitalício por tipo - other clicks
+Consumos de direcionamento para público correspondente vitalício por tipo - photo view
+Consumos de direcionamento para público correspondente vitalício por tipo - link clicks
+Consumos de direcionamento para público correspondente vitalício por tipo - video play
+Vitalício: comentários negativos de usuários por tipo - hide_all_clicks
+Vitalício: comentários negativos de usuários por tipo - hide_clicks
+Vitalício: feedback negativo por tipo - hide_all_clicks
+Vitalício: feedback negativo por tipo - hide_clicks
+
+
+
+# referencia a ser encontrada acima:
+
+* status_id
+* status_messagem
+* link_name
+* status_type
+  status_link
+* status_published
+  num_reactions                         ==> num_likes
+* num_comments
+* num_shares
+* num_likes     => num_likes            >>> Correlação com o que estarei utilizando na aplicação.
+  num_loves		=> Amei, coração		==> num_other_cliks
+  num_wows		=> Uau, espanto			==> num_link_clicks 
+  num_hahas		=> Sorindo				==> num_photo_view
+  num_sads		=> Triste, Chorando		==> num_video_play
+  num_angrys	=> Raivoso				==> num_pub_corres
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# um post
+
+,218725464821904_1930394716988295
+,https://www.facebook.com/faculdadecn/posts/1930394716988295
+,"Comemorando os 40 anos da @cancaonova 🎉🙏🏼🎂 VIVA! #cancaonova #faculdadecn #40anos"
+,Photo
+,
+,
+,"02/02/2018 06:45:54 AM"
+," "
+,1193
+,1193
+,0
+,1721
+,1721
+,0
+,110
+,86
+,150
+,0
+,0
+,1430
+,971
+,0
+,0
+,101
+,0
+,0
+,0
+,0
+,0
+,0
+,0
+,0
+,0
+,0
+,33
+,3
+,
+,33
+,3
+,
+,27
+,82
+,
+,
+,56
+,94
+,
+,
+,
+,
+,
+,
+
+
+# trabalhando neste arquivo:
+http://localhost:8888/notebooks/Documents/GitHub/_python_projetos/screping/referencia/facebook_fanpage_analysis/Facebook_fcn.ipynb#各個不同發文類型的reaction長條圖
+
+# path anaconda
+C:\ProgramData\Anaconda3\envs\py37
+
