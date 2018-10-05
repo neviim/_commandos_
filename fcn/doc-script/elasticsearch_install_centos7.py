@@ -1,7 +1,7 @@
 # instalar java
 
-    :::
-        $ wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u171-b11/512cd62ec5174c3487ac17c61aaa89e8/jdk-8u171-linux-x64.tar.gz
+    ::: Instalando java para centos7 [https://tecadmin.net/install-java-8-on-centos-rhel-and-fedora/]
+        $ wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz"
         $ tar -zxvf jdk-8u*-linux-x64.tar.gz
         $ mv jdk1.8.*/ /usr/
 
@@ -76,11 +76,11 @@
 
         $ nano /etc/elasticsearch/elasticsearch.yml
 
-            ### Listening on particular IPv4 ###
+            ### IPv4 - acesso publico, ip do host onde esta instalado. ###
 
             network.bind_host: 192.168.0.1
 
-            ### Disabling public access ###
+            ### Usando da forma abaixo desabilita o acesso publico, passando a operar localmente ###
 
             network.bind_host: 127.0.0.1
 
