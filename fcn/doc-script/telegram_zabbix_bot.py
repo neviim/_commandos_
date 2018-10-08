@@ -6,7 +6,7 @@
     ID: 1013083020183 nv
     ID: 4201859540916 ws
 
-    Use this token to access the HTTP API:
+    Use this token to access the HTTP API: (2018:777)
     6193621820189:AA7EwsM_UeNfsL7Wfje9aIqn1h4xXaZSWAK7NM
 
 
