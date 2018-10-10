@@ -98,6 +98,8 @@
 			$ docker rmi docker.io/redmine@sha256:30937a84c313b206497ade3aa6f35659896f8579166480b8842ffa8e77c27228
 			$ docker kill my_container
 
-			$ 
+			# consulte: docker_remove.py
+
+			
 
 			
