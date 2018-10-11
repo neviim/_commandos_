@@ -47,6 +47,8 @@
 		$ apt install netcat
 		$ apt -y install mysql-client
 
+		$ gem install mysql2
+
 		$ nc -v -z mariadb 3306
 		mariadb [172.17.0.2] 3306 (?) open
 
@@ -67,3 +69,67 @@
 		$ cp configuration.yml.example configuration.yml
 
 		$ 
+
+
+	::: setup Rails_env
+
+		$ cd ~/config/environments/
+		$ cp production.rb production.rb.dist
+
+		$ vim production.rb
+		  # Disable delivery errors
+		  #config.action_mailer.raise_delivery_errors = false
+		  config.action_mailer.raise_delivery_errors = true
+		  config.action_mailer.perform_deliveries = true
+		  config.action_mailer.default_options = {from: 'redmine@example.com'}
+
+	::: DB credencial
+
+		$ cd ~/config/
+		$ cp database.yml.example database.yml
+
+		$ vim database.yml
+
+			production:
+			  adapter: "mysql2"
+			  database: "redmine"
+			  host: "mariadb"
+			  username: "redmine"
+			  password: "redmine"
+			  encoding: "utf8"
+
+
+	::: Configurar sendmail
+
+		$ apt install sendmail
+		
+		$ vim /etc/hosts
+			#
+			127.0.0.1  localhost tilab
+
+		$ sendmailconfig
+
+
+	::: Popular banco
+
+		# Popula o banco de dados.
+		$ cd ~/redmine/
+		$ RAILS_ENV=production bundle exec rake db:migrate
+		$ RAILS_ENV=production bundle exec rake redmine:load_default_data
+		$ RAILS_ENV=production REDMINE_LANG=en bundle exec rake redmine:load_default_data
+
+
+
+
+
+
+
+
+
+# referencia:
+	http://doc.nethence.com/docker/redmine
+	# config database
+	https://github.com/cloud66/rails4-mysql-sample/blob/master/config/database.yml
+	https://github.com/cloud66/rails4-mysql-sample/blob/master/config/environments/production.rb
+	# config postfix
+	http://doc.nethence.com/server/email-settings
