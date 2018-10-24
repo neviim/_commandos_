@@ -1,5 +1,11 @@
 # configurando um crontab
 
+	::: Comando crontab
+
+		* crontab -e: conforme já informado, serve para editar o arquivo atual do crontab e criar um, caso não exista;
+		* crontab -l: este comando mostra o conteúdo atual do crontab;
+		* crontab -r: remove o arquivo atual do crontab.
+
 	::: parametros de tempo
 
 		- minute(0-59) hour(0-23) day(1-31) month(1-12) weekday(0-6) command
@@ -19,3 +25,6 @@
 		- Cron e Python virtualenv
 
 		0,30 * * * * cd /home/myuser/myproject && venv/bin/python bot.py config/config.ini > /dev/null 2>&1
+
+
+
