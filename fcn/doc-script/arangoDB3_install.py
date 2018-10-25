@@ -45,7 +45,7 @@ Complete!
 
 Web 127.0.0.1:8529
 username: root 
-empty password
+password: root
 
 
 
