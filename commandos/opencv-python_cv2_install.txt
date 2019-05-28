@@ -1,0 +1,17 @@
+# 
+
+    $ conda activate py37
+
+    $ pip install opencv-python
+    $ pip install opencv-contrib-python
+    $ pip install opencv-python-headless
+    $ pip install opencv-contrib-python-headless
+
+    $ conda install -y --verbose -c conda-forge opencv==3.4.1 tensorflow==1.8.0
+
+
+    # Install OpenCV
+    $ pip install opencv-python
+    #  Install face_recognition API;
+    $ pip install dlib
+    $ pip install face_recognition

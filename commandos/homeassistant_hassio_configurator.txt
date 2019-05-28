@@ -1,0 +1,85 @@
+# https://www.youtube.com/watch?v=CCpwC2PO9dU (referencia tutorial da configuração)
+
+	::: Config  (Utilizando o iptlabe deu um erro de acesso, foi preciso liberar tudo 0.0.0.0/0)
+
+            {
+              "username": "admin",
+              "password": "admin",
+              "ssl": false,
+              "certfile": "fullchain.pem",
+              "keyfile": "privkey.pem",
+              "allowed_networks": [
+                "192.168.0.0/16",
+                "172.30.0.0/16",
+                "0.0.0.0/0"             <=== aqui, isso não é correto, feito para testar.
+              ],
+              "banned_ips": [
+                "8.8.8.8"
+              ],
+              "banlimit": 0,
+              "ignore_pattern": [
+                "__pycache__"
+              ],
+              "dirsfirst": false,
+              "enforce_basepath": false,
+              "notify_service": "persistent_notification.create"
+            }
+
+
+
+::: /config/configuration.yaml
+
+            homeassistant:
+              # Name of the location where Home Assistant is running
+              name: Home
+              # Location required to calculate the time the sun rises and sets
+              latitude: -22.7012
+              longitude: -44.9923
+              # Impacts weather/sunrise data (altitude above sea level in meters)
+              elevation: 521
+              # metric for Metric, imperial for Imperial
+              unit_system: metric
+              # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+              time_zone: America/Sao_Paulo
+              # Customization file
+              customize: !include customize.yaml
+
+            # Configure a default setup of Home Assistant (frontend, api, etc)
+            default_config:
+
+            # Show the introduction message on startup.
+            introduction:
+
+            # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+            # http:
+            #   base_url: example.duckdns.org:8123
+
+            # Sensors
+            sensor:
+              # Weather prediction
+              - platform: yr
+
+            # Text to speech
+            tts:
+              - platform: google
+
+            group: !include groups.yaml
+            automation: !include automations.yaml
+            script: !include scripts.yaml
+
+            # isso coloca o componente "panel_iframe" .yaml na aba menu esquerda.
+            panel_iframe:
+              configurator:
+                title: 'Configurator'
+                icon: "mdi:wrench"
+                url: 'http://10.0.9.95:3218/'
+
+
+::: Listas dos componentes atualizadas...
+
+    # Colocar barra de configuração a esquerda.
+    https://github.com/home-assistant/home-assistant/tree/dev/homeassistant/components
+
+    # themas.
+    https://www.juanmtech.com/themes-in-home-assistant/
+    https://www.youtube.com/watch?v=3Xpd4zB2eRM

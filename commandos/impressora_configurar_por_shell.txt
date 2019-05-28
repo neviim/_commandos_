@@ -1,0 +1,38 @@
+# https://www.robvanderwoude.com/2kprintcontrol.php
+
+rundll32.exe printui.dll,PrintUIEntry /in /n\\srv-hu-ps01\PR-PASL-ADM02 PR-PASL-ADM02
+rundll32.exe printui.dll,PrintUIEntry /in /n"\\10.0.76.3\ICN Sala dos Professores"
+
+
+rundll32.exe printui.dll,PrintUIEntry /in /n\\10.0.76.3\Progen
+
+\\10.0.76.3\Progen
+"\\10.0.76.3\ICN Sala dos Professores"
+
+
+
+Iniciar altomaticamente:
+
+    Windows 7
+
+        Menu seleciona pasta inicializar e arrasta programa la pra dentro
+
+    Windows 10
+
+        Windows + R 
+        %AppData%\Microsoft\Windows\Start Menu\Programs\Startup
+
+    Ou
+        regedit 
+            HKEY_CURRENT_USER
+                Software
+                    Microsoft
+                        Windows 
+                            CurrentVersion
+                                run 
+                                    Aqui tera as pastas que estao executando no inicio do Windows
+
+
+
+
+

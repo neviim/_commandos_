@@ -1,0 +1,22 @@
+# comandos basicos de visualização
+$ yum list nodejs
+$ yum info nodejs
+$ yum list nodejs --showduplicates
+
+# atualiza repositorio para versão 10.x
+$ curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+
+# remove e instala nova versão.
+$ yum remove nodejs
+$ yum install nodejs
+
+#  Install multiple Node.js versions using NVM
+
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
+$ nvm use system
+$ npm uninstall -g a_module
+
+$ nvm install --lts
+$ nvm install 8.12.0
+

@@ -1,0 +1,65 @@
+# node-red_install_boot.txt
+# https://github.com/Unitech/pm2#process-management
+# https://nodered.org/docs/getting-started/running
+
+    ::: Iniciando o Node-RED na inicialização, Using PM2
+
+        $ npm install -g pm2
+
+        # O comando a seguir informa ao PM2 para executar o Node-RED, assumindo /usr/bin/node-red como o local do comando node-red.
+        $ pm2 start /usr/bin/node-red -- -v
+
+            # Nota: se você estiver executando em um dispositivo como o Raspberry Pi ou o BeagleBone Black com uma 
+            # quantidade restrita de memória, você deve passar um argumento adicional:
+            $ pm2 start /usr/bin/node-red --node-args="--max-old-space-size=128" -- -v
+
+        # O camando acima irá iniciar o Node-RED em segundo plano. Você pode visualizar informações sobre o processo e 
+        # acessar a saída de log usando os comandos:
+        $ pm2 info node-red
+        $ pm2 logs node-red
+
+        $ pm2 start /usr/bin/node-red -- -v
+        $ pm2 list
+
+        # Gerenciar aplicativos é simples:
+        $ pm2 stop     <app_name|id|'all'|json_conf>
+        $ pm2 restart  <app_name|id|'all'|json_conf>
+        $ pm2 delete   <app_name|id|'all'|json_conf>
+
+        # Para ter mais detalhes sobre um aplicativo específico:
+        $ pm2 describe <id|app_name>
+
+        # Para monitorar logs, métricas personalizadas, informações do aplicativo:
+        $ pm2 monit
+
+        # os processos poden ser gerenciados da seguinte forma:
+        $ pm2 start 
+        $ pm2 delete
+        $ pm2 stop 
+        $ pm2 restart
+        $ pm2 reload
+
+        # PM2 é capaz de gerar e configurar um script de inicialização 
+        # adequado para a plataforma em que está sendo executado. 
+        # Execute estes comandos e siga as instruções fornecidas:
+        $ pm2 save
+        $ pm2 startup
+        # para sistemas Linux mais recentes que usam o uso do systemd
+        $ pm2 startup systemd
+
+        # Freeze a process list on reboot via:
+        $ pm2 save
+
+        # Remove init script via:
+        $ pm2 unstartup systemd
+
+
+    ::: Criando conta em: https://app.pm2.io
+        # pm2 link akkq7sqx5xeaqhi 3lk7zl7i5f5sqq5 Dell380 
+
+        # https://app.pm2.io/bucket/5c70054a94b2360100e21157/disabled
+        # pm2 link akkq7sqx5xeaqhi 3lk7zl7i5f5sqq5 MACHINE_NAME
+        $ pm2 link 53nkvauss08xngm d61ie6esxddif86 Dell380
+
+
+

@@ -1,0 +1,51 @@
+# https://www.youtube.com/watch?v=ST3UOM4TS60
+# https://imasters.com.br/banco-de-dados/monitorando-a-ti-com-splunk
+
+wget -O splunk-7.1.0-2e75b3406c5b-linux-2.6-amd64.deb 'https://www.splunk.com/bin/splunk/Dow...
+wget -O splunk-7.2.6-c0bf0f679ce9-linux-2.6-x86_64.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=7.2.6&product=splunk&filename=splunk-7.2.6-c0bf0f679ce9-linux-2.6-x86_64.rpm&wget=true'
+
+apt install ./splunk-7.1.0-2e75b3406c5b-linux-2.6-amd64.deb
+
+cd /opt/splunk/bin/
+
+./splunk start --accept-license
+
+./splunk enable boot-start
+
+netstat -auntp | grep 9997
+
+
+*******SPLUNK FORWARDER*******
+
+# https://www.splunk.com/en_us/download/universal-forwarder/thank-you-universalforwarder.html
+
+wget -O splunkforwarder-7.1.0-2e75b3406c5b-linux-2.6-amd64.deb 'https://www.splunk.com/bin/splunk/Dow...
+wget -O splunkforwarder-7.2.6-c0bf0f679ce9-linux-2.6-x86_64.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=7.2.6&product=universalforwarder&filename=splunkforwarder-7.2.6-c0bf0f679ce9-linux-2.6-x86_64.rpm&wget=true'
+
+
+apt install ./splunkforwarder-7.1.0-2e75b3406c5b-linux-2.6-amd64.deb
+
+cd /opt/splunkforwarder/bin/
+
+./splunk start --accept-license
+
+./splunk add forward-server 10.0.9.18:9997
+
+./splunk add monitor /var/log/auth.log -sourcetype linux_secure
+
+./splunk add monitor /var/log/syslog -sourcetype syslog
+
+./splunk add monitor /var/log/apache/access.log -sourcetype access_combined
+
+vi /opt/splunkforwarder/etc/system/local/inputs.conf
+
+[monitor:///var/log/auth.log]
+sourcetype=linux_secure
+
+[monitor:///var/log/syslog]
+sourcetype=syslog
+
+/opt/splunkforwarder/bin/splunk restart
+
+/opt/splunkforwarder/bin/splunk enable boot-start
+Splunk Server and Universal Forwarder HOWTO

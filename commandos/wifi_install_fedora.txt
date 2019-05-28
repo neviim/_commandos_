@@ -1,0 +1,18 @@
+# wifi fedora 30
+
+    ::: How To Install Broadcom WiFi Drivers In Fedora 30
+
+        $(rpm -E %fedora)
+
+        $ dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-30.noarch.rpm
+        $ dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-30.noarch.rpm
+
+        $ sudo dnf install -y "kernel-devel-uname-r == $(uname -r)"
+        $ sudo dnf install -y akmods
+        $ sudo dnf install -y broadcom-wl
+        reboot
+
+    ::: https://br.ccm.net/faq/2545-configurar-o-wi-fi-no-linux
+
+        $ vim /etc/wpa_supplicant/wpa_supplicant.conf 
+

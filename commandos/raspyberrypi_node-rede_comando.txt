@@ -1,0 +1,25 @@
+# usando mqtt (https://nodered.org/docs/hardware/raspberrypi)
+
+    ::: Instalando Nodejs
+
+        $ bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)
+        # Em instalações Debian realmente mínimas, você pode precisar executar
+        $ sudo apt-get install build-essential
+
+
+    ::: dois terminais
+
+        # terminal 1
+        $ mosquitto_sub -h localhost  -t /teste
+        # terminal 2 
+        $ mosquitto_pub -m "Mensagem" -t /teste
+
+
+
+# referencias utilisando node-red
+    https://projects.raspberrypi.org/en/projects/getting-started-with-node-red/7
+    # Introdução ao nó do Raspberry Pi em vermelho e IoT
+    https://github.com/rwaldron/johnny-five/wiki/Getting-started-with-Raspberry-Pi-node-red-and-IoT
+    # Accelerometer
+    https://github.com/rwaldron/johnny-five/wiki/Accelerometer
+    

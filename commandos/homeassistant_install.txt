@@ -1,0 +1,66 @@
+# Instalando Home assistant em PC
+
+	::: Install
+
+		$ cd virtual
+		$ virtualenv --python='/usr/local/bin/python3.7' homeassistant
+		$ source homeassistant/bin/activate
+
+		# em caso querer apagar ambiente virtual
+		$ deactivate
+		$ rm -r homeassistant
+
+		$ python3 -m pip install homeassistant
+		$ python3 -m pip upgrade homeassistant
+		$ hass --open-ui
+
+		# browse: 10.0.9.95:8123
+			# user: neviim
+			# pwd:  ap...0
+
+
+		# Você precisa recarregar o systemd para tornar o daemon ciente da nova configuração.
+		$ sudo nano -w /etc/systemd/system/home-assistant@jorge.service
+
+    			[Unit]
+    			Description=Home Assistant
+    			After=network-online.target
+
+    			[Service]
+    			Type=simple
+    			User=%i
+    			ExecStart=/home/jorge/virtual/homeassistant/bin/hass -c "/home/jorge/.homeassistant"
+
+    			[Install]
+    			WantedBy=multi-user.target
+
+
+    # reinicializa aplicação
+		$ sudo systemctl enable home-assistant@jorge
+		$ sudo systemctl start home-assistant@jorge
+
+
+		# Ao trabalhar no Home Assistant, você pode facilmente reiniciar o sistema e depois assistir 
+		# a saída do log combinando os comandos acima usando &&
+
+			$ sudo systemctl restart home-assistant@jorge && sudo journalctl -f -u home-assistant@jorge
+
+
+
+    # comandos uteis
+    $ /home/jorge/virtual/homeassistant/bin/hass --version
+    $ 
+
+
+    # Token de acesso, criado para teste:
+    eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0NmI3YTA3Njc3ODk0M2M4OTQwYjY1N2U2NjhjNTk5MCIsImlhdCI6MTU1MTQzNjcyOCwiZXhwIjoxODY2Nzk2NzI4fQ.XAXVUz_cGfExqLWjIV6bkarrNNslyv-JSoRD6QxMFS8
+    
+
+		# configurar arquivo homeassistanr:
+		# temporario: https://www.youtube.com/watch?v=zLSIhQJmUE8
+
+
+		# Erro: (No module named '_sqlite3')
+		No module named '_sqlite3' (retrying in 3 seconds)
+		Fev 25 15:35:11 Dell380 hass[20556]: 2019-02-25 15:35:11 ERROR (Recorder) [homeassistant.components.recorder] Error during connection setup: No module named '_sqlite3' (retrying in 3 seconds)
+		Fev 25 15:35:14 Dell380 hass[20556]: 2019-02-25 15:35:14 ERROR (Recorder) [homeassistant.components.recorder] Error during connection setup: No module named '_sqlite3'

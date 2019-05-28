@@ -1,0 +1,30 @@
+# Mosquitto
+
+    ::: https://www.youtube.com/watch?v=gU5Vp0zCzak
+
+        # terminal 1
+        $ mosquitto_sub -h localhost -t /teste
+        teste 123
+
+        $ mosquitto_sub -h localhost -t /teste/#
+        teste 123
+        teste 123
+        teste 123
+
+        # terminal 2
+        $ mosquitto_pub -h localhost -t /teste -m "teste 123"
+        $ mosquitto_pub -h localhost -t /foo -m "teste 123"
+        $ mosquitto_pub -h localhost -t /teste/bar -m "test123"
+
+        # apos colocar # em _sub, digite novamente e sera registrado 
+        $ mosquitto_pub -h localhost -t /teste -m "teste 123"
+        $ mosquitto_pub -h localhost -t /foo -m "teste 123"
+        $ mosquitto_pub -h localhost -t /teste/bar -m "test123"
+
+    ::: Certificado
+
+        $ mosquitto_pub --cafile /etc/mosquitto/ca_certt -u admin -P passwd -t /teste -m 42
+
+
+
+    

@@ -1,0 +1,47 @@
+# docker glpi
+
+  ::: mostrar distribuicao
+      $ cat /etc/*-release.
+      $ lsb_release -a
+
+  ::: https://hub.docker.com/r/diouxx/glpi
+      # Configurando Fusion Inventory
+      https://www.youtube.com/watch?v=3YLGKhouQsc
+      # fusion inventory
+      http://fusioninventory.org
+      # docker imagen nova
+      http://devopslab.com.br/docker-como-criar-uma-imagem-docker-a-partir-de-um-container-utilizando-o-docker-commit/
+
+    $ docker run --name mysql -e MYSQL_ROOT_PASSWORD=diouxx -e MYSQL_DATABASE=glpidb -e MYSQL_USER=glpi_user -e MYSQL_PASSWORD=glpi -d mysql:5.7.23
+    $ docker run --name glpi --link mysql:mysql -p 80:80 -d diouxx/glpi
+
+    $ docker exec -i -t 4d9de6c0fba1 /bin/bash
+
+    # Instalar Plugins
+    $ cd /var/www/html/glpi/plugins
+    $ wget plugin_a_instalar.bz2
+
+# systemctl list-unit-files --state=enabled
+
+database:
+  mysql
+  glpidb
+  glpi_user
+  glpi
+
+Default logins / passwords are:
+  glpi/glpipwd           for the administrator account
+  tech/techpwd           for the technician account
+  normal/normalpwd       for the normal account
+  post-only/postonlypwd  for the postonly account
+
+
+
+::: Agente:
+
+$ sudo yum copr enable trasher/fusioninventory-agent
+
+$ iptables -A INPUT -i enp1s0 -p tcp --destination-port 62345 -j ACCEPT
+
+
+

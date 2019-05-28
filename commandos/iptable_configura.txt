@@ -1,0 +1,29 @@
+# comandos para status
+$ sudo iptables -L
+$ sudo iptables -nvL
+$ sudo iptables6 -nvL
+
+# diretorio
+$ ls -ls /etc/firewalld
+
+# reinicia serviço
+$ systemctl restart firewalld.service
+$ sudo iptables-save > /etc/iptables-save
+$ sudo iptables-restore < /etc/iptables-save
+
+
+# liberando acesso ao homeassistant
+$ iptables -I INPUT -p tcp --dport 8123 -j ACCEPT
+# mosquitto
+$ iptables -I INPUT -p tcp --dport 1883 -j ACCEPT
+# node-red
+$ iptables -I INPUT -p tcp --dport 1880 -j ACCEPT
+# hassio config
+$ iptables -I INPUT -p tcp --dport 3218 -j ACCEPT
+
+
+# 
+$ sudo iptables-save > /etc/network/iptables.rules
+
+
+

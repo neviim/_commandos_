@@ -1,0 +1,35 @@
+# Yarn é um gerenciador de pacotes JavaScript compatível com npm que ajuda a automatizar o processo de instalação, 
+# atualização, configuração e remoção de pacotes npm. 
+#
+# Ele foi criado para resolver um conjunto de problemas com o npm, como acelerar o processo de instalação de pacotes, 
+# paralelizando as operações e reduzindo os erros relacionados à conectividade de rede.
+
+$ curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
+$ yum install nodejs
+
+# instalando yarn
+$ curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+$ sudo rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg
+
+$ yum install yarn
+$ yarn --version
+
+# inicializando projeto
+$ yarn init my_project
+
+$ yarn add [package_name]
+$ yarn add [package_name]@[version_or_tag]
+
+$ yarn upgrade [package_name]
+$ yarn upgrade [package_name]@[version_or_tag]
+
+$ yarn remove [package_name]
+
+
+# Installing all project dependencies
+# Para instalar todas as dependências e projetos existentes especificados no package.json
+$ yarn
+$ yarn install
+
+# referencias
+https://yarnpkg.com/en/docs

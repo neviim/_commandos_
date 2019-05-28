@@ -1,0 +1,12 @@
+# instalando compilando python 3.7.2
+
+$ wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
+$ wget https://www.python.org/ftp/python/3.5.6/Python-3.5.6.tgz
+
+$ tar xf Python-3.7.2.tar.xz
+$ cd Python-3.7.2
+$ ./configure
+$ make -j 4
+$ sudo make altinstall
+
+ /usr/local/bin/python3.7

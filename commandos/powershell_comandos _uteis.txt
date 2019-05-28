@@ -1,0 +1,94 @@
+# https://www.softdownload.com.br/10-comandos-powershell-que-voce-deveria-conhecer.html
+
+    ::: Criar uma lista dos programas instalados
+
+        $ Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | 
+          Select-Object DisplayName, DisplayVersion | Sort-Object -Property DisplayName -Unique | 
+          Format-Table -AutoSize
+
+        $ Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | 
+          Select-Object DisplayName, DisplayVersion | Sort-Object -Property DisplayName -Unique | 
+          Format-Table -AutoSize > “$env:userprofile\desktop\programas_instalados.txt”
+
+    ::: Crie uma senha aleatoria
+
+        $ Add-Type -AssemblyName System.Web
+        $ [System.Web.Security.Membership]::GeneratePassword(8,2)
+        w^6S:pFD
+
+
+    ::: Exibir informações sobre a marca e modelo do computador
+
+        # sobre modelo computador
+        $ Get-WmiObject -Class Win32_ComputerSystem
+
+        # sobre a bios
+        $ Get-WmiObject -Class Win32_BIOS -ComputerName .
+
+        # 5 processos utilizando mais memoria
+        $ ps | sort –p ws | select –last 5
+
+        # exibir o endereço IP atribuído ao computador
+        $ Get-WmiObject -Class Win32_NetworkAdapterConfiguration -Filter IPEnabled=TRUE -ComputerName . | 
+          Format-Table -Property IPAddress
+
+    ::: Habilitar o módulo BITS no PowerShell
+
+        $ Import-Module BitsTransfer
+
+        # Transferência de arquivos síncrona
+        # Para copiar arquivos pela rede, basta digitar o comando abaixo, substituindo a palavra “origem” e “destino”, 
+        # como por exemplo Start-BitsTransfer –source \\desktop-sergio\windows10.iso -destination c:\downloads.
+        $ Start-BitsTransfer –source <origem> -destination <destino>
+        # Nota: A transferência assíncrona cria um arquivo temporário na pasta de destino, que fica oculto e tem que 
+        # ser convertido após a conclusão da transferência. Para converter os arquivos, execute o seguinte comando:
+        $ Get-BitsTransfer | Complete-BitsTransfer
+
+        # Transferência de arquivos assíncrona
+        # Você pode usar o modo assíncrono adicionando o parâmetro -asynchronous ao comando. Neste modo, se a transferência 
+        # for interrompida ela será retomada automaticamente quando as máquinas estiverem online.
+        $ Start-BitsTransfer –source origem -destination destino -asynchronous
+
+
+    ::: Alterar senha usuario AD Local
+        
+        $ Get-ADuser neviim -properties OfficePhone
+        $ Set-ADAccountPassword neviim -NewPassword $newpwd -Reset -PassThru | Set-ADuser -ChangePasswordAtLogon $True
+
+        # Script do PowerShell para alterar a senha do AD remotamente 
+          
+          # modelo 1
+          $password = (ConvertTo-SecureString -AsPlainText "Pass123" -Force)
+          $credential = New-Object System.Management.Automation.PSCredential "domain\admin_user",$password
+
+          $user = Read-Host "Type username:"
+          $newpassword = Read-Host "Type password:" -AsSecureString
+
+          Set-ADAccountPassword -Identity $user -Reset -NewPassword $newpassword -Credential $credential
+
+
+
+          # modelo 2
+          Add-Type -AssemblyName System.DirectoryServices.AccountManagement
+          $DIR_SVCS = New-Object System.DirectoryServices.AccountManagement.PrincipalContext('domain')
+
+          ## Other stuff...
+
+          ## usersOU is set to the domain of the users (...,OU=users,dc=<domain>...)
+          Search-ADAccount -LockedOut -SearchBase $usersOU | Unlock-ADAccount
+
+          ## Loop code...
+          $userID = 'myuser'
+          $password = 'TempPa$$w0rd'
+          $SecurePW = ConvertTo-SecureString ($password) -AsPlainText -Force
+
+          Set-ADAccountPassword $userID -Reset -NewPassword $SecurePW | Out-Null
+          if ((-Not $?) -or ($LASTEXITCODE -gt 0)) {
+              Throw "ERROR with Set-ADAccountPassword exit code $LASTEXITCODE on $userID"
+          }
+
+          if ($DIR_SVCS.ValidateCredentials($userID, $password)) {
+              Write-Host "Validated new account password: $userID"
+          } else {
+              Write-Host "FAILED validation of new account password: $userID"
+          }

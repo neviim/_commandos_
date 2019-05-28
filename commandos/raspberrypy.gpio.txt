@@ -1,0 +1,4 @@
+# https://www.embarcados.com.br/raspberry-pi-gpio-modo-input-python/
+# https://www.embarcados.com.br/kernel-linux-para-a-raspberry-pi/
+
+

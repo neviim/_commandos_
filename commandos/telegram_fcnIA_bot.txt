@@ -1,0 +1,26 @@
+Bot telegram 
+
+BotFather -WolframAlpha AppId
+
+Nome: fcnIA_bot
+Nick: fcnIA 
+
+Use this token to access the HTTP API:
+734160868:AAEq6UXDwNGWF5beWIMibTXCvLeFq3as4RE
+
+Descrição:
+Sistema para inteligencia artificial para uso em 
+auxilio de aplicaçoes administrativas em sala de aula.
+
+Sistema para integração de operações de inteligencia artificial em sala de aula.
+
+
+
+# -----------
+
+Wolfram Alpha 
+
+APP NAME: fcnIAbot
+APPID: LGV6YX-GYELYEJW39
+USAGE TYPE: Personal/Non-commercial Only
+

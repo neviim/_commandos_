@@ -1,0 +1,55 @@
+
+::: problema:
+
+    # Bom gente, eu consegui uma vaga de estágio de tecnico em informática em uma faculdade, mas redes não é 
+    muito o meu forte, eu entendo um pouco e não quero perder esse estágio, meu chefe pediu para formatar 
+    os computadores de todos os laboratórios. O problema é que são 160 computadores com Windows 7. e como 
+    é faculdade quase todos os dias é preciso dar manutenção nas máquinas. (malditos pendrives)
+
+    Gostaria de saber se tem como eu formatar só uma máquina e instalar tudo nela e clonar o HD dessa maquina 
+    e dar o boot pela rede e formatar pela rede os demais computadores.
+
+    PS: Se tiver como, me ensinem por favor
+
+
+::: Duas alternativas:
+
+    # tem um vídeo no qual é ensinado isso e aparentemente é funcional, pra não perder tempo teste em casa 
+    criando maquinas virtuais, quanto aos vírus ... você pode instalar algum programa pra congelar o hd 
+    após instalar todos os programas e drivers assim o computador não vai ser infectado novamente e sempre 
+    vai manter o mesmo desempenho.
+    https://www.youtube.com/watch?v=tOnZcZ8xTxE
+    
+
+    # OpteOptei por deixar a instalação pela rede por outro metodo usando um hd externo usb. você pode criar 
+    instaladores multiplos do windows com o winsetup from usb, fazer um banco de drivers no proprio hd pois 
+    o windows 7 é esperto o suficiente para achar os drivers certos apenas direcionando para a pasta raiz 
+    onde estão os drivers caso não saiba qual o modelo da placa-mãe. caso saiba o modelo basta acessar a 
+    pasta e instalar manualmente. se quiser instalar as atualizações do windows tem o wsus offline, e para 
+    instalar os aplicativos tem o wpi (windows post install), tudo automatizado, a unica coisa que você 
+    precisa é um hd externo. Se ainda assim optar pela instalação em rede esses aplicativos podem ser usados 
+    por compartilhamento.
+
+    # Utilizando o Adtive Direct e WDS - PXE
+    Instalação do Windows pela rede com WDS (Windows Deployment Services)
+    https://www.youtube.com/watch?v=UStD3lCWvUY
+
+
+::: Chat comentarios
+
+    # Serva Download: https://www.vercot.com/~serva/download.html
+
+    # Testei agora o SERVA com uma imagem iso integrada contendo versões do Windows 7, 8.1 e 10. Para isso, 
+      criei uma pasta W10_Ent_32&64 e coloquei a referida imagem iso.  O SERVA reconheceu e deu tudo certo.
+
+    # Consegui de boa instalar o Windows 10 e só colocar os arquivos da Iso na pasta "W8_Ent_32" como se 
+      fosse fazer no Windows 8.  Obrigado ajudou bastante.
+
+    
+
+
+
+::: Recursos que pode ser implementado:
+
+    - Integrar o Windows Update, WSUS 
+      https://docs.microsoft.com/pt-br/windows/deployment/update/waas-manage-updates-wufb

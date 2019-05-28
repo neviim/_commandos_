@@ -1,0 +1,31 @@
+# 
+
+    ::: https://vernemq.com/docs/installation/centos_and_redhat.html
+
+        $ yum install vernemq-1.7.0-1.el7.centos.x86_64.rpm
+        $ systemctl start vernemq 
+
+        $  vmq-admin api-key create
+        Last login: Wed Feb  6 09:02:06 -02 2019
+        11mWpjn0duWsBAfmGuijAz82i77Thb6Y
+
+        ::: Para adicionar uma chave de API de sua escolha, faça:
+
+            $ vmq-admin api-key add key=mykey
+
+        ::: Para excluir uma chave de API, faça:
+
+            $ vmq-admin api-key delete key=11mWpjn0duWsBAfmGuijAz82i77Thb6Y
+
+        ::: Uso da API
+
+            $ curl "http://11mWpjn0duWsBAfmGuijAz82i77Thb6Y@localhost:8888/api/v1/session/show"
+            $ curl "http://11mWpjn0duWsBAfmGuijAz82i77Thb6Y@localhost:8888/api/v1/listener/show"
+            $ curl "http://11mWpjn0duWsBAfmGuijAz82i77Thb6Y@localhost:8888/api/v1/plugin/show"
+
+            # Desconectar um cliente
+
+            $ curl "http://11mWpjn0duWsBAfmGuijAz82i77Thb6Y@localhost:8888/api/v1/session/disconnect?client-id=myclient&--cleanup"
+
+
+

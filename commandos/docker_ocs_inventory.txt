@@ -1,0 +1,51 @@
+# docker ocsinventory
+
+    ::: Starting a OCSInventory container is simple: Clone this repository :
+
+        $ sudo git clone https://github.com/OCSInventory-NG/OCSInventory-Docker-Image.git
+        $ cd OCSInventory-Docker-Image
+
+::: Comandos: docker.io/cmotta2016/ocsinventory
+
+
+
+::: Instal e execucao
+
+# testada ok.
+sudo docker run \
+ -p 80:80 \
+--name name-container \
+-v ocsdata:/usr/share/ocsinventory-reports/ \
+-v ocsdata:/etc/ocsinventory-reports/ \
+-v ocsdata:/var/lib/ocsinventory-reports/ \
+-e OCS_DBNAME=ocsweb \
+-e OCS_DBSERVER_READ=localhost \
+-e OCS_DBSERVER_WRITE=localhost \
+-e OCS_DBUSER=ocs \
+-e OCS_DBPASS=ocs \
+-itd \
+ocsinventory/ocsinventory-docker-image:latest \
+bash
+
+
+# acessando via browse
+http://$server_ip_address/ocsreports/install.php
+http://10.0.9.18/ocsreports/install.php
+
+
+::: Proxy
+# trocar 200.200.200.200 para ip externo
+$ iptables -t nat -A PREROUTING -d 200.200.200.200 -j RETURN
+
+# Iptables add ports 80 for Apache & 3306 for MySql
+$ iptables -I INPUT -m multiport -p tcp --dport 80,3306 -j ACCEPT
+$ service iptables save
+$ service iptables restart
+
+
+::: Referencias:
+    # OCSInventory-NG/OCSInventory
+    https://github.com/OCSInventory-NG/OCSInventory-Docker-Image
+    # cmotta2016/ocsinventory
+    https://hub.docker.com/r/cmotta2016/ocsinventory
+

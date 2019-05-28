@@ -1,0 +1,43 @@
+# conda criar conta ambiente virtual
+
+  ::: Ambiente windows: atualiza conda
+
+    $ conda update -n base -c defaults conda
+
+    $ conda update conda
+    $ conda update pandas
+    $ conda update numpy
+    $ conda update matplotlib
+
+    # lista ambientes virtuais instalados
+    $ conda env list
+
+  ::: cria virtual env
+
+    $ cd d:\__CondaVirtual\
+    $ conda create -n yourenvname python=x.x anaconda
+
+      # install virtual area
+      $ conda create -n pandas python=3.7 anaconda
+      $ conda activate pandas
+      $ conda deactivate
+
+
+  ::: activando ambiente virtual
+
+    $ source activate yourenvname
+    $ conda install -n yourenvname [package]
+    $ source deactivate
+
+
+  ::: remove
+
+    $ conda remove -n yourenvname -all
+
+
+  ::: algumas bibliotecas relevantes
+
+    $ conda install -c conda-forge geoplot
+    $ conda install -c conda-forge geopandas
+
+    $ pip install git+git://github.com/geopandas/geopandas.git

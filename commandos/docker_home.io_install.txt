@@ -1,0 +1,53 @@
+# Instalando home.io no docker
+
+	::: Erro: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+    $ systemctl start docker
+
+
+  ::: dependencia para instalar home.io
+
+    $ yum install avahi
+    $ yum install first
+
+    # pode ctambem colocar isso para ser executado em um script shell
+    # nano hassio_ubuntu_install_commands.sh
+
+      $ sudo -i
+      $ add-apt-repository universe
+      $ apt-get update
+      $ apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat software-properties-common
+      $ curl -sSL https://get.docker.com | sh
+      $ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install" | bash -s
+
+
+      $ docker ps
+      CONTAINER ID        IMAGE                                    COMMAND                  CREATED             STATUS              PORTS               NAMES
+      d790e59d0d95        homeassistant/qemux86-64-homeassistant   "/bin/entry.sh pytho…"   About an hour ago   Up About an hour                        homeassistant
+      f3b4e9ed9c4c        homeassistant/amd64-hassio-supervisor    "python3 -m hassio"      About an hour ago   Up About an hour                        hassio_supervisor
+
+
+      # 
+      $ docker exec -i -t d790e59d0d95 /bin/bash
+
+
+    # Para mais detalhes sobre o container, inspecionar pode ajudar.
+    $ docker inspect d790e59d0d95
+
+    # executando o docker run home assistant 
+    $ docker attach --sig-proxy=false ada5bbfc74f0
+    $ http://10.0.9.95:8123
+
+    # Erro ao conectar
+    $ http://10.0.9.95:8123/lovelace
+    Unable to connect to Home Assistant.
+
+
+
+
+    # provisorio
+      $ systemctl stop home-assistant@jorge.service 
+
+
+    # referecia
+    https://woliveiras.com.br/posts/comandos-mais-utilizados-no-docker/

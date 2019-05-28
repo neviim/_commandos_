@@ -6,14 +6,14 @@
         ok
 
         $ nano /etc/hosts
-            10.0.0.16   srv-ad1-fcn adserver fcn.edu.br
+            10.0...   serverfcn adserver fcn.edu.br
 
         $ nano /etc/resolv.conf 
             search fcn.edu.br
-            nameserver 10.0.0.16
+            nameserver 10.0.0...
 
-        $ realm join --user=jorge adserver
-        Senha para jorge:
+        $ realm join --user=manoel adserver
+        Senha para manoel:
 
 
         # comandos para verificar as configurações 
@@ -35,8 +35,8 @@
 
         $ cat /etc/sssd/sssd.conf
         $ id neviim@fcn.edu.br 
-        uid=1776802829(usuario@fcn.edu.br) gid=1776800512(admins. do domínio@fcn.edu.br) grupos=1776800512(admins. do domínio@fcn.edu.br),
-        1776800572(grupo de replicação de senha rodc nega@fcn.edu.br),1776801118(gerenciar contas@fcn.edu.br),1776800513(usuários do domínio@fcn.edu.br)
+        uid=12776802829(usuario@fcn.edu.br) gid=12776800512(admins. do domínio@fcn.edu.br) grupos=12776800512(admins. do domínio@fcn.edu.br),
+        12776800572(grupo de replicação de senha rodc nega@fcn.edu.br),12776801118(gerenciar contas@fcn.edu.br),12776800513(usuários do domínio@fcn.edu.br)
 
 
 
@@ -59,8 +59,8 @@
         $ systemctl daemon-reload
 
         $ id usuario
-        uid=1776802829(usuario) gid=1776800512(admins. do domínio) grupos=1776800512(admins. do domínio),1776800513(usuários do domínio),
-        1776801118(gerenciar contas),1776800572(grupo de replicação de senha rodc nega)
+        uid=12776802829(usuario) gid=12776800512(admins. do domínio) grupos=12776800512(admins. do domínio),12776800513(usuários do domínio),
+        12776801118(gerenciar contas),12776800572(grupo de replicação de senha rodc nega)
 
         $ cat /etc/sudoers.d/sudoers
             %sudoers    ALL=(ALL)       ALL

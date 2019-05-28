@@ -1,0 +1,11 @@
+# instalando node-red
+$ npm install -g --unsafe-perm node-red
+
+# inicializa syatema
+$ node-red
+
+# browse: http://10.0.9.18:1880
+
+
+# Referencias
+https://nodered.org/docs/hardware/arduino

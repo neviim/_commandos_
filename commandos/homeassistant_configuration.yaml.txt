@@ -1,0 +1,64 @@
+homeassistant:
+
+switch:
+	- platform: wake_on_lan
+	  mac_address: 1C-6F-65-CD-F0-F0
+	  name: "PDlab01.fcn.edu.br"
+	  host: 10.0.5.36
+
+group:
+	Wake on Lan:
+		name: Wake-on-Lan
+		entities:
+			- switch.computador
+
+input_select:
+	opcoespc:
+		name: Opções de Energia PC
+		option:
+			- Reiniciar
+			- Desligar
+			- Nenhum
+			- Adormecer
+			- Hibernar
+		initial: Nenhum
+		icon: mdi:desktop-tower
+
+shell_command:
+	reiniciar: 'curl -k http://10.0.5.36:8000/?action=System.Restart'
+	desligar: 'curl -k http://10.0.5.36:8000/?action=System.Shutdown'
+	adormecer: 'curl -k http://10.0.5.36:8000/?action=System.Sleep' 
+	hibernar: 'curl -k http://10.0.5.36:8000/?action=System.Hibernate'
+
+automation:
+	- alias: pc_reiniciar
+		trigger:
+			platform: state
+			entity_id: input_select.opcoesspc
+			to: "Reiniciar"
+		action:
+			- service: shell_command.reiniciar
+
+	- alias: pc_desligar
+		trigger: 
+			platform: state
+			entity_id: input_select.opcoesspc
+			to: "Desligar"
+		action:
+			- service: shell_command.desligar
+
+	- alias: pc_adormecer
+		trigger: 
+			platform: state
+			entity_id: input_select.opcoesspc
+			to: "Adormecer"
+		action:
+			- service: shell_command.adormecer
+
+	- alias: pc_hibernar
+		trigger: 
+			platform: state
+			entity_id: input_select.opcoesspc
+			to: "Hibernar"
+		action:
+			- service: shell_command.hibernar

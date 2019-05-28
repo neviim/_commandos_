@@ -1,0 +1,8 @@
+- Lista serviços:
+
+    $ systemctl list-unit-files --type=service
+
+    $ systemctl start application.service
+    $ systemctl reload application.service
+    $ systemctl enable application.service
+    $ systemctl disable application.service

@@ -1,0 +1,20 @@
+# Precisa ter o docker instalado e inicializado
+    
+    ::: Instalar GLPI - OCSinventory
+
+        $ yum install docker-compose
+        
+        $ docker pull indication/glpi-ocsinventory
+        $ docker-compose build
+    
+
+
+# Acesso do navegador: 
+    http://docker-host:82/glpi         # para o GLPI 
+    http://docker-host:83/ocsreports   # para o OCS Inventory NG Console 
+    http://docker-host:83/download     # para o local de download do OCS Inventory NG (interno) 
+    http://docker-host:83/snmp         # para OCS Inventory NG snmp local (interno) 
+    http://docker-host:83/ocsplugins   # para plug-ins do OCS Inventory NG (interno) 
+    http://docker-host:83/ocsinterface # para o relatório do OCS Inventory NG do cliente 
+    http://docker-host:83/ocsapi       # para a API REST do OCS Inventory NG (atualmente desativada)
+

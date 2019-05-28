@@ -1,0 +1,46 @@
+# ssh agent
+
+  :::
+
+    $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+    $ eval "$(ssh-agent -s)"
+
+    $ ssh-add ~/.ssh/id_rsa
+
+  ::: Adicionando uma nova chave SSH à sua conta do GitHub
+
+    $ sudo apt install clip
+    $ clip < ~/.ssh/id_rsa.pub
+
+    # configura terminal
+    $ git config --global user.email "you@example.com"
+    $ git config --global user.name "Your Name"
+
+  ::: pull-request (atualiza do server para o cliente)
+
+    $ git pull
+    $ git pull-request
+
+  ::: push (atualiza do cliente para o server)
+
+    $ git push
+    $ git push origin --tags
+    $ git push origin v1.5
+
+  ::: git commit
+
+    $ git add *
+    $ git commit -m "comentario"
+
+    $ git status | grep unmerged
+
+  ::: Log
+
+    $ git log --pretty=oneline
+
+  ::: Remoto
+
+    $ git remote -v
+    $ git tag
+    $ git show v1.4-lw
+    $ git last

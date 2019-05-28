@@ -1,0 +1,11 @@
+# utilizando virtualenv
+
+  ::: criando uma area virtual
+
+    # virtualenv --python=/usr/bin/python3 <name of env>
+    $ sudo virtualenv --python=/usr/bin/python3 pandas
+
+    $ source ~/Virtual/pandas/bin/activate
+    $ deactivate
+
+    

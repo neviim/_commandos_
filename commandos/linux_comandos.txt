@@ -1,0 +1,3 @@
+# linux comandos
+
+$ cat /etc/*-release | grep PRETTY 

@@ -1,0 +1,89 @@
+# acesso padrão
+    Usuario.: pi 
+    Password: raspberry
+
+    # acesso root
+    $ sudo su 
+
+
+
+    # instalando nodejs
+    $ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+    $ curl -sL https://deb.nodesource.com/setup_10.x| sudo -E bash -
+
+
+    # comandos uteis:
+
+    # atualizar raspberry pi
+    $ apt-get update
+    $ apt-get upgrade
+
+    # atualizar firmware
+    $ sudo rpi-update
+
+
+    # Para saber a voltagens de alguns dos componentes
+    $ for id in core sdram_c sdram_i sdram_p ; do \
+    echo -e "$id:\t$(vcgencmd measure_volts $id)" ; \
+    done
+
+    # Sabe quais os codecs activos no seu sistema
+    $ for codec in H264 MPG2 WVC1 MPG4 MJPG WMV9 ; do \
+    echo -e "$codec:\t$(vcgencmd codec_enabled $codec)" ; \
+    done
+
+    # Para saber a velocidade de relógio de outros componentes como h264, isp, v3d...
+    $ for src in arm core h264 isp v3d uart pwm emmc pixel vec hdmi dpi ; do \
+    echo -e "$src:\t$(vcgencmd measure_clock $src)" ; \
+    done
+
+    # Temperatura interna do PI
+    $ vcgencmd measure_temp
+    $ vcgencmd version
+    $ vcgencmd get_config arm_freq
+
+
+    # Memória de CPU vs GPU
+    $ vcgencmd get_mem arm && vcgencmd get_mem gpu
+
+    # Para os adeptos do overclocking, é também importante conhecer as frequências actuais, mínimas e máximas suportadas pelo CPU
+    $ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
+    $ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    $ cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+
+    $ cat /proc/version
+    $ cat /proc/cpuinfo
+    $ cat /proc/meminfo
+    $ cat /proc/partitions
+
+    $ sudo shutdown -h 21:55 &
+    $ lsusb 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Referencias
+https://tutorials-raspberrypi.com/setup-raspberry-pi-node-js-webserver-control-gpios/
+https://www.w3schools.com/nodejs/nodejs_raspberrypi.asp
+
+    # Install Node-RED on Raspbian Jessie Lite on a Raspberry Pi Zero W
+    https://diyprojects.io/install-node-red-raspbian-jessie-lite-raspberry-pi-zero-w/#.XGb-GirQiZQ
+    # SQLite with Node-RED and Raspberry Pi
+    https://randomnerdtutorials.com/sqlite-with-node-red-and-raspberry-pi/
+    # Node Red - Control RaspberryPi
+    https://www.instructables.com/id/Node-Red-Control-RaspberryPi/
+
+    # configurando DNS
+    https://www.youtube.com/watch?v=DPRjjOWUbWk

@@ -1,0 +1,13 @@
+# GLPI
+    ::: Verificando a compatibilidade do seu ambiente para a execução do GLPI
+        ➜ ~neviim: setsebool -P httpd_can_network_connect 1
+        ➜ ~neviim: setsebool -P httpd_can_network_connect_db 1 
+        ➜ ~neviim: setsebool -P httpd_can_sendmail 1
+ 
+
+    ::: Os usuários e senhas padrões são:
+
+        - glpi/glpipwd para a conta do usuário administrador
+        - tech/techpwd para a conta do usuário técnico
+        - normal/normalpwd para a conta do usuário normal
+        - post-only/postonlypwd para a conta do usuário postonly

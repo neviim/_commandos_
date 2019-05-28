@@ -1,0 +1,8 @@
+# Conectando ao banco Mongodb
+
+    ::: Com o braker mosquitto instalado, configura Mongodb
+
+        MQTT port: 1883
+        MQTT WS: 8080
+        DB Url: mongodb://localhost:27017/mqtt
+                mongodb://10.0.9.95:27017/mqtt 
