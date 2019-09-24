@@ -25,7 +25,8 @@
         # testa autenticacao
         $ ssh -T git@github.com
 
-
+        $ git config --list --show-origin
+        $ git config --list
 
 
         # Usando git
