@@ -14,6 +14,19 @@
 
   ::: cria virtual env
 
+    $ conda create -n myenv python=3.4
+    $ conda create -n myenv python
+    $ conda create -n myenv scipy=0.15.0
+    $ conda create -n myenv python=3.4 scipy=0.15.0 astroid babel
+
+    $ conda env create -f environment.yml
+    $ conda env list
+
+    $ conda install -n myenv scipy=0.15.0
+    $ conda install -n myenv scipy
+    
+
+    # outros exemplos
     $ cd d:\__CondaVirtual\
     $ conda create -n yourenvname python=x.x anaconda
 
@@ -29,10 +42,13 @@
     $ conda install -n yourenvname [package]
     $ source deactivate
 
+    $ conda activate myenv
+
 
   ::: remove
 
     $ conda remove -n yourenvname -all
+    $ conda remove --name myenv --all
 
 
   ::: algumas bibliotecas relevantes
@@ -41,3 +57,8 @@
     $ conda install -c conda-forge geopandas
 
     $ pip install git+git://github.com/geopandas/geopandas.git
+
+  ::: Explicit
+
+    $ conda list --explicit
+    $ conda list --explicit > spec-file.txt
