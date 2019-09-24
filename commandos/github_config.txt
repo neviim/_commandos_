@@ -14,14 +14,18 @@
         $ eval "$(ssh-agent -s)"
         Agent pid 27087
 
+        $ ls -al ~/.ssh
+
         $ sudo apt install xclip
         $ xclip -sel clip < ~/.ssh/id_rsa.pub
 
         # adiciona a key public em:
         https://github.com/settings/keys
 
+        # testa autenticacao
+        $ ssh -T git@github.com
 
-        $ ls -al ~/.ssh
+
 
 
         # Usando git
