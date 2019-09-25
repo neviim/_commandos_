@@ -1,0 +1,33 @@
+# Conda homeassistant | Ubuntu Desktop 19.04
+
+
+    ::: Inatalando homeassistant em ambiente anaconta python 3.7
+
+        $ conda create -n homeassistant python=3.7
+        $ conda activate homeassistant
+      
+        $ pip install --upgrade pip
+        $ pip install setuptools
+        $ pip install sqlalchemy
+        $ pip install aiohttp_cors
+        $ pip install homeassistant
+        
+        $ hass --open-ui
+
+        # No browser: <ipMaquina:8123> | 10.0.5.12:8123 
+
+        $ conda deactivate
+
+
+    ::: Diretorio da instalacao.
+
+        $ cd /home/neviim/.homeassistant
+
+
+    ::: Uma configuracao do homeassistant
+    
+        # https://github.com/dougbaptista/homeassistant-public
+
+        # fazer backup da pasta /home/neviim/.homeassistant
+        # copiar estes aquivos para dentro desta pasta, caso
+        # queira personalizar seu ambiente home assistant.

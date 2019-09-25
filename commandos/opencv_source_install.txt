@@ -1,0 +1,14 @@
+#
+
+    :::
+
+        $ unzip 3*.zip
+        $ cd opencv*
+
+        $ mkdir release
+        $ cd release
+
+        $ cmake -DBUILD_TIFF=ON -DBUILD_opencv_java=OFF -DWITH_CUDA=OFF -DWITH_OPENGL=ON -DWITH_OPENCL=ON -DWITH_IPP=ON -DWITH_TBB=ON -DWITH_EIGEN=ON -DWITH_V4L=ON -DWITH_VTK=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DCMAKE_BUILD_TYPE=RELEASE ..
+
+        $ make -j -l 2
+        $ make install  # not sudo, except for Raspberry Pi

@@ -38,6 +38,9 @@
 
   ::: activando ambiente virtual
 
+    $ conda activate py37
+    $ conda deactivate
+
     $ source activate yourenvname
     $ conda install -n yourenvname [package]
     $ source deactivate
