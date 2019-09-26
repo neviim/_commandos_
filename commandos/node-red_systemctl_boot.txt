@@ -1,0 +1,36 @@
+#
+
+    ::: configurando para carregar no boot
+
+        $ wget -O /etc/systemd/system/Node-Red.service https://gist.githubusercontent.com/Belphemur/3f6d3bf211b0e8a18d93/raw/3a33f9aaf1d07f5ad0fc2fe7aec2b70410a87111/Node-RED.service
+
+        $ vim /etc/systemd/system/Node-Red.service
+            [Unit]
+            Description=The NodeRed
+            After=syslog.target network.target
+
+            [Service]
+
+            Type=simple
+            User=root
+            Group=root
+
+            Nice=5
+            KillSignal=SIGINT
+            ExecStart=/usr/bin/node-red
+            Restart=on-failure
+
+            StandardOutput=syslog
+            WorkingDirectory=/root/.node-red 
+
+            User=root
+            Group=root
+
+            [Install]
+            WantedBy=multi-user.tar
+
+    :::
+
+        $ systemctl daemon-reload
+        $ systemctl enable Node-Red.service
+        $ systemctl start Node-Red.service
