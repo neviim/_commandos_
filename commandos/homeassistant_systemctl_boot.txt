@@ -1,0 +1,44 @@
+# http://riccardotramma.com/2018/09/install-home-assistant-on-raspberrypi/
+# https://www.home-assistant.io/docs/autostart/systemd/
+
+    ::: PYTHON VIRTUAL ENVIRONMENT
+
+        # Anaconda path: /home/neviim/anaconda3/envs/homeassistant/bin/hass --open-ui
+
+        $ sudo vim /etc/systemd/system/homeassistant.service
+
+            # ---------------------------------
+            [Unit]
+            Description=Home Assistant
+            After=syslog.target network.target
+
+            [Service]
+            Type=simple
+            User=root
+            Group=root
+
+            Nice=5
+            KillSignal=SIGINT
+            ExecStart=/home/neviim/anaconda3/envs/homeassistant/bin/hass --open-ui -c "/home/neviim/.homeassistant"
+            Restart=on-failure
+
+            StandardOutput=syslog
+            WorkingDirectory=/home/neviim/.homeassistant 
+
+            [Install]
+            WantedBy=multi-user.tar
+
+
+
+
+    ::: Configura
+
+        $ ps -p 1 -o comm=
+
+        $ systemctl daemon-reload
+        $ systemctl --system daemon-reload
+        
+        $ systemctl start homeassistant.service
+        $ systemctl status homeassistant.service
+        $ systemctl reatart homeassistant.service
+        $ systemctl stop homeassistant.service
