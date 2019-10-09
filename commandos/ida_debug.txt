@@ -1,0 +1,28 @@
+#
+
+  ::: SCUM
+
+  # Apos baypassar EasyAntiCheat
+
+
+    255BE6B2380 -> Pontos de fama
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Referencias debuger gamer
+  # Como encontrar o tutorial CSGO NetVar Offsets Hacking com o IDA Pro
+  https://www.youtube.com/watch?v=QdG9-jxOf8Y&list=PLt9cUwGw6CYG2kmL5n6dFgi4wKMhgLNd7&index=5

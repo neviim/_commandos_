@@ -1,0 +1,179 @@
+# Installing UNIX Agent with RPM
+
+  ::: On Fedora/Redhat/Centos 7
+
+    $ sudo wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    $ sudo wget https://rpm.ocsinventory-ng.org/ocsinventory-release-latest.el7.ocs.noarch.rpm
+    $ sudo yum install ocsinventory-release-latest.el7.ocs.noarch.rpm epel-release-latest-7.noarch.rpm
+
+
+  ::: Instala agente windows
+
+    # configuração: OCS Inventory NG Agent 2.4.0.0 (https://www.youtube.com/watch?v=K7L6opzqxEg)
+	# configuração: OCS Deploiment Tools           (https://www.youtube.com/watch?v=P6cjgZ6TwBA)
+
+      # server URL
+        http://ocs.fcn.edu.br/ocsinventory
+
+      # Server Credencial:
+        User:
+        Password:
+
+      # CA Certificate PATH
+        cacert.pem:
+
+      # proxy
+        Usa Proxy: não
+
+      # Specify TAG value
+        TAG: OCS-Teste
+
+      # Immediately launch Inventory
+        inventory: (= /NOW)
+
+      # Destination Folder
+        Folder: C:\Program Files (x86)\OCS Inventory Agent
+
+
+      # Command line opcional
+      # http://ocs.fcn.edu.br/index.php?function=wiki
+
+        Sintaxe: /server=http[s]://server.domain.tld[:port]/ocsinventory
+
+        /S /NP /NOSPLASH /NO_SYSTRAY /NOW /SERVER=http://ocs.fcn.edu.br/ocsinventory
+        /S /NP /NOSPLASH /NO_SYSTRAY /NOW /SERVER=http://10.0.76.30/ocsinventory
+        /S /NP /NOSPLASH /NOW /SERVER=http://10.0.76.30/ocsinventory
+
+        /NP /NO_SYSTRAY /NOW /SERVER=http://ocs.fcn.edu.br/ocsinventory
+
+              /S  = Modo Silencioso.
+              /NP = Para não utilizar a configuração do proxy do iternet explorer.
+              /NOSPLASH = Não exibir tela de inicio de Instalação.
+              /NO_SYSTRAY = Não exibe icone do OCS "perto do relogio" (Systray).
+              /NOW = Logo após instalar já irá iniciar o serviço.
+              /SERVER=http://10.0.76.30/ocsinventory = Endereço do servidor OCS.
+
+
+        # Instalar silenciosamente em todos os computadores atualmente registrados em seu domínio:
+        $ psexec \\* -s \\Server\NetLogon\OCS-NG-Windows-Agent-Setup.exe /S /NOSPLASH /SERVER=http://my_ocs_server/ocsinventory
+
+        #  Instalar silenciosamente em um único computador:
+        $ psexec \\COMPUTER_NAME -s \\Server\NetLogon\OCS-NG-Windows-Agent-Setup.exe /S /NOSPLASH /SERVER=http://my_ocs_server/ocsinventory
+
+        # Instale silenciosamente em todos os computadores usando as credenciais de administrador de domínio:
+        $ psexec \\* -s -u Domain\Administrator -p Password \\Server\NetLogon\OCS-NG-Windows-Agent-Setup.exe /S /NOSPLASH /SERVER=http://my_ocs_server/ocsinventory
+
+        # Instale silenciosamente em computadores específicos (o ALL.TXT é um arquivo de texto que lista nomes de computadores de destino, um por linha), usando credenciais de administrador de domínio:
+        $ psexec @ALL.TXT -s -u Domain\Administrator -p Password \\Server\NetLogon\OCS-NG-Windows-Agent-Setup.exe /S /NOSPLASH /SERVER=http://my_ocs_server/ocsinventory
+
+
+  ::: Instar agente Fusion GLPI
+
+    # redirecionamento do server para o agent GLPI e OCS
+    http://glpi.fcn.edu.br/plugins/fusioninventory/
+    http://ocs.fcn.edu.br/ocsinventory
+
+    # Diretorio de Instalação
+    C:\Program Files\FusionInventory-Agent\perl\bin\
+    C:\Program Files\FusionInventory-Agent\perl\bin\fusioninventory-agent.exe" -I"C:\Program Files\FusionInventory-Agent\perl\agent" -I"C:\Program Files\FusionInventory-Agent\perl\lib" -I"C:\Program Files\FusionInventory-Agent\perl\site\lib" -I"C:\Program Files\FusionInventory-Agent\perl\vendor\lib" "C:\Program Files\FusionInventory-Agent\perl\bin\fusioninventory-win32-service"
+
+    # precisando executar manualmente o agente fusioninventory
+    cd C:\Program Files\FusionInventory-Agent\perl\bin\
+    perl.exe fusioninventory-agent
+
+    # Log diretorio
+    C:\Program Files\FusionInventory-Agent\logs\fusioninventory-agent.log
+
+
+    # Shell
+    $ echo %computername%
+
+    # verificar se esta sendo executado
+    - serviços
+      FusionInventory Agent - (Em Execução)
+
+
+
+  ::: Instala agente Linux
+
+    $ yum install ocsinventory-agent
+
+    # configura
+
+      $ vim /etc/ocsinventory/ocsinventory-agent.cfg
+        #
+        # OCS Inventory "Unix Unified Agent" Configuration File
+        #
+        # options used by cron job overides this (see /etc/sysconfig/ocsinventory-agent)
+        #
+
+        # Server URL, unconmment if needed
+        # server = your.ocsserver.name
+        local = /var/lib/ocsinventory-agent
+
+        # Administrative TAG (optional, must be filed before first inventory)
+        # tag = your_tag
+
+        # How to log, can be File,Stderr,Syslog
+        logger = Stderr
+        logfile = /var/log/ocsinventory-agent/ocsinventory-agent.log
+
+
+        # --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+
+
+        $ vim /etc/sysconfig/ocsinventory-agent
+        #
+        # OCS Inventory "Unix Unified Agent" Configuration File
+        # used by hourly cron job
+        #
+
+        # Add tools directory if needed (tw_cli, hpacucli, ipssend, ...)
+        PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+        # Mode, change to "cron" to activate
+        OCSMODE[0]=none
+
+        # can be used to override the ocsinventory-agent.cfg setup.
+        # OCSSERVER[0]=your.ocsserver.name
+        #
+        # corresponds with --local=/var/lib/ocsinventory-agent
+        # OCSSERVER[0]=local
+
+        # Wait before inventory
+        OCSPAUSE[0]=100
+
+        # Administrative TAG (optional, must be filed before first inventory)
+        OCSTAG[0]=
+        ~
+
+
+::: Instalar pendencias para uso do Agent
+
+    $ yum install perl-CPAN
+    $ perl -e shell -MCPAN
+
+    cpan[1]> install XML::Simple
+    cpan[2]> ^Z
+
+
+  ::: Configuration
+
+    $ vim /etc/environment
+      LANGUAGE = "en_US:en",
+      LC_ALL = "en_US.UTF-8",
+      LC_CTYPE = "UTF-8",
+      LANG = "en_US.UTF-8"
+
+    ou
+
+    $ export LANGUAGE = "en_US:en",
+    $ export LC_ALL = "en_US.UTF-8",
+    $ export LC_CTYPE = "UTF-8",
+    $ export LANG = "en_US.UTF-8"
+
+
+
+
+# Referencias
+  https://www.youtube.com/watch?v=DwI7pbD6ze0

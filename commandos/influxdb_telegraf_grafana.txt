@@ -1,0 +1,87 @@
+# Instalando InfluxDB, Telegraf, Grafana
+
+  ::: InfluxDB/Telegraf
+      # https://portal.influxdata.com/downloads/
+
+        # InfluxDB
+        $ systemctl start  influxdb.service
+        $ systemctl enable influxdb.service
+        $ systemctl status influxdb.service
+
+        # Telegraf
+        $ systemctl start  telegraf.service
+        $ systemctl enable telegraf.service
+        $ systemctl status telegraf.service
+
+          # para configurar o Telegraf
+          # Try stopping influxd via systemctl stop influxdb and then run
+            $ /usr/bin/influxd -config /etc/influxdb/influxdb.conf
+
+
+        # Criar um database no InfluxDB
+
+        $ influx -precision rfc3339
+        Connected to http://localhost:8086 version 1.7.x
+        InfluxDB shell 1.7.x
+
+        # Criar usuario
+        > CREATE USER dev WITH PASSWORD 'devpwd' WITH ALL PRIVILEGES
+        > show users
+
+        # Criar databases
+        > CREATE DATABASE mydb
+        > SHOW DATABASES
+
+
+        $ curl -XPOST "http://localhost:8086/query" --data-urlencode "q=CREATE USER chronothan WITH PASSWORD 'supersecret' WITH ALL PRIVILEGES"
+
+
+  ::: Telegraf upgrade
+
+      $ telegraf version
+      $ apt install --only-upgrade telegraf
+      $ yum install upgrade telegraf
+      $ telegraf version
+
+
+  ::: Testando API
+    # https://docs.influxdata.com/influxdb/v1.7/tools/api/
+
+      - http://10.0.9.48:8086/debug/pprof/
+
+      $ curl -o profiles.tar.gz "http://10.0.9.48:8086/debug/pprof/all?cpu=true"
+
+      $ curl http://10.0.9.48:8086/debug/requests?seconds=60
+
+
+
+  ::: Grafana
+      # Instal Grafana
+      https://grafana.com/grafana
+
+      $ systemctl start  grafana-server.service
+      $ systemctl enable grafana-server.service
+      $ systemctl status grafana-server.service
+
+      # acesso Grafana:
+        - User.: admin
+        - Senha: admin
+
+        # reseta admin password para "admin"
+          $ sudo sqlite3 /var/lib/grafana/grafana.db
+
+          sqlite> update user set password = '59acf18b94d7eb0694c61e60ce44c110c7a683ac6a8f09580d626f90f4a242000746579358d77dd9e570e83fa24faa88a8a6', salt = 'F3FAxVm33R' where login = 'admin';
+          sqlite> .exit
+
+
+
+      # verificar plugin:
+        - Ccminer Dashboard
+        https://grafana.com/grafana/dashboards/6681
+
+
+# referencias
+  # Criar autenticação no banco
+  - https://www.youtube.com/watch?v=rF7bWnxlSXM
+
+  - https://docs.influxdata.com/chronograf/v1.7/administration/managing-influxdb-users/

@@ -1,0 +1,11 @@
+# Cuda
+
+  ::: C:\ProgramData\NVIDIA Corporation\CUDA Samples\v10.1
+
+
+
+
+
+
+# Referencia
+ https://devblogs.nvidia.com/even-easier-introduction-cuda/

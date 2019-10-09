@@ -1,0 +1,18 @@
+# SSH Login autorizado
+
+  ::: Criando uma key de autenticação
+
+    # maquina origem
+      $ ssh-keygen -t dsa
+
+    # maquina destino
+      $ cat ~/.ssh/id_dsa.pub | ssh usuario_remoto@servidor_remoto 'cat >> ~/.ssh/authorized_keys'
+
+      # conectando a maquina destino
+      $ ssh usuario_remoto@servidor_remoto
+
+      # referencia utilizando windows prompt Cmder
+        $ C:\Users\usuario/.ssh/id_dsa
+        $ cat ~/.ssh/id_dsa.pub | ssh usuario@10.0.95.202 'cat >> ~/.ssh/authorized_keys'
+
+        $ ssh usuario@10.0.95.202

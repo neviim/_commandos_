@@ -7,17 +7,17 @@
 
         - https://www.zabbix.com/download_agents
 
-    :: Indicações: 
-    
+    :: Indicações:
+
             Utilizar o 'Visual Studio Code' para melhor compreender este doc.
-            e utilizar o cliente de prompt 'cmder', caso não esteja instalado 
-            verifique onde baixa-lo e 'instala-los' em: ferramentas_tralaho_windows.py 
+            e utilizar o cliente de prompt 'cmder', caso não esteja instalado
+            verifique onde baixa-lo e 'instala-los' em: ferramentas_tralaho_windows.py
 
 
     # baixa e instala o agente
 
         - Criar uma pasta C:\zabbix
-        - Criar uma pasta C:\zabbix\log 
+        - Criar uma pasta C:\zabbix\log
         - Copia as pastas 'bin' e 'conf' do agente para dentro desta pasta 'c:\zabbix'
         - Configura o arquivo 'zabbix_agentd.win.conf'
         - Onde esta o IP '10.0.9.41', colocar o IP do servidor zabbix, atualmente
@@ -35,7 +35,7 @@
         # inicializando o cliente agente zabbix:
 
             λ cd C:\zabbix\bin\win64
-            
+
             λ  .\zabbix_agentd.exe -i -c C:\zabbix\conf\zabbix_agentd.win.conf
             zabbix_agentd.exe [1332]: service [Zabbix Agent] installed successfully
             zabbix_agentd.exe [1332]: event source [Zabbix Agent] installed successfully
@@ -44,17 +44,23 @@
 
                 - Em pesquisa da cortana digite 'serviços'
                 - Localize 'Zabbix Agente' na lista de soft.
-                - De 2 click nele em tipo de inicialização: 'Automático' <ok> 
+                - De 2 click nele em tipo de inicialização: 'Automático' <ok>
                 - Click em 'iniciar' o serviço
                 - Verifique se o 'Status' passo para 'Em Execução'
                 - Cliente estara sendo executado agora.
 
 
+
+        # Executar o agente por linha de comando
+
+            λ zabbix_agentd.exe -d -c C:\Zabbix\conf\zabbix_agentd.conf
+
+
     # Erro Unit zabbix-agent.service is masked (este erro pode ocorrer em sistema linux)
-    
+
         $ service zabbix-agent start
         Failed to start zabbix-agent.service: Unit zabbix-agent.service is masked.
-        
+
             $ systemctl unmask nginx.service
 
             # não resolvendo utiliza isso.

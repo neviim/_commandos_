@@ -1,0 +1,13 @@
+#
+
+  ::: Install instancia ENV Conda tensorflow
+
+    > conda create -n tensor python=3.6
+    > activate tensor
+
+    (tensor) > pip install tensorflow
+    (tensor) > pip install keras
+    (tensor) > pip install sklearn
+    (tensor) > pip install pandas
+    (tensor) > pip install numpy
+    (tensor) > pip install matplotlib

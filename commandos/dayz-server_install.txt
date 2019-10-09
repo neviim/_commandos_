@@ -1,0 +1,33 @@
+
+# Steam Set Launch Options
+
+
+  * Olhe para steam tools, faça o download do servidor DayZ,
+    inicie o DayZ Server, inicie o DayZ, escolha o jogo lan.
+
+
+  ::: Before you start DayZ server... right click it - properties - set launch option -
+      In launch option you type: -config=serverDZ.cfg
+
+      # Crie um atalho do Steam no mesmo diretório.
+
+        * Antes de iniciar o servidor DayZ ... clique com o botão direito:
+          - Properties
+          - definir opção de inicialização
+          - Na opção de inicialização,
+            digite: -config=serverDZ.cfg
+
+
+::: Erros:
+
+    - File "DZ\worlds\chernarusplus\ce\mapgroupdirt.xml" does not exist.
+
+      Se estiver em sua máquina local, sugira desligar seu firewall local (software) para testes temporários e
+      usar o parâmetro: -server=127.0.0.1:2302 no steam para ver se você pode forçar uma conexão, também garantir
+      que o servidor esteja carregando não mods para começar, também o mesmo com o cliente.
+      A maioria dos problemas como este são relacionados ao firewall ou ao arquivo cfg.
+
+      Ve se abriu as portas 2410-2420 em vez de 2410 a 2415, quando o dayz começa em 2420. 
+
+
+    [CE][LoadMap] "Dirt" :: Failed to read group instances (DZ\worlds\chernarusplus\ce\mapgroupdirt.xml)

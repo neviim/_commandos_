@@ -1,0 +1,35 @@
+# Watt-hora
+
+    ::: O watt-hora (Wh) é a medida de energia usualmente utilizada em eletrotécnica.
+        Um watt-hora é a quantidade de energia utilizada para alimentar uma carga com
+        potência de um watt pelo período de uma hora. O valor de 1 Wh é equivalente a
+        3,6×103 J =3,6 kJ =3600 J.
+
+        - Múltiplos
+          Quilowatt-hora (kWh) equivale a 1.000 Wh     ou 3,6×106  joules.
+          Megawatt-hora  (MWh) equivale a 1.000.000 Wh ou 3,6×109  joules.
+          Gigawatt-hora  (GWh) equivale a 109 Wh       ou 3,6×1012 joules.
+          Terawatt-hora  (TWh) equivale a 1012 Wh      ou 3,6×1015 joules.
+
+
+    ::: Equívoco entre W/h, W e Wh
+        O watt é uma unidade de potência, o watt-hora é uma unidade de energia
+        gerada e o watt/hora indica uma taxa de variação da potência consumida
+        com o tempo.
+
+        Exemplo:
+          * Uma lâmpada cuja potência é 100 W consome energia a uma taxa de 100 joules por segundo.
+            Em uma hora consome 360.000 joules ou, equivalentemente, 100 Wh.
+            Se ficar acesa durante 10 horas, consumirá 1000 Wh ou 1 kWh.
+
+            100 W * 10 h = 1000 Wh
+
+
+          * A unidade watt por hora (W/h) deve ser usada para indicar "potência por unidade de tempo".
+            Seu múltiplo, o megawatt por ano (MW/a), é usado para expressar a
+            variação da potência consumida em certo sistema de carga
+
+            Exemplo:
+              * "A potência consumida tem sido aumentada a uma taxa de 10 megawatts por ano (10 MW/a)."
+                Isso significa que a capacidade de fornecimento/geração de energia (medida em unidades de potência)
+                vem aumentando em 10 MW a cada ano ou 10 MW/a.

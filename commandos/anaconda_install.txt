@@ -57,6 +57,25 @@ $ sha256sum Anaconda3-5.0.1-Linux-x86_64.sh
 
 
 
+# instalando tensorflow:
+
+  $ conda create -n tflow python=3.7 ipykernel
+  $ conda activate tflow
+  $ conda install tensorflow
+
+
+  ::: Tensorflow tensorflow_cpu
+
+    $ conda create -n tensorflow_cpu pip python=3.7
+
+    >>> import tensorflow as tf
+    >>> hello = tf.constant('Hello, TensorFlow!')
+    >>> sess = tf.Session()
+    >>> print(sess.run(hello))
+    b'Hello, TensorFlow!'
+
+
+
 # Desinstalar o anaconda por completo
 
     $ conda install anaconda-clean

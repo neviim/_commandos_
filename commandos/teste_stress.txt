@@ -1,0 +1,12 @@
+#
+
+    ::: Stress
+
+      $ sudo apt-get install stress
+
+      $ sudo add-apt-repository ppa:amanusk/python-s-tui
+      $ sudo apt-get update
+
+      $ sudo apt-get install python-s-tui
+
+      

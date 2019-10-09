@@ -1,0 +1,260 @@
+# influxdb
+
+  ::: Consulta por CURL
+
+    # Referencias
+    # $ curl -k --connect-timeout 30 -XPOST "${url}/write?db=${database}&precision=s" -u "${username}:${password}" --data-binary "$measurement"
+    # $ curl -G 'http://4.133:31818/query?pretty=true' --data-urlencode "db=k8s" --data-urlencode "q=SELECT * FROM "cpu''usage""
+    # Criando um banco de dados com PASSWORD
+    $ curl -XPOST 'http://tilab.joaopauloii:8086/query?u=dev&p=devpwd' --data-urlencode 'q=CREATE DATABASE "mydev"'
+
+
+    # XPOST                                                                                                   # data hora em formato Epoch Time.
+    $ curl -XPOST 'http://tilab.joaopauloii:8086/query?db=mydb' --data-urlencode 'q=SELECT * INTO "newmeas" FROM "mymeas"'
+
+    # GET
+    $ curl -G 'http://tilab.joaopauloii:8086/query?db=mydb&epoch=s' --data-urlencode 'q=SELECT * FROM "mymeas"'
+    $ curl -i -G 'http://tilab.joaopauloii:8086/query?db=mydb' --data-urlencode 'q=SELECT * FROM "mymeas"'
+
+  ::: Comandos database consulta
+
+    $ influx
+
+    > SHOW DATABASES
+    > SHOW RETENTION POLICIES ON <database_name>
+
+
+    # Mostra todos os hosts
+    > SHOW TAG VALUES WITH KEY=host
+
+    # mostra todos os hosts na DB, mesmo que são removidos.
+    > SHOW TAG VALUES FROM system WITH KEY = host
+
+    # SHOW SERIES [FROM <measurement_name> [WHERE <tag_key>='<tag_value>']]
+    > SHOW SERIES
+
+    > SHOW SERIES FROM system
+    > SHOW SERIES FROM mem
+
+    SHOW SERIES FROM diskio
+    # win_diskio,host=L0101,instance=0\ C:\ D:,objectname=PhysicalDisk
+    # win_diskio,host=L0101,instance=1\ F:,objectname=PhysicalDisk
+    # win_diskio,host=L0101,instance=1\ G:,objectname=PhysicalDisk
+    # win_diskio,host=L0101,instance=1\ H:,objectname=PhysicalDisk
+    # win_diskio,host=L0101,instance=1\ I:,objectname=PhysicalDisk
+    # win_diskio,host=L0101,instance=2\ F:,objectname=PhysicalDisk
+    # win_diskio,host=L0101,instance=2\ G:,objectname=PhysicalDisk
+    # win_diskio,host=L0101,instance=3\ H:,objectname=PhysicalDisk
+    # win_diskio,host=L0101,instance=4\ I:,objectname=PhysicalDisk
+    # win_diskio,host=L0102,instance=0\ C:,objectname=PhysicalDisk
+
+    # Referencia de uso documentação:
+    # SHOW SERIES FROM h2o_quality WHERE location = 'coyote_creek'
+
+      # aplicando no banco em uso:
+      > SHOW SERIES FROM win_diskio WHERE objectname = 'PhysicalDisk'
+
+      > SHOW SERIES FROM win_diskio WHERE host = 'L0101'
+      key
+      ---
+      win_diskio,host=L0101,instance=0\ C:\ D:,objectname=PhysicalDisk
+      win_diskio,host=L0101,instance=1\ F:,objectname=PhysicalDisk
+      win_diskio,host=L0101,instance=1\ G:,objectname=PhysicalDisk
+      win_diskio,host=L0101,instance=1\ H:,objectname=PhysicalDisk
+      win_diskio,host=L0101,instance=1\ I:,objectname=PhysicalDisk
+      win_diskio,host=L0101,instance=2\ F:,objectname=PhysicalDisk
+      win_diskio,host=L0101,instance=2\ G:,objectname=PhysicalDisk
+      win_diskio,host=L0101,instance=3\ H:,objectname=PhysicalDisk
+      win_diskio,host=L0101,instance=4\ I:,objectname=PhysicalDisk
+
+      # com limites de resultados
+      > SHOW SERIES ON telegraf FROM "win_diskio" WHERE "host" = 'L0101' LIMIT 2
+      key
+      ---
+      win_diskio,host=L0101,instance=0\ C:\ D:,objectname=PhysicalDisk
+      win_diskio,host=L0101,instance=1\ F:,objectname=PhysicalDisk
+
+      # SHOW SERIES ON NOAA_water_database WHERE time < now() - 1m
+      > SHOW SERIES ON telegraf WHERE time < now() - 1m
+      ...
+      win_system,host=L0124,objectname=System
+      win_system,host=L0125,objectname=System
+      win_system,host=L0126,objectname=System
+      win_system,host=L0127,objectname=System
+      win_system,host=L0129,objectname=System
+      win_system,host=L0130,objectname=System
+      win_system,host=fac034538,objectname=System
+      win_system,host=fac034541,objectname=System
+      win_system,host=fac034543,objectname=System
+      win_system,host=fac30598,objectname=System
+      win_system,host=fcn034377,objectname=System
+      win_system,host=fcn20296,objectname=System
+      win_system,host=fcn29679,objectname=System
+
+      # A consulta acima retorna todos série no NOAA_water_databasebanco de dados no grupo caco atual.
+      # Os WHERElimites cláusula resulta em série no grupo fragmento que contém um timestamp no último minuto.
+      # Observe que, se um grupo duração fragmento é de 7 dias, os resultados retornados podem ser de até 7 dias de idade.
+      # Returns all series in shard groups that contain a timestamp in the last 28 days.
+      > SHOW SERIES ON telegraf WHERE time < now() - 672m
+      ...
+      win_system,host=L0129,objectname=System
+      win_system,host=L0130,objectname=System
+      win_system,host=fac034538,objectname=System
+      win_system,host=fac034541,objectname=System
+
+
+    # Retornar todas as medições no NOAA_water_databasebanco de dados:
+    # SHOW MEASUREMENTS [ON <database_name>] [WITH MEASUREMENT <regular_expression>] [WHERE <tag_key> <operator> ['<tag_value>' | <regular_expression>]] [LIMIT_clause] [OFFSET_clause]
+
+
+      > SHOW MEASUREMENTS ON telegraf
+      name: measurements
+      name
+      ----
+      cpu
+      disk
+      diskio
+      kernel
+      mem
+      processes
+      swap
+      system
+      win_cpu
+      win_disk
+      win_diskio
+      win_mem
+      win_net
+      win_swap
+      win_system
+
+      # Usar uma expressão regular com WITH MEASUREMENTa voltar todas as medidas que começam com win:
+      > SHOW MEASUREMENTS WITH MEASUREMENT =~ /win.*/
+      name: measurements
+      name
+      ----
+      win_cpu
+      win_disk
+      win_diskio
+      win_mem
+      win_net
+      win_swap
+      win_system
+
+      # Com limit e OFFSET
+      > SHOW MEASUREMENTS ON telegraf WITH MEASUREMENT =~ /win.*/ LIMIT 2 OFFSET 1
+      name: measurements
+      name
+      ----
+      win_disk
+      win_diskio
+
+      > SHOW MEASUREMENTS ON telegraf WITH MEASUREMENT =~ /win.*/ WHERE "host"  =~ /\d/
+      name: measurements
+      name
+      ----
+      win_cpu
+      win_disk
+      win_diskio
+      win_mem
+      win_net
+      win_swap
+      win_system
+
+    # SHOW TAG KEYS [FROM <measurement_name>]
+    # SHOW TAG VALUES ON "NOAA_water_database" WITH KEY IN ("location","randtag") WHERE "randtag" =~ /./ LIMIT 3
+    > SHOW TAG KEYS VALUES ON "telegraf" WITH KEY IN ("host", "instance") WHERE "instance" =~ /./ LIMIT 3
+    ...
+    name: win_swap
+    tagKey
+    ------
+    host
+    instance
+    objectname
+
+    name: win_system
+    tagKey
+    ------
+    host
+    objectname
+
+    # lista somente win_net
+    >  SHOW TAG KEYS FROM win_net
+    name: win_net
+    tagKey
+    ------
+    host
+    instance
+    objectname
+
+    > SHOW TAG VALUES WITH KEY = instance
+    ...
+    instance Teredo Tunneling Pseudo-Interface
+    instance VIA Rhine III Fast Ethernet Adapter
+    instance isatap.joaopauloii
+    ...
+
+    > SHOW TAG VALUES FROM win_net WITH KEY = host
+    name: win_net
+    key  value
+    ---  -----
+    host FAC034376
+    host FCN21085
+    host L0101
+    host L0102
+    host L0103
+    ...
+
+    # SHOW TAG VALUES ON "NOAA_water_database" WITH KEY IN ("location","randtag") WHERE "randtag" =~ /./ LIMIT 3
+    > SHOW TAG VALUES ON "telegraf" WITH KEY IN ("host","instance") WHERE "instance" =~ /./ LIMIT 3
+    ...
+    name: win_diskio
+    key  value
+    ---  -----
+    host FAC034376
+    host FCN21085
+    host L0101
+
+    name: win_net
+    key  value
+    ---  -----
+    host FAC034376
+    host FCN21085
+    host L0101
+
+    name: win_swap
+    key  value
+    ---  -----
+    host FAC034376
+    host FCN21085
+    host L0101
+
+
+
+
+    # Explorar chaves de campo com SHOW FIELD KEYS
+    > SHOW FIELD KEYS
+    > SHOW FIELD KEYS ON "telegraf"
+    ...
+    name: win_system
+    fieldKey                fieldType
+    --------                ---------
+    Context_Switches_persec float
+    Processor_Queue_Length  float
+    System_Calls_persec     float
+    System_Up_Time          float
+
+    > SHOW FIELD KEYS FROM win_system
+    name: win_system
+    fieldKey                fieldType
+    --------                ---------
+    Context_Switches_persec float
+    Processor_Queue_Length  float
+    System_Calls_persec     float
+    System_Up_Time          float
+
+
+
+
+    # modelos de usado
+
+    >  SHOW TAG VALUES FROM table WITH KEY = "name" where date='2018-10-23'

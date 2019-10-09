@@ -1,0 +1,65 @@
+# Anti Cheat
+
+  ::: EasyAntiCheat
+
+      # https://www.youtube.com/watch?v=5yaX-YF63-4
+      $ D:\Steam\steamapps\common\SCUM\EasyAntiCheat\Launcher
+
+      - Mudar Settings.json de:
+
+        {
+        	"title"											: "SCUM",
+        	"executable"									: "SCUM\\Binaries\\Win64\\SCUM.exe",
+        	"logo_position"									: "bottom-left",
+        	"parameters"									: "",
+        	"use_cmdline_parameters"						: "1",
+        	"working_directory"								: "",
+        	"wait_for_game_process_exit"					: "0",
+        	"hide_splash_screen"							: "0",                              # Sai esta linha.
+        	"hide_ui_controls"								: "0"
+        }
+
+        para:
+
+        {
+        	"title"											: "SCUM",
+        	"executable"									: "SCUM\\Binaries\\Win64\\SCUM.exe",
+        	"logo_position"									: "bottom-left",
+        	"parameters"									: "",
+        	"use_cmdline_parameters"						: "1",
+        	"working_directory"								: "",
+        	"wait_for_game_process_exit"					: "0",
+        	"IsBanned"       							: false,                                # Entra esta linha.
+        	"hide_ui_controls"								: "0"
+        }
+
+
+
+        # Executa direto deste diretorio:
+        D:\Steam\steamapps\common\SCUM\SCUM\Binaries\Win64\SCUN
+
+
+
+
+
+
+
+
+
+  ::: Trava o PC
+      # Bypass EasyAntiCheat para utilizar Cheat Engine  (Travo o PC)
+      # Dead By Daylight Cheating Tutorial #2- How To Bypass EAC (WORKING 3.0.2)
+      https://www.youtube.com/watch?v=cAcBn46A5K0
+
+        # A free but powerful Windows kernel research tool
+        https://github.com/AxtMueller/Windows-Kernel-Explorer
+
+        # Cheat Engine 6.8.3
+        https://www.cheatengine.org/downloads.php
+
+
+# Referencias:
+      # Cheat Engine - Bypassing Anti-Cheat Systems (Advanced Tutorial)
+      https://www.youtube.com/watch?v=3jbq60-ghag
+      # Criando Cheat Engine INDETECTAVEL 2017 (COMO DEIXA O CHEAT ENGINE INDETECTAVEL 2017-2018-2019)
+      https://www.youtube.com/watch?v=CZ8jFceHlGI

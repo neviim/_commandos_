@@ -14,19 +14,6 @@
 
   ::: cria virtual env
 
-    $ conda create -n myenv python=3.4
-    $ conda create -n myenv python
-    $ conda create -n myenv scipy=0.15.0
-    $ conda create -n myenv python=3.4 scipy=0.15.0 astroid babel
-
-    $ conda env create -f environment.yml
-    $ conda env list
-
-    $ conda install -n myenv scipy=0.15.0
-    $ conda install -n myenv scipy
-    
-
-    # outros exemplos
     $ cd d:\__CondaVirtual\
     $ conda create -n yourenvname python=x.x anaconda
 
@@ -35,23 +22,24 @@
       $ conda activate pandas
       $ conda deactivate
 
+      $ conda create -n myenv python
+      $ conda create -n myenv scipy=0.15.0
+      $ conda create -n myenv python=3.4 scipy=0.15.0 astroid babel
+
+      $ conda env create -f environment.yml
+
+      $ conda install -n myenv scipy=0.15.0
 
   ::: activando ambiente virtual
-
-    $ conda activate py37
-    $ conda deactivate
 
     $ source activate yourenvname
     $ conda install -n yourenvname [package]
     $ source deactivate
 
-    $ conda activate myenv
-
 
   ::: remove
 
     $ conda remove -n yourenvname -all
-    $ conda remove --name myenv --all
 
 
   ::: algumas bibliotecas relevantes
@@ -61,7 +49,6 @@
 
     $ pip install git+git://github.com/geopandas/geopandas.git
 
-  ::: Explicit
 
-    $ conda list --explicit
-    $ conda list --explicit > spec-file.txt
+# referencias:
+  https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html

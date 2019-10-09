@@ -1,0 +1,8 @@
+# Windows
+
+  ::: monitoramento
+
+    - PATH, Monitor de Confiabilidade:
+      Painel de Controle\Sistema e Segurança\Segurança e Manutenção\Monitor de Confiabilidade
+
+    

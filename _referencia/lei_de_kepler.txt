@@ -1,0 +1,144 @@
+
+* órbita elíptica
+
+primeira lei:
+
+Priélio   ->
+Afélio
+Rmédio
+
+
+rmedio = dmin + dmax
+        -------------
+              2
+
+
+segunda lei:
+
+T²
+--  = Constante
+R³
+
+T1²   T2²
+--- = ---
+R1³   R3³
+
+
+
+terceira lei:
+
+T²
+----
+R³
+
+
+Campo gravitacional de um Planeta:
+
+F = G  M.n
+       ---
+       d²
+
+Onde:
+
+G = 6,7 . 10-¹¹   n.m²
+                 ------
+                   kg²
+
+              GMm
+Fgrav = m.g = ---
+               d²
+
+              GM
+          g = ---
+              d²
+
+
+
+
+
+exemplo de aplicação: caso Júpiter
+(http://www.geocities.ws/lemagicien_2000/mathpage/calcorb/calcorb.html)
+
+a = 5.208174 ua ; e = 0.049284
+T = 2450896.510556 dj =24 Março 1998
+T0 = 2446966.84378 dj =24 Junho 1987 (periélio)
+D t = 3929.666776 dj
+n = 0.00144728573606
+M = n D t = 5.687350672374 radianos ( =325°.861190138)
+E=M= 5.687350672374
+E1=M+e senE= 5.659692503366
+E1-E= -0.0276581690088
+E=E1= 5.659692503366
+E1=M+e senE=5.658575010
+E1-E=-0.001117493
+E=E1=5.658575010
+E1=M+e senE=5.658530316
+E1-E=-0.000044694
+E=E1=5.688530316
+E1=M+e senE=5.658528529
+E1-E=-0.000001787
+E=E1=5.658528529
+
+
+e como senE =  =-0.584818898 Þ <0 Þ estamos no IV quadrante!
+
+= -0.654082984
+
+q = 2p + q 0 = 2p + (-0.654082984) = 5.629102324 radianos = 322° .5238
+
+logo   = 4.999964739 ua
+
+Segundo a efemérides, para a data 24/03/1998, a anomalia média vale 325° 33¢35 ² , a distância ao sol é 5.00079 ua. Comparando com nossos valores, nossa anomalia média foi 325° 51¢40² , e a distância 4.999964739 ua (uma diferença de 0.016%). Vale a pena lembrar que na data da passagem pelo periélio existia uma imprecisão quanto a hora, se a tivéssemos sabido, a diferença seria ainda menor! Também, se considerarmos que Júpiter dá uma volta em 11.86 anos, desde o periélio até a data de cálculo passaram-se 10.758 anos, ou seja um pouquinho menos de 1 revolução, o que concorda com nossos cálculos.
+
+Após conhecermos a posição na órbita, e sabendo os parâmetros orbitais (i: inclinação da órbita respeito da eclíptica, W : longitude do nodo ascendente e w : argumento do periélio) podemos passar das coordenadas polares para as retangulares (coordenadas heliocêntricas orbitais), para as heliocêntricas eclípticas, e conhecendo a posição da Terra (em coordenadas heliocêntricas eclípticas, a diferença nos dá o vetor Terra-Júpiter, ou seja as coordenadas geocêntricas eclípticas de Júpiter, então apenas falta uma última passagem, para as coordenadas geocêntricas equatoriais ( r: distância Terra-Júpiter , a: ascensão reta, d: declinação). Tais cálculos efetuam-se empregando matrizes e análise vetorial (fórmulas de Euler).
+
+Para facilitar o cômputo da anomalia verdadeira e a determinação do quadrante em questão, talvez resulte mais útil o emprego das seguintes fórmulas, lembrando que a fórmula:
+
+ retorna o argumento q no seu valor principal, ou seja q 0, no I e IV quadrantes.
+
+
+
+Assim:
+
+cosq = 0 sen q > 0 q = q0Þ q 0 = 90°
+
+cosq = 0 sen q < 0 q = q 0Þq 0 = 270°
+
+cosq > 0 sen q > 0 q = q 0Þq 0 > 0° 0 ° < q < 90°
+
+cosq < 0 sen q > 0 q = 180° + q0 Þ q 0 < 0° 90° < q < 180°
+
+cosq < 0 sen q < 0 q = 180° + q0Þ q 0 > 0° 180 ° < q < 270°
+
+cos q > 0 sen q < 0 q = 360° + q 0 Þq 0 < 0° 270 ° < q < 360°
+
+
+
+Também, na hora dos cálculos, devemos observar o seguinte:
+
+O movimento diurno médio n = k a-1.5 pode ser expressado tanto em [ radianos / dia ] como em [ ° / dia]. Ou seja, a constante de Gauss k, pode ser expressada em:
+
+k = 2p / 365.2564 [ radianos / dia ]
+
+k = 360° / 365.2564 [ ° / dia ]
+A anomalia média M = n Dt poderá então estar expressada em [ radianos ] ou [ ° ]. Normalmente as tabelas ou efemérides proporcionam M em [ ° ].
+Para o cálculo da Equação de Kepler, é obrigatório o emprego de M em [ radianos ], e o valor de E obtido também está em radianos. Se é desejado se pode converter E para [°] e calcular os valores de seno, coseno e tangente; entretanto se E não estiver dentro de uma função trigonométrica, então E deverá ser tomada em radianos!
+Se a última passagem pelo periélio ocorreu há mais de um período do planeta, então o cômputo da anomalia média certamente dará um valor superior a 360° ou 2p radianos (6.2831853...). Neste caso é melhor reduzirmos a anomalia mé dia para o valor fracionário de um giro completo. Expressando M em radianos ou graus sexagesimais, esto se reduz à seguinte fórmula:
+
+
+
+
+onde IP representa a função que nos dá a parte inteira do argumento contido.
+Vejamos um exemplo:
+
+Se M = 9.28 radianos = 531° .7048339, então
+
+Mcálculo{rad} = [ (9.28/2p ) - IP(9.28/2p)]2p = [1.4769579 - 1]2p =
+
+= [0.4769579]2 p = 2.9968147 rad
+
+Mcálculo { °} = [ (531° .7048339/360°) - IP(531.7048339/360 °)]360° = [ 1.4769579 - 1]360° =
+
+= [0.4769579] 360 ° = 171° .7048339
+
+logo é evidente que 2.9968147 radianos = 171 °.7048339

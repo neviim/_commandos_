@@ -1,0 +1,165 @@
+# Servidores br sendo testados
+
+  ::: 172.107.16.186:28802  (um dos melhores)
+      Perfil: Ghost Criado
+
+  ::: ***IP SERVIDOR***
+      UTOPIA GAMING BRASIL
+            IP: 172.107.16.204:28502
+
+
+  ::: ----------SCUM BRASIL - SURVIVE---------
+      IP DO SERVIDOR: 172.107.16.186:28402
+
+
+# Codigo Scum Zone
+https://github.com/j3camero/scum-zone
+
+
+Comandos server single basico: (https://commands.gg/scum/items)
+
+Roupas:
+
+  (Calsas)
+    #SpawnItem Jeans_02_09
+
+  (Colete - Military Ballistic Vest)
+    #spawnItem Military_Cap_01          (Bone)
+    #spawnItem Military_Goggles         (Oculos)
+
+    #spawnItem CombatBoots              (Bora Mercenario)
+    #spawnItem Bulletproof_Vest_01      (Bota militar)
+    #spawnItem MilitaryBoots_JNA        (Bota)
+
+
+
+
+    #SpawnItem Fireman_Helmet_01
+    #SpawnItem Night_Vision
+    #SpawnItem NightVisionGoggles3_test
+    #SpawnItem Night_Vision_Helmet_Down_09
+    #SpawnItem Night_Vision_Helmet_Up_09
+
+Armas:
+  (Pistola)
+    #SpawnItem BPC_Deagle_357
+    #SpawnItem BP_M9
+    #SpawnItem BP_BerettaM9
+    #SpawnItem BP_Deagle_50
+    #SpawnItem BP_Magazine_DEagle_357
+    #SpawnItem BP_DEagle_50Gold
+    #SpawnItem BP_Weapon_Improvised_Handgun
+
+    #SpawnItem Test_Paper
+
+
+  (Rifre - Ak-74 (aks))
+    ::: #spawnItem BP_Weapon_AKS_74U                (Rifre)
+        #spawnItem BP_Magazine_AKS_74U              (Pente)
+        #spawnItem Cal_5_45x39_Pile
+
+
+    ::: #SpawnItem AK-74
+
+    ::: #SpawnItem BP_Weapon_AK47                   (Rifre)
+        #SpawnItem BP_Magazine_AK47                 (Pente)
+        #spawnItem Cal7_62x39mm_20_bullets          (Balas)
+        #spawnItem Cal7_62x39mm_Ammobox_Closed      (Caixa Balas 50 Munições)
+
+
+    ::: #SpawnItem BP_Weapon_SVD_Dragunov
+
+    ::: #SpawnItem WeaponScope_Dragunov
+
+    ::: #SpawnItem BP_Magazine_SVD_Dragunov
+
+    ::: #SpawnItem Mosin_nagant
+
+
+  (Scope)
+    #spawnItem WeaponScope_ACOG_01
+    #SpawnItem WeaponScope_ZF39
+    #SpawnItem WeaponScope_POSP
+    #SpawnItem WeaponScope_HuntingScope
+    #SpawnItem WeaponScope_Dragunov
+
+  (Pente)
+    #SpawnItem BP_Magazine_M9
+    #SpawnItem BP_Magazine_MP5
+    #SpawnItem Cal50_Empty
+
+
+  (Munição)
+    #SpawnItem Cal22_Pile_5pcs
+    #SpawnItem Cal22_Bullet
+    #SpawnItem Cal_5_45x39_5_pcs
+    #spawnItem Cal_5_45x39_Pile
+    #SpawnItem Cal_7_92x57mm_5_bullets
+    #SpawnItem Cal7_62x39mm_5_Pile
+    #spawnItem Cal7_62x39mm_20_bullets
+    #SpawnItem Cal7_62x54mmR_5_bullets
+    #SpawnItem Cal7_62x54mmR_Empty
+    #SpawnItem Cal20mm_AmmoBoxClosed
+    #SpawnItem Cal30-06_5_bullets
+    #SpawnItem Cal_357_5pcs
+
+    #SpawnItem WW2_German_Helmet
+
+    #SpawnItem BP_M1_Clip
+
+
+  #SpawnItem Glue
+
+    ::: Sniper
+    #SpawnItem SnipingSkill
+
+    ::: Caixa
+    #SpawnItem Cal7_62x54mmR_Ammobox_Closed
+    #SpawnItem Cal22_Ammobox_Open
+
+
+
+(Mochila - Hiking Backpack)
+  #spawnItem Hiking_Backpack_01
+  #spawnItem Hiking_Boots_01
+  #spawnItem Camo_Backpack_01
+
+
+(Faca)
+  #SpawnItem 1H_MK5000_Metal
+
+(Granada)
+  #SpawnItem 40mm_G
+  #SpawnItem BP_Frag_Grenade
+  #SpawnItem BP_Smoke_Grenade
+
+(Taco Baseball)
+  #SpawnItem Baseball_Cap_01
+  #SpawnItem Chop_Big_Log
+  #SpawnItem 2H_Katana
+  #SpawnItem Ninja_Suit
+
+
+
+# Melhores Armas:
+  bp_weapon_98k_karabiner ()
+  bp_weapon_ak47
+  bp_weapon_aks_74u
+  bp_weapon_m1_garand
+  bp_weapon_mp5
+  bp_weapon_svd_dragunov
+
+  # Você também pode invocar alguns anexos úteis como escopos, mas a maioria das armas exigirá
+  # primeiro um trilho de escopo. Por exemplo, se você quiser adicionar um acog a um AK47, você
+  # precisará colocar spawnitem bp_scoperail-ak47 seguido por spawnitem weaponscope_acog_01.
+
+
+
+
+
+
+
+
+# referencias:
+  # testes de Armas
+  https://scumgame.com/en/news/rifle-sniping-skills

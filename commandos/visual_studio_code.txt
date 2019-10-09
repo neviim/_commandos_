@@ -1,0 +1,14 @@
+# Teclas de atalho
+
+  ::: https://code.visualstudio.com/docs/getstarted/keybindings
+
+    # //
+    Ctrl+K Ctrl+C    Add    Line  Comment
+    Ctrl+K Ctrl+U    Remove Line  Comment
+
+    # /* ... */
+    Ctrl+/           Toggle Line  Comment
+    Shift+Alt+A      Toggle Block Comment
+
+    # Identar HTML
+    Shift+Alt+F

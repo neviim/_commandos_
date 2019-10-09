@@ -1,0 +1,50 @@
+# configurando agente influxDB Telegraf
+
+  ::: https://portal.influxdata.com/downloads/
+
+      # configurando SMTP
+      - https://www.youtube.com/watch?v=pxM-t751l0Y
+
+
+  ::: Instalar o agente Telegraf
+
+    > telegraf.exe -service install -config C:\"Program Files"\Telegraf\telegraf.conf
+
+    # Windows Install
+    > C:\"Program Files"\Telegraf\telegraf.exe --service install
+    > C:\"Program Files"\Telegraf\telegraf.exe --service uninstall
+    > C:\"Program Files"\Telegraf\telegraf.exe --service start
+    > C:\"Program Files"\Telegraf\telegraf.exe --service stop
+
+    # Você pode instalar várias instâncias do telegraf com o sinalizador --service-name:
+    > C:\"Program Files"\Telegraf\telegraf.exe --service install --service-name telegraf-1
+    > C:\"Program Files"\Telegraf\telegraf.exe --service install --service-name telegraf-2
+    > C:\"Program Files"\Telegraf\telegraf.exe --service uninstall --service-name telegraf-1dir
+
+
+
+      # Teste
+      > C:\"Program Files"\Telegraf\telegraf.exe --config C:\"Program Files"\Telegraf\telegraf.conf --test
+
+      # Para começar a coletar dados, execute:
+      > net start telegraf
+
+  ::: configurar
+
+    $ vim telegraf.conf
+
+        # Configuration for sending metrics to InfluxDB
+        [[outputs.influxdb]]
+        ## The full HTTP or UDP URL for your InfluxDB instance.
+        ##
+        ## Multiple URLs can be specified for a single cluster, only ONE of the
+        ## urls will be written to each interval.
+        # urls = ["unix:///var/run/influxdb.sock"]
+        # urls = ["udp://127.0.0.1:8089"]
+        urls = ["http://tilab.joaopauloii:8086"]
+
+
+
+  ::: comandos basicos
+
+    # telegraf --test

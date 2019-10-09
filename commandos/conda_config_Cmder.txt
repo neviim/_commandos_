@@ -1,0 +1,9 @@
+# Configurando Anaconda3 no terminal Cmder
+
+  ::: configurando
+
+    Anaconda3
+
+    -icon "%USERPROFILE%\AppData\Local\lxss\bash.ico"
+
+    cmd /k ""%ConEmuDir%\..\init.bat"" & F:\__Utilitarios\Anaconda3\Scripts\activate.bat F:\__Utilitarios\Anaconda3

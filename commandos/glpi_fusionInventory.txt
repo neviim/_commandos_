@@ -1,0 +1,25 @@
+::: Instar agente Fusion GLPI
+
+  # redirecionamento do server para o agent GLPI e OCS
+  * http://glpi.fcn.edu.br/plugins/fusioninventory/                                # Disparando srv-ativos-mon.joaopauloii [10.0.76.30]
+    http://ocs.fcn.edu.br/ocsinventory                                             # Disparando srv-ativos-mon.joaopauloii [10.0.76.30]
+
+  # Diretorio de Instalação
+  C:\Program Files\FusionInventory-Agent\perl\bin\
+  C:\Program Files\FusionInventory-Agent\perl\bin\fusioninventory-agent.exe" -I"C:\Program Files\FusionInventory-Agent\perl\agent" -I"C:\Program Files\FusionInventory-Agent\perl\lib" -I"C:\Program Files\FusionInventory-Agent\perl\site\lib" -I"C:\Program Files\FusionInventory-Agent\perl\vendor\lib" "C:\Program Files\FusionInventory-Agent\perl\bin\fusioninventory-win32-service"
+
+  # precisando executar manualmente o agente fusioninventory
+  $ cd C:\Program Files\FusionInventory-Agent\perl\bin\
+  $ perl.exe fusioninventory-agent
+  Wide character in print at C:\Program Files\FusionInventory-Agent/perl/agent/FusionInventory/Agent/Logger/File.pm line 58.
+
+  # Log diretorio
+  C:\Program Files\FusionInventory-Agent\logs\fusioninventory-agent.log
+
+
+  # Shell
+  $ echo %computername%
+
+  # verificar se esta sendo executado
+  - serviços
+    FusionInventory Agent - (Em Execução)

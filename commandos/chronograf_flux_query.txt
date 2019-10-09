@@ -1,0 +1,13 @@
+#
+
+  ::: Flux
+    # Host status (CPU) Load Apps
+    >  SELECT last("usage_user") AS "last_usage_user" FROM "telegraf"."autogen"."cpu" WHERE time > :dashboardTime: AND "host"='tilab' AND "cpu"='cpu-total' GROUP BY time(:interval:) FILL(null)
+    # Host status CPU (Load) Apps
+    > SELECT mean("load15") AS "mean_load15" FROM "telegraf"."autogen"."system" WHERE time > :dashboardTime: AND "host"='tilab' GROUP BY time(:interval:) FILL(null)
+
+    # Host: (tilab) com (n_users, uptime)
+    > SELECT mean("uptime") AS "mean_uptime", mean("n_users") AS "mean_n_users" FROM "telegraf"."autogen"."system" WHERE time > :dashboardTime: AND "host"='tilab' GROUP BY time(:interval:) FILL(null)
+    # Host: (proxyfcn.localdomain) com (n_users, uptime)
+    > SELECT mean("uptime") AS "mean_uptime", mean("n_users") AS "mean_n_users" FROM "telegraf"."autogen"."system" WHERE time > :dashboardTime: AND "host"='proxyfcn.localdomain' GROUP BY time(:interval:) FILL(null)
+    

@@ -1,0 +1,43 @@
+# O vcpkg ajuda você a gerenciar bibliotecas C e C ++ no Windows, Linux e MacOS.
+
+  ::: Install
+
+    > cd __utilitarios
+
+    > git clone https://github.com/Microsoft/vcpkg.git
+    > cd vcpkg
+
+    PS> .\bootstrap-vcpkg.bat
+    Linux:~/$ ./bootstrap-vcpkg.sh
+
+    PS> .\vcpkg integrate install
+    Linux:~/$ ./vcpkg integrate install
+
+    ::: Instale todos os pacotes com
+
+      PS> .\vcpkg install sdl2 curl
+      PS> .\vcpkg install sdl2:x64-windows
+      
+      Linux:~/$ ./vcpkg install sdl2 curl
+
+    - O vcpkg suporta o preenchimento automático de comandos, nomes de pacotes,
+      opções etc no Powershell e no bash. Para habilitar a conclusão da tabulação,
+      use um dos seguintes:
+
+      PS> .\vcpkg integrate powershell
+      Linux:~/$ ./vcpkg integrate bash
+
+    :::  Então, para ligar a integração de todo o usuário, execute
+         (nota: requer administração no primeiro uso)
+
+      > vcpkg integrate install
+
+
+
+
+
+# Referencia
+  https://github.com/Microsoft/vcpkg
+
+  # video usando o comando
+  https://www.youtube.com/watch?v=y41WFKbQFTw

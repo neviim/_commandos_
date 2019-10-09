@@ -1,0 +1,61 @@
+# Atualização de soft
+  ::: GPO e GPT
+
+
+Acesso ao server:
+
+  2 - GLPI Instalado na versão a qual suporta o webservices para integração com o zabbix, glpi versão 9.3.4;
+2.1 - Acesso ao glpi pelo endereço: glpi.fcn.edu.br
+    com as credenciais:
+
+    Dashboerd: http://ocs.fcn.edu.br/index.php
+    Server: glpi.fcn.edu.br
+
+    user: glpi
+    senha: shah1OhK
+
+    user: post-only
+    Senha: Haig2eik
+
+    user: normal
+    senha: bei5Hung
+
+    user: tech
+    senha: Tairie4z
+
+
+3 - OCS Inventory NG instalado acessado pelo endereço: ocs.fcn.edu.br
+    Com as credenciais:
+
+    Server: ocs.fcn.edu.br
+    user: admin
+    senha: admin
+
+4 - Plugins diretorio update
+    /var/www/html/glpi/files/_plugins/fusioninventory/upload
+
+OSC Dados Server:
+
+  Server information
+    Operating system
+      OS Name: Linux x86_64
+      Version: 4.9.0-6-amd64
+      RAM installed: 3955 MB
+      Free RAM: 3195 MB
+      CPU: Intel(R) Xeon(R) CPU E5-2640 v2 @ 2.00GHz
+      Distribution: Debian GNU/Linux 9 (stretch)
+
+    Software
+      PHP Version: 7.0.33
+      Web Server: Apache/2.4.25 (Debian)
+      Database Server:  Debian 9.1 version 10.1.26-MariaDB-0+deb9u1
+      Version OCSReports: 2.3.1
+
+    Network
+      IP: 10.0.76.30
+
+
+
+OCS Cliente:
+
+  http://ocs.fcn.edu.br/ocsinventory

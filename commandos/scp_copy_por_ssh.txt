@@ -1,0 +1,9 @@
+# Copiar por ssh, scp
+
+  ::: Copiando arquivo de uma maquina para outra.
+
+    Copia um arquivo da [origem]  para o [destino] estando conectado na [origem]:
+    $ scp /path/to/file username@a:/path/to/destination
+
+    Copia um arquivo do [destino] para a [origem]  estando conectado no [destino]:
+    $ scp username@b:/path/to/file /path/to/destination

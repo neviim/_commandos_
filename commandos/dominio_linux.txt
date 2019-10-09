@@ -25,3 +25,6 @@ net ads enctypes        List/modify supported encryption types
 Referencia:
     # Colocar maquina linux no dominio
     https://rafaelit.wordpress.com/2017/02/01/colocando-linux-no-dominio/
+
+    # Mint
+    https://www.youtube.com/watch?v=R_1VUVXt7kA

@@ -1,0 +1,6 @@
+Configurar Visual Studio C 
+	https://www.opencv-srf.com/2017/11/install-opencv-with-visual-studio.html
+
+
+C:\OpenCV32\opencv\build
+PATH=$C:\OpenCV32\opencv\build\x64\vc14\bin;%PATH%

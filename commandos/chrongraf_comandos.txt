@@ -1,0 +1,11 @@
+#
+
+  :::
+
+    $ curl -i -XPOST http://10.0.9.48:8086/query --data-urlencode "q=CREATE DATABASE test"
+    $ curl -i -X POST 'http://10.0.9.48:8086/write?db=test' --data-binary 'task, host=server01, region=us-west value=1 1434055562000000000'
+
+
+    # install fluentd
+    $ curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent3.sh | sh
+    $ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh | sh

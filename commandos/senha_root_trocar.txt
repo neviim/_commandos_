@@ -1,0 +1,34 @@
+# Colocar usuario ao grupo sudo
+
+  $ gpasswd -a <usuario> sudo
+  $ vim /etc/sudores
+
+
+
+
+
+
+# Caso o GRUB
+
+  ::: Entrar em modo terminal GRUB
+
+    No boot "Shift"
+    Kernel "recovery mode"
+    Selecionar opção "root"
+
+    # no terminal:
+
+      $ mount -n -o remount,rw /
+      $ passwd nome_do_usuario
+
+
+outra opção:
+
+
+    ::: Substitua a opção “ro” por “rw” e no final da linha adicione a opção “init=/bin/bash”
+
+      # ficando:
+      ... ro
+      ... rw init=/bin/bash
+
+      Pressione F10 para salvar
