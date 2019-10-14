@@ -1,0 +1,36 @@
+#
+
+  ::: Para facilitar ainda mais, existem alguns atalhos especiais para formatar o cron job:
+
+    Caractere	  Significado	                                                   Exemplo	         O que faz
+    *	          Do primeiro ao último	                                         * * * * *	       Executa a cada minuto
+    ,	          Separa dígitos específicos	                                   1,2,3 * * * *	   Executa nos minutos 1, 2 3, a cada hora
+    -	          Define uma série de números	                                   * 4-12 * * * *	   Executa todo minuto das 4 as 12 horas
+    /	          Define a frequência de execução de acordo com uma variação	   30 2 */2 * *	     Executa o comando às 02h30 de dois em dois dias
+
+    @reboot	Executa somente uma vez na inicialização do sistema
+    @yearly	Executa uma vez no ano	0 0 1 1 *
+    @annually	O mesmo que @yearly	0 0 1 1 *
+    @monthly	Executa uma vez por mês	0 0 1 * *
+    @daily	Executa uma vez por dia	0 0 * * *
+    @midnight	O mesmo que @daily	0 0 * * *
+    @hourly	Executa uma vez por hora	0 * * * *
+
+    Além disso, você também pode agendar tarefas mais complexas definindo os dias da semana em que o
+    cron job será executado ou até intervalos de tempo durante o dia. Para ajudar, existem ferramentas
+    visuais para facilitar a criação dos cron jobs, como o Crontab Generator, Cron Maker e crontab.guru.
+
+    - https://crontab-generator.org/
+    - http://www.cronmaker.com/
+    - https://crontab.guru/
+
+    crontab -e - esse é o comando mais importante, usado para editar a tabela cron.
+    crontab -l - esse é o comando usado para listar a tabela cron e suas tarefas.
+    crontab -r - esse comando é usado para remover a tabela cron do usuário.
+
+
+
+
+
+# Referencias
+https://www.melhorhospedagemdesites.com/dicas-e-ferramentas/cron-e-crontab/
