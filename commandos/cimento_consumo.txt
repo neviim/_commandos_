@@ -1,0 +1,11 @@
+#
+
+    Um saco de cimento tem 18l, sendo de 50 kg!
+
+      - Se vai fazer concreto, que geralmente, cimento classe IV,
+        usa se medida de 3x2x1 que é areia grossa, brita e cimento.
+        então 3x(18)+2x(18)+1x(18)=108lts, que nos dá 0,108³ de concreto.
+
+      - Tijolos massa padrão 4x1 então 4x(18)+1(18)= 90lts que nos da 0,09mt³ de massa
+
+      - Reboco externo 5x1x2cal então 5x(18)1x(18)1(18 de cal)= 144lts que nos da 0,144m³ de reboco esterno.

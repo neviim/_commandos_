@@ -1,0 +1,20 @@
+#
+
+  :::
+    $ cd C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\demo\
+
+    $ demo_squeezenet_download_convert_run.bat
+
+
+
+
+
+
+
+
+Referencias
+  # Instalar
+  https://docs.openvinotoolkit.org/2019_R2/_docs_install_guides_installing_openvino_windows.html#set-the-environment-variables
+
+  # Exemplos GitHub
+  https://github.com/intel-iot-devkit
