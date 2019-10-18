@@ -1,0 +1,11 @@
+#
+
+    :::
+
+        $ docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant:stable
+
+
+
+
+Referencias:
+    https://www.home-assistant.io/docs/installation/docker/
