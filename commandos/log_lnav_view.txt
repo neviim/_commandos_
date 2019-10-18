@@ -1,0 +1,29 @@
+# Log
+
+    ::: lnav
+
+        $ sudo apt-get install lnav
+
+        # Por padrão, o lnav traz syslog
+        $ lnav
+
+        # Especifica um log. 
+        $ lnav /var/log/dpkg.log
+
+        # Multiplos logs.
+        $ lnav /var/log/dpkg.log /var/log/kern.log
+
+
+        # O visualize logs antigos / compactados que descompactam todos os 
+        # arquivos de log compactados (zip, gzip, bzip) em tempo real, 
+        # adicione a opção -r seguida pelo comando lnav.
+        $ lnav -r /var/log/Xorg.0.log.old.gz
+
+
+        # Primeiro, execute o lnav e pressione i para alternar para / da exibição do histograma.
+        $ lnav
+            # Preciona tecla:
+            i
+            p     - exibição em tree.
+            /     - pesquisa.
+            tab   - complementa o que esta pesquisando. 

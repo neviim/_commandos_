@@ -1,0 +1,67 @@
+#
+
+    ::: instalar homeassistant raspberrypi
+
+        $ ssh pi@ipaddress
+
+        $ sudo apt-get update
+        $ sudo apt-get upgrade -y
+
+        $ sudo apt-get install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev
+
+        $ sudo useradd -rm homeassistant -G dialout,gpio,i2c
+
+        $ cd /srv
+        $ sudo mkdir homeassistant
+        $ sudo chown homeassistant:homeassistant homeassistant
+
+        $ sudo -u homeassistant -H -s
+        $ cd /srv/homeassistant
+        $ python3 -m venv .
+        $ source bin/activate
+
+        (homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ python3 -m pip install wheel
+        (homeassistant) $ hass
+
+
+    ::: upgrade
+
+        # RUN A SPECIFIC VERSION
+        $ sudo -u homeassistant -H -s
+        $ source /srv/homeassistant/bin/activate
+        $ pip3 install --upgrade homeassistant
+
+        # RUN THE BETA VERSION
+        $ sudo -u homeassistant -H -s
+        $ source /srv/homeassistant/bin/activate
+        $ pip3 install homeassistant==0.XX.X
+
+        # ACTIVATING THE VIRTUAL ENVIRONMENT
+        $ sudo -u homeassistant -H -s
+        $ source /srv/homeassistant/bin/activate
+
+
+    ::: systemctl homeassistant
+
+        $ sudo vim /etc/systemd/system/homeassistant.service
+
+            # ---------------------------------
+            [Unit]
+            Description=Home Assistant
+            After=syslog.target network.target
+
+            [Service]
+            Type=simple
+            User=homeassistant
+            Group=homeassistant
+
+            Nice=5
+            KillSignal=SIGINT
+            ExecStart=/srv/homeassistant/bin/hass/hass --open-ui -c "/home/homeassistant/.homeassistant"
+            Restart=on-failure
+
+            StandardOutput=syslog
+            WorkingDirectory=/home/homeassistant/.homeassistant 
+
+            [Install]
+            WantedBy=multi-user.tar

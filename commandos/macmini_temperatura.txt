@@ -1,0 +1,119 @@
+# Padrao recomendado temperatura no macs
+
+    ::: 
+
+        Acho que varia muito pela operação feita no Mac, e do hardware.
+
+        É importante ver que a operação de trabalho que está nas especificações é a
+
+        temperatura ambiente que normalmente precisa estar na: 
+            -         faixa de:  10 ºC a 35 ºC 
+            - armazenamento de: -40 ºC a 47 ºC.
+
+        A temperatura interna de trabalho que precisamos observar é da CPU e da GPU.
+        por media procure não deixar passar dos 40 ºC tanto na CPU quanto na GPU.   
+
+        Mais raramente fica abaixo de 50 ºC 
+
+        Uma referencia de uso:
+        
+            Em uso normal (entende uso normal = 1 VM aberta no parallells, kodi, plex, 
+            torrent, virtualbox... excutando o tempo todo, alem de software de backup 
+            offsite) a 72°C constantes.
+
+            com o software smcFanControl para gerenciar a velocidade de operação do cooler 
+            e agora ele está a ~3800 RPM (melhor relação temperatura/ruído) e mantendo a 
+            temperatura, no momento, entre 48°C e 54°C; o que me parece bem melhor.
+
+            Relato:
+
+            Como comparação, meu Macbook Pro Retina (da assinatura), quando está trabalhando a 100% 
+            chega em 95 graus e isso não me incomoda. Nessa temperatura os ventiladores do sistema 
+            estão acima de 6000 RPM e o computador nem toma conhecimento disso, funcionando normalmente. 
+            Há dois anos completos...
+
+
+    HardDisk:
+
+        $ sudo aptitude install lm-sensors hddtemp
+        
+        $ sudo hddtemp /dev/sda
+        /dev/sda: KINGSTON SUV300S37A120G: 36°C
+
+
+    Instalar: Opcao 1
+
+        #
+        $ sudo aptitude install acpi
+        $ sudo aptitude install psensor
+        $ sudo aptitude install lm-sensors
+
+        Para ver o sensor em ação, digite: sensors
+        Para ver ver em tempo real, utilize: watch sensors
+        Para temperaturas em fahrenheit, digite: sensors -f
+
+
+        $ watch -n 1 -d sensors
+        $ watch -n 1 -d acpi -V 
+
+        $ while [[ 1 ]]; do acpi -t | awk '{printf ("%2.2f ",$4)}'; date; sleep 1; done
+
+
+        # utilizando
+        $ sensors          
+        applesmc-isa-0300
+        Adapter: ISA adapter
+        Exhaust  :   2000 RPM  (min = 2000 RPM, max = 5500 RPM)
+        TA0P:         +51.8°C  
+        TA0p:         +51.8°C  
+        TA1P:         +46.8°C  
+        TA1p:         +46.8°C  
+        ...
+        TW0p:         +50.2°C  
+        Tp0C:         +52.8°C  
+        Ts0G:         +49.0°C  
+        Ts0S:         +37.0°C  
+
+        coretemp-isa-0000
+        Adapter: ISA adapter
+        Package id 0:  +60.0°C  (high = +87.0°C, crit = +105.0°C)
+        Core 0:        +60.0°C  (high = +87.0°C, crit = +105.0°C)
+        Core 1:        +58.0°C  (high = +87.0°C, crit = +105.0°C)
+        Core 2:        +58.0°C  (high = +87.0°C, crit = +105.0°C)
+        Core 3:        +60.0°C  (high = +87.0°C, crit = +105.0°C)     
+
+
+
+    Instalar: Opcao 2
+
+        # Mbpfan é um daemon que usa entrada do módulo coretemp e define a velocidade do ventilador 
+        # usando o módulo applesmc. Esta versão aprimorada assume qualquer número de processadores 
+        # e ventiladores (máx. 10).
+
+        $ sudo aptitude install mbpfan
+
+        # testa
+        $ sudo mbpfan -t
+
+        # 
+        sudo mbpfan
+
+
+
+    Conky Manager:
+
+        # Você pode retornar a linha de comando em um arquivo conky para mostrá-lo 
+        # no seu protetor de tela. Ainda é menos inchado do que um applet que consome espaço.
+
+        $ sudo aptitude install conky
+
+
+
+
+Referencia:
+    # algo que pode ser feito macmni por codigo
+    https://stargate.solsys.org/mod.php?mod=faq&op=extlist&topicid=27&expan
+
+    # outro modelo
+    https://stargate.solsys.org/mod.php?mod=faq&op=view&faq_id=118
+    https://stargate.solsys.org/mod.php?mod=download&op=view&download_id=27
