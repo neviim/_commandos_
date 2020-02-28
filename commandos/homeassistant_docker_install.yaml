@@ -25,6 +25,7 @@ Instalar imagem:
 
   $ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
   # usando um Raspberry Pi 3 acresente: -- -m raspberrypi3
+  # https://www.home-assistant.io/hassio/installation/
 
   # opção 02 - executa a instalação da imagem do homeassistant - albiente linux
   # retirei a opção: --device /dev/ttyACM0:/dev/ttyACM0 
