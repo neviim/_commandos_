@@ -12,6 +12,8 @@
         $ pip install aiohttp_cors
         $ pip install homeassistant
         
+        $ pip install --upgrade homeassistant
+        
         $ hass --open-ui
 
         # No browser: <ipMaquina:8123> | 10.0.5.12:8123 

@@ -1,0 +1,112 @@
+# 
+
+Instalando docker:
+
+# site referencia
+https://qaninja.io/instalando-o-docker/
+
+
+
+Instalar imagem:
+
+  # ::: - Referencia
+  $ docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant:stable
+
+  # ::: - verifica se o docker esta ativo
+  $ systemctl status docker.service
+  $ systemctl start  docker.service
+
+  # opção 01 - Debian/Ubuntu:
+  $ sudo -i
+  $ apt-get update
+  $ apt-get install -y software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
+  $ systemctl disable ModemManager
+  $ curl -fsSL get.docker.com | sh
+
+  $ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
+  # usando um Raspberry Pi 3 acresente: -- -m raspberrypi3
+
+  # opção 02 - executa a instalação da imagem do homeassistant - albiente linux
+  # retirei a opção: --device /dev/ttyACM0:/dev/ttyACM0 
+  $ sudo docker run --init -d --name="Hass" -v /home/neviim/.homeassistant/:/config \
+                    -e "TZ=America/Sao_Paulo" \
+                    --net=host homeassistant/home-assistant:latest   # :latest / :stable
+
+  $ sudo docker pull homeassistant/amd64-hassio-supervisor
+
+
+  # opção 03 - https://github.com/home-assistant/hassio-builder
+  $ docker run --init --rm --privileged -v /home/neviim/.homeassistant/:/config homeassistant/amd64-builder \
+                    --all -t addon-folder -b branchname \
+                    -r https://github.com/xy/addons
+  >_
+    [17:31:49] INFO: Setup crosscompiling feature
+    [17:31:49] INFO: Starting docker.
+    [17:31:49] INFO: Waiting for docker to initialize...
+    [17:31:50] INFO: Docker was initialized
+    [17:31:50] INFO: Checkout repository https://github.com/xy/addons
+
+
+
+  Permição e restarte:
+
+    # permição ao usuario default ao grupo docker
+    $ sudo usermod -aG docker $USER
+
+    # restarta container homeassista
+    $ docker restart home-assistant
+
+
+Comandos uteis docker:
+
+  # ::: - comandos basicos docker
+  $ docker container ls     # lista os containers em execução, docker ps
+  $ docker container ls -a  # lista todos os containers
+  $ docker network ls
+  $ docker volume ls
+  $ docker image ls
+  $ docker info
+
+
+  # para e remove todos container
+  $ docker stop $(docker ps -a -q)
+  $ docker rm   $(docker ps -a -q)
+
+  # remover conteineres , networks e imagens não usadas 
+  $ docker system prune
+
+  # remover as imagens pendentes
+  $ docker container prune  #- remove todos os contêineres não usados;
+  $ docker image prune      #- remove todas as imagens não usadas;
+  $ docker volume prune     #- remove todos os volumes não usados;
+  $ docker network prune    #- remove todas as redes não utilizadas;
+
+  # para remover image e força remoção
+  $ docker rmi <IMAGE_ID> -f
+
+  $ docker ps -a -q | xargs -n 1 -P 8 -I {} docker rm {}
+
+  # ::: - forçando a execução
+  -f  : que força a remoção do recurso.
+  -a  : signfica todos os recursos
+  -q  : significa o ID numérico do recurso
+
+  # força a deleção de todas as imagens
+  $ docker image rm $(docker image ls -a -q -f)
+
+  # podemos combinar varios comandos, este apaga todos os container e todas as images, zera o docker.
+  $ docker container stop $(docker container ls -a -q) && docker system prune -a -f --volumes
+
+
+Criando integração com o homeassistant:
+
+  https://developers.home-assistant.io/docs/creating_component_index
+
+
+Referencias:
+    # Instalação
+    https://www.home-assistant.io/docs/installation/docker/#synology-nas
+    # docker
+    https://www.home-assistant.io/docs/installation/docker/
+    # docker engine
+    https://docs.docker.com/engine/reference/commandline/app_install/

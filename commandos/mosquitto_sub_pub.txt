@@ -27,4 +27,10 @@
 
 
 
-    
+    ::: Erros: 
+        (The unit mosquitto.service has entered the 'failed' state with result 'exit-code')
+
+            $ mosquitto -c /etc/mosquitto/mosquitto.conf
+
+            $ rm /etc/mosquitto/pwfile
+            $ touch /etc/mosquitto/pwfile

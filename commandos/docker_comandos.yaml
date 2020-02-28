@@ -1,0 +1,19 @@
+# comandos docker
+
+  $ docker stop $(docker ps -a -q)
+  $ docker rm $(docker ps -a -q)
+
+  $ docker ps -a -q | xargs -n 1 -P 8 -I {} docker stop {}
+
+
+  $ alias stopall='docker ps -a -q | xargs -n 1 -P 8 -I {} docker stop {}'
+  $ alias removeall='docker ps -a -q | xargs -n 1 -P 8 -I {} docker rm {}'
+
+
+  # 
+  docker ps --filter 'status=Exited' -a | xargs docker stop docker images --filter "dangling=true" -q | xargs docker rmi
+
+  # Remova todas as imagens com o cluster de palavras-chave
+
+
+

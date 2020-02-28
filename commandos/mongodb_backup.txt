@@ -1,0 +1,15 @@
+#
+
+    ::: 
+        # backup completo
+        $ mongodump --host=mongodb1.example.net --port=3017 --username=user --password="pass" --out=/opt/backup/mongodump-2013-10-24
+
+        # mongodump --collection=myCollection --db=test
+        $ mongodump --db=terremotos --collection=registros --out=/home/neviim/src/_projetos/terremotos/data/backup/
+
+
+        # restore
+        $ mongorestore --host=mongodb1.example.net --port=3017 --username=user  --authenticationDatabase=admin /opt/backup/mongodump-2013-10-24
+
+
+        $ mongorestore --db=terremotos --collection=registros /home/neviim/src/_projetos/terremotos/data/backup/

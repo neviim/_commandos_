@@ -1,0 +1,53 @@
+#
+
+    ::: Sincronizar e liberar o buffer
+
+        sync
+    
+        Vai sincronizar e liberar o buffer do sistema de arquivos, 
+        permitindo que você possa limpá-lo sem riscos de corromper 
+        nada.
+
+        Escrever 1, 2 ou 3 no arquivo drop_cache vai limpar o cache 
+        sem matar nenhum programa, processo ou serviço do sistema.
+
+
+    ::: Como esta sendo utilizado a memoria
+
+        $ watch -n 1 free -m
+        $ watch -n 1 cat /proc/meminfo
+
+
+    ::: Limpa Cache
+
+        # Para limpar o Cache/Buffer de RAM:
+        $ sudo -i
+        $ sync; echo 1 > /proc/sys/vm/drop_caches
+
+        # Para limpar dentries e inodes:
+        $ sync; echo 2 > /proc/sys/vm/drop_caches
+
+        # Para limpar tudo: Cache/Buffer, Dentries e Inodes:
+        $ sync; echo 3 > /proc/sys/vm/drop_caches
+
+        # Para limpar o espaço em disco consumido pela SWAP:
+        $ swapoff -a && swapon -a
+
+
+    ::: Script
+
+        #!/bin/bash 
+        # Tenha em mente que estamos usando "echo 3", mas não é recomendado na produção, em vez disso, use "echo 1". 
+        echo "echo 3 > /proc/sys/vm/drop_caches"
+
+        $ chmod 755 limparcache.sh
+        $ crontab -e
+        
+            0  2  *  *  *  /caminho/a/limparcache.sh
+
+        $ free -m -t
+
+    
+    ::: iptrafc
+        
+        $ iptraf

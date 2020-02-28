@@ -6,3 +6,18 @@
     $ systemctl reload application.service
     $ systemctl enable application.service
     $ systemctl disable application.service
+
+    $ systemctl is-active application.service
+    $ systemctl is-enabled application.service
+    $ systemctl is-failed application.service
+    $ systemctl list-dependencies application.service
+    $ systemctl show application.service
+    $ systemctl show application.service -p Conflicts
+
+    $ systemctl mask application.service
+    $ systemctl list-unit-files
+    $ systemctl unmask application.service
+
+    $ systemctl daemon-reload
+
+
